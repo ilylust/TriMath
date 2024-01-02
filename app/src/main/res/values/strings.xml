@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">TriMath</string>
+    <string name="kvadrat">Kvadrat</string>
+    <string name="pravokutnik">Pravokutnik</string>
+    <string name="krug">Krug</string>
+    <string name="stranica_a">Stranica A</string>
+    <string name="stranica_b">Stranica B</string>
+    <string name="povrsina">Površina</string>
+    <string name="opseg">Opseg</string>
+    <string name="dijagonala">Dijagonala</string>
+    <string name="polumjer_upisane_kruznice">Polumjer upisane kružnice</string>
+    <string name="polumjer_opisane_kruznice">Polumjer opisane kružnice</string>
+    <string name="izracunaj">Izračunaj</string>
+    <string name="unesite_samo_jednu_vrijednost">Unesite samo jednu vrijednost!</string>
+    <string name="unesite_jednu_vrijednost">Unesite jednu vrijednost!</string>
+    <string name="unesite_samo_dvije_vrijednosti">Unesite samo dvije vrijednosti!</string>
+    <string name="unesite_dvije_vrijednosti">Unesite dvije vrijednosti!</string>
+    <string name="izbrisi">Izbriši</string>
+    <string name="nakvadratznak">²</string>
+    <string name="stupnjeviznak">°</string>
+    <string name="promjer">Promjer</string>
+    <string name="polumjer">Polumjer</string>
+    <string name="trokut">Trokut</string>
+    <string name="izbornik">Izbornik</string>
+    <string name="kut_alpha">Kut α (alpha)</string>
+    <string name="kut_beta">Kut β (beta)</string>
+    <string name="nije_moguce">Nije moguće.</string>
+</resources>
