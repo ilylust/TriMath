@@ -42,14 +42,14 @@ public class KrugActivity extends AppCompatActivity {
 
         btn.setOnClickListener(v -> {
             if (checkEmpty(polumjer, promjer, povrsina, opseg)) {
-                st.toastShort(this, getString(R.string.unesite_jednu_vrijednost));
+                st.toastShort(this, getString(R.string.Unesite_jednu_vrijednost));
                 return;
             }
             if (f == 1) {
                 // izbriši sve vrijednosti iz polja
                 resetTextOfFields(polumjer, promjer, povrsina, opseg);
                 // promijeni tekst na gumbu
-                btn.setText(getString(R.string.izracunaj));
+                btn.setText(getString(R.string.Izracunaj));
                 // otključaj polja za unos vrijednosti
                 changeStatusOfFields(true, polumjer, promjer, povrsina, opseg);
                 // promijeni vrijednost zastavice
@@ -65,10 +65,10 @@ public class KrugActivity extends AppCompatActivity {
             } else if (!opseg.getText().toString().isEmpty() && checkEmpty(promjer, povrsina, polumjer)) {
                 izracunaj(opseg, "cm");
             } else {
-                st.toastShort(this, getString(R.string.unesite_samo_jednu_vrijednost));
+                st.toastShort(this, getString(R.string.Unesite_samo_jednu_vrijednost));
             }
             // promijeni tekst na gumbu
-            btn.setText(R.string.izbrisi);
+            btn.setText(R.string.Izbrisi);
             // promijeni vrijednost zastavice
             f = 1;
             // "zaključaj" sva polja za spriječavanje unosa

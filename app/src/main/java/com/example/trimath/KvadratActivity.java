@@ -47,14 +47,14 @@ public class KvadratActivity extends AppCompatActivity {
             // provjera je li jedna vrijednost unesena
             if (checkEmpty(strA, povrsina, opseg, dijagonala, polupis, polopis)) {
                 // ako nije prikaži poruku
-                st.toastShort(this, getString(R.string.unesite_jednu_vrijednost));
+                st.toastShort(this, getString(R.string.Unesite_jednu_vrijednost));
                 return;
             }
             if (f == 1) {
                 // izbriši sve vrijednosti iz polja
                 resetTextOfFields(strA, povrsina, opseg, dijagonala, polupis, polopis);
                 // promijeni tekst na gumbu
-                btn.setText(getString(R.string.izracunaj));
+                btn.setText(getString(R.string.Izracunaj));
                 // otključaj polja za unos vrijednosti
                 changeStatusOfFields(true, strA, povrsina, opseg, dijagonala, polupis, polopis);
                 // promijeni vrijednost zastavice
@@ -74,10 +74,10 @@ public class KvadratActivity extends AppCompatActivity {
             } else if (!polopis.getText().toString().isEmpty() && checkEmpty(strA, povrsina, opseg, dijagonala, polupis)) {
                 izracunaj(polopis, "cm");
             } else {
-                st.toastShort(this, getString(R.string.unesite_samo_jednu_vrijednost));
+                st.toastShort(this, getString(R.string.Unesite_samo_jednu_vrijednost));
             }
             // promijeni tekst na gumbu
-            btn.setText(R.string.izbrisi);
+            btn.setText(R.string.Izbrisi);
             // promijeni vrijednost zastavice
             f = 1;
             // "zaključaj" sva polja za spriječavanje unosa

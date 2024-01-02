@@ -44,48 +44,61 @@ public class PravokutnikActivity extends AppCompatActivity {
         });
 
         btn.setOnClickListener(v -> {
-            // provjera je li jedna vrijednost unesena
+            // provjera je li ijedna vrijednost unesena
             if (checkEmpty(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg)) {
                 // ako nije prikaži poruku
-                st.toastShort(this, getString(R.string.unesite_dvije_vrijednosti));
+                st.toastShort(this, getString(R.string.Unesite_dvije_vrijednosti));
                 return;
             }
             if (f == 1) {
                 // izbriši sve vrijednosti iz polja
                 resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
                 // promijeni tekst na gumbu
-                btn.setText(getString(R.string.izracunaj));
+                btn.setText(getString(R.string.Izracunaj));
                 // otključaj polja za unos vrijednosti
                 changeStatusOfFields(true, strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
                 // promijeni vrijednost zastavice
                 f = 0;
                 return;
             }
-            // dva kuta, pov i opseg, opis i dijagona
-            if ((!kutAlpha.getText().toString().isEmpty() && !kutBeta.getText().toString().isEmpty()) && checkEmpty(strA, strB, dijagonala, opiskru, povrsina, opseg)) {
+            // dva kuta
+            if ((!checkEmpty(kutAlpha) && !checkEmpty(kutBeta)) && checkEmpty(strA, strB, dijagonala, opiskru, povrsina, opseg)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!povrsina.getText().toString().isEmpty() && !opseg.getText().toString().isEmpty()) && checkEmpty(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta)) {
+            } else if ((!checkEmpty(dijagonala) && !checkEmpty(opiskru)) && checkEmpty(strA, strB, povrsina, opseg, kutBeta, kutAlpha)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!opiskru.getText().toString().isEmpty() && !dijagonala.getText().toString().isEmpty()) && checkEmpty(strA, strB, povrsina, opseg, kutBeta, kutAlpha)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!strA.getText().toString().isEmpty() && !strB.getText().toString().isEmpty()) && checkEmpty(dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg)) {
+            } else if ((!checkEmpty(strA) && !checkEmpty(strB)) && checkEmpty(dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg)) {
                 izracunaj(strA, strB, "cm");
-            } else if ((!strA.getText().toString().isEmpty() && !dijagonala.getText().toString().isEmpty()) && checkEmpty(strB, opiskru, kutAlpha, kutBeta, povrsina, opseg)) {
+            } else if ((!checkEmpty(strA) && !checkEmpty(dijagonala)) && checkEmpty(strB, opiskru, kutAlpha, kutBeta, povrsina, opseg)) {
                 izracunaj(strA, dijagonala, "cm");
-            } else if ((!strA.getText().toString().isEmpty() && !opiskru.getText().toString().isEmpty()) && checkEmpty(strB, dijagonala, povrsina, opseg, kutAlpha, kutBeta)) {
+            } else if ((!checkEmpty(strA) && !checkEmpty(opiskru)) && checkEmpty(strB, dijagonala, povrsina, opseg, kutAlpha, kutBeta)) {
                 izracunaj(strA, opiskru, "cm");
-            } else if ((!strA.getText().toString().isEmpty() && !kutAlpha.getText().toString().isEmpty()) && checkEmpty(strB, dijagonala, kutBeta, opseg, povrsina, opiskru)) {
+            } else if ((!checkEmpty(strA) && !checkEmpty(kutAlpha)) && checkEmpty(strB, dijagonala, kutBeta, opseg, povrsina, opiskru)) {
                 izracunaj(strA, kutAlpha, "cm");
-            } else if ((!strA.getText().toString().isEmpty() && !kutBeta.getText().toString().isEmpty()) && checkEmpty(strB, dijagonala, kutAlpha, opseg, povrsina, opiskru)) {
+            } else if ((!checkEmpty(strA) && !checkEmpty(kutBeta)) && checkEmpty(strB, dijagonala, kutAlpha, opseg, povrsina, opiskru)) {
                 izracunaj(strA, kutBeta, "cm");
-            } else if ((!strA.getText().toString().isEmpty() && !povrsina.getText().toString().isEmpty()) && checkEmpty(strB, dijagonala, kutAlpha, opseg, kutBeta, opiskru)) {
+            } else if ((!checkEmpty(strA) && !checkEmpty(povrsina)) && checkEmpty(strB, dijagonala, kutAlpha, opseg, kutBeta, opiskru)) {
                 izracunaj(strA, povrsina, "cm");
-            } else if ((!strA.getText().toString().isEmpty() && !opseg.getText().toString().isEmpty()) && checkEmpty(strB, dijagonala, kutAlpha, povrsina, kutBeta, opiskru)) {
+            } else if ((!checkEmpty(strA) && !checkEmpty(opseg)) && checkEmpty(strB, dijagonala, kutAlpha, povrsina, kutBeta, opiskru)) {
                 izracunaj(strA, opseg, "cm");
+            } else if ((!checkEmpty(strB) && !checkEmpty(dijagonala)) && checkEmpty(strA, opiskru, kutAlpha, kutBeta, povrsina, opseg)) {
+                izracunaj(strB, dijagonala, "cm");
+            } else if ((!checkEmpty(strB) && !checkEmpty(opiskru)) && checkEmpty(strA, dijagonala, povrsina, opseg, kutAlpha, kutBeta)) {
+                izracunaj(strB, opiskru, "cm");
+            } else if ((!checkEmpty(strB) && !checkEmpty(kutAlpha)) && checkEmpty(strA, dijagonala, kutBeta, opseg, povrsina, opiskru)) {
+                izracunaj(strB, kutAlpha, "cm");
+            } else if ((!checkEmpty(strB) && !checkEmpty(kutBeta)) && checkEmpty(strA, dijagonala, kutAlpha, opseg, povrsina, opiskru)) {
+                izracunaj(strB, kutBeta, "cm");
+            } else if ((!checkEmpty(strB) && !checkEmpty(povrsina)) && checkEmpty(strA, dijagonala, kutAlpha, opseg, kutBeta, opiskru)) {
+                izracunaj(strB, povrsina, "cm");
+            } else if ((!checkEmpty(strB) && !checkEmpty(opseg)) && checkEmpty(strA, dijagonala, kutAlpha, povrsina, kutBeta, opiskru)) {
+                izracunaj(strB, opseg, "cm");
+            } else if ((!checkEmpty(povrsina) && !checkEmpty(opseg)) && checkEmpty(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta)) {
+                izracunaj(povrsina, opseg, "cm");
+            } else {
+                st.toastShort(this, getString(R.string.Unesite_dvije_vrijednosti));
             }
-            // u else unesite samo dvije vrijednosti!
             // promijeni tekst na gumbu
-            btn.setText(R.string.izbrisi);
+            btn.setText(R.string.Izbrisi);
             // promijeni vrijednost zastavice
             f = 1;
             // "zaključaj" sva polja za spriječavanje unosa
@@ -96,7 +109,7 @@ public class PravokutnikActivity extends AppCompatActivity {
     protected boolean checkEmpty(EditText... ed) {
         int c = 0;
         for (EditText editText : ed) {
-            if (editText.getText().toString().isEmpty()) {
+            if (editText.getText().toString().isEmpty() || editText.getText().toString().equals("0")) {
                 c++;
             }
         }
@@ -120,6 +133,17 @@ public class PravokutnikActivity extends AppCompatActivity {
         }
     }
 
+    protected void appendToText(String text, double _strA, double _strB, double _dijagonala, double _polumjer, double _kutAlpha, double _kutBeta, double _opseg, double _povrsina) {
+        strA.append(String.format(Locale.getDefault(), "%.2f", _strA) + text + " " + getString(R.string.stranica_A));
+        strB.append(String.format(Locale.getDefault(), "%.2f", _strB) + text + " " + getString(R.string.stranica_B));
+        dijagonala.append(String.format(Locale.getDefault(), "%.2f", _dijagonala) + text + " " + getString(R.string.dijagonala));
+        opiskru.append(String.format(Locale.getDefault(), "%.2f", _polumjer) + text + " " + getString(R.string.polumjer));
+        kutAlpha.append(String.format(Locale.getDefault(), "%.2f", _kutAlpha) + getString(R.string.stupnjeviznak) + " " + getString(R.string.alpha));
+        kutBeta.append(String.format(Locale.getDefault(), "%.2f", _kutBeta) + getString(R.string.stupnjeviznak) + " " + getString(R.string.beta));
+        opseg.append(String.format(Locale.getDefault(), "%.2f", _opseg) + text + " " + getString(R.string.opseg));
+        povrsina.append(String.format(Locale.getDefault(), "%.2f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
+    }
+
     protected void izracunaj(EditText ed, EditText ed2, String text) {
         // promijeni vrijednost inputType tako da se mogu prikazati znakovi
         changeInputType(InputType.TYPE_CLASS_TEXT, strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
@@ -127,68 +151,41 @@ public class PravokutnikActivity extends AppCompatActivity {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _dijagonala = Math.sqrt((Math.pow(_strA,2) + Math.pow(_strB,2)));
-
-            strA.append(text + " (stranica A)");
-            strB.append(text + " (stranica B)");
-            dijagonala.append(String.format(Locale.getDefault(), "%.2f", _dijagonala));
-            dijagonala.append(text + " (dijagonala)");
-            opiskru.append(String.format(Locale.getDefault(), "%.2f", _dijagonala/2));
-            opiskru.append(text + " (polumjer)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_dijagonala) * 2)));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_dijagonala) * 2)));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 2 * (_strA + _strB)));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
+            double _polumjer = _dijagonala/2;
+            double _kutAlpha = Math.toDegrees(Math.asin(_strA/_dijagonala) * 2);
+            double _kutBeta = Math.toDegrees(Math.asin(_strB/_dijagonala) * 2);
+            double _opseg = 2 * (_strA + _strB);
+            double _povrsina = _strA * _strB;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
         if (ed.equals(strA) && ed2.equals(dijagonala)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _dijagonala = Double.parseDouble(ed2.getText().toString());
-
             if (_strA >= _dijagonala) {
                 st.toastShort(this, getString(R.string.nije_moguce));
                 return;
             }
-
             double _strB = Math.sqrt((Math.pow(_dijagonala,2) - Math.pow(_strA,2)));
-
-            strA.append(text + " (stranica A)");
-            dijagonala.append(text + " (dijagonala)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 2 * (_strA + _strB)));
-            opseg.append(text + " (opseg)");
-            opiskru.append(String.format(Locale.getDefault(), "%.2f", _dijagonala/2));
-            opiskru.append(text + " (polumjer)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_dijagonala) * 2)));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_dijagonala) * 2)));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
+            double _polumjer = _dijagonala/2;
+            double _kutAlpha = Math.toDegrees(Math.asin(_strA/_dijagonala) * 2);
+            double _kutBeta = Math.toDegrees(Math.asin(_strB/_dijagonala) * 2);
+            double _opseg = 2 * (_strA + _strB);
+            double _povrsina = _strA * _strB;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
         if (ed.equals(strA) && ed2.equals(opiskru)) {
             double _strA = Double.parseDouble(ed.getText().toString());
-            double _opiskru = Double.parseDouble(ed2.getText().toString());
-            double _dijagonala = _opiskru * 2;
+            double _polumjer = Double.parseDouble(ed2.getText().toString());
+            double _dijagonala = _polumjer * 2;
             double _strB = Math.sqrt(Math.pow(_dijagonala,2) - Math.pow(_strA,2));
-
-            strA.append(text + " (stranica A)");
-            opiskru.append(text + " (polumjer)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            dijagonala.append(String.format(Locale.getDefault(), "%.2f", _dijagonala));
-            dijagonala.append(text + " (dijagonala)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_dijagonala) * 2)));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_dijagonala) * 2)));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 2 * (_strA + _strB)));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
+            double _kutAlpha = Math.toDegrees(Math.asin(_strA/_dijagonala) * 2);
+            double _kutBeta = Math.toDegrees(Math.asin(_strB/_dijagonala) * 2);
+            double _opseg = 2 * (_strA + _strB);
+            double _povrsina = _strA * _strB;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
         if (ed.equals(strA) && ed2.equals(kutAlpha)) {
             double _strA = Double.parseDouble(ed.getText().toString());
@@ -196,21 +193,11 @@ public class PravokutnikActivity extends AppCompatActivity {
             double _kutBeta = 180 - _kutAlpha;
             double _strB = _strA/(Math.tan(Math.toRadians(_kutAlpha/2)));
             double _dijagonala = Math.sqrt((Math.pow(_strA, 2) + Math.pow(_strB, 2)));
-
-            strA.append(text + " (stranica A)");
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            dijagonala.append(String.format(Locale.getDefault(), "%.2f", _dijagonala));
-            dijagonala.append(text + " (dijagonala)");
-            opiskru.append(String.format(Locale.getDefault(), "%.2f", _dijagonala/2));
-            opiskru.append(text + " (polumjer)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", _kutBeta));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 2 * (_strA + _strB)));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
+            double _polumjer = _dijagonala/2;
+            double _opseg = 2 * (_strA + _strB);
+            double _povrsina = _strA * _strB;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
         if (ed.equals(strA) && ed2.equals(kutBeta)) {
             double _strA = Double.parseDouble(ed.getText().toString());
@@ -218,68 +205,146 @@ public class PravokutnikActivity extends AppCompatActivity {
             double _kutAlpha = 180 - _kutBeta;
             double _strB = _strA/(Math.tan(Math.toRadians(_kutAlpha)/2));
             double _dijagonala = Math.sqrt((Math.pow(_strA,2) + Math.pow(_strB, 2)));
-
-            strA.append(text + " (stranica A)");
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            dijagonala.append(String.format(Locale.getDefault(), "%.2f", _dijagonala));
-            dijagonala.append(text + " (dijagonala)");
-            opiskru.append(String.format(Locale.getDefault(), "%.2f", _dijagonala/2));
-            opiskru.append(text + " (polumjer)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", _kutAlpha));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 2 * (_strA + _strB)));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
+            double _polumjer = _dijagonala/2;
+            double _opseg = 2 * (_strA + _strB);
+            double _povrsina = _strA * _strB;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
         if (ed.equals(strA) && ed2.equals(povrsina)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _strB = _povrsina/_strA;
             double _dijagonala = Math.sqrt((Math.pow(_strA,2) + Math.pow(_strB, 2)));
-
-            strA.append(text + " (stranica A)");
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            dijagonala.append(String.format(Locale.getDefault(), "%.2f", _dijagonala));
-            dijagonala.append(text + " (dijagonala)");
-            opiskru.append(String.format(Locale.getDefault(), "%.2f", _dijagonala/2));
-            opiskru.append(text + " (polumjer)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_dijagonala) * 2)));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_dijagonala) * 2)));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 2 * (_strA + _strB)));
-            opseg.append(text + " (opseg)");
+            double _polumjer = _dijagonala/2;
+            double _kutAlpha = Math.toDegrees(Math.asin(_strA/_dijagonala) * 2);
+            double _kutBeta = Math.toDegrees(Math.asin(_strB/_dijagonala) * 2);
+            double _opseg = 2 * (_strA + _strB);
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
         if (ed.equals(strA) && ed2.equals(opseg)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _opseg = Double.parseDouble(ed2.getText().toString());
-
             if (_opseg <= (2 * _strA)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
                 return;
             }
             double _strB = (_opseg - (2 * _strA))/2;
             double _dijagonala = Math.sqrt((Math.pow(_strA,2) + Math.pow(_strB, 2)));
-            strA.append(text + " (stranica A)");
-            opseg.append(text + " (opseg)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            dijagonala.append(String.format(Locale.getDefault(), "%.2f", _dijagonala));
-            dijagonala.append(text + " (dijagonala)");
-            opiskru.append(String.format(Locale.getDefault(), "%.2f", _dijagonala/2));
-            opiskru.append(text + " (polumjer)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_dijagonala) * 2)));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_dijagonala) * 2)));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
+            double _polumjer = _dijagonala/2;
+            double _kutAlpha = Math.toDegrees(Math.asin(_strA/_dijagonala) * 2);
+            double _kutBeta = Math.toDegrees(Math.asin(_strB/_dijagonala) * 2);
+            double _povrsina = _strA * _strB;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
+        if (ed.equals(strB) && ed2.equals(dijagonala)) {
+            double _strB = Double.parseDouble(ed.getText().toString());
+            double _dijagonala = Double.parseDouble(ed2.getText().toString());
+            if (_strB >= _dijagonala) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+                return;
+            }
+            double _strA = Math.sqrt((Math.pow(_dijagonala,2) - Math.pow(_strB,2)));
+            double _polumjer = _dijagonala/2;
+            double _kutAlpha = Math.toDegrees(Math.asin(_strA/_dijagonala) * 2);
+            double _kutBeta = Math.toDegrees(Math.asin(_strB/_dijagonala) * 2);
+            double _opseg = 2 * (_strB + _strA);
+            double _povrsina = _strB * _strA;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
+        }
+        if (ed.equals(strB) && ed2.equals(opiskru)) {
+            double _strB = Double.parseDouble(ed.getText().toString());
+            double _polumjer = Double.parseDouble(ed2.getText().toString());
+            double _dijagonala = _polumjer * 2;
+            double _strA = Math.sqrt(Math.pow(_dijagonala,2) - Math.pow(_strB,2));
+            double _kutAlpha = Math.toDegrees(Math.asin(_strA/_dijagonala) * 2);
+            double _kutBeta = Math.toDegrees(Math.asin(_strB/_dijagonala) * 2);
+            double _opseg = 2 * (_strA + _strB);
+            double _povrsina = _strA * _strB;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
+        }
+        if (ed.equals(strB) && ed2.equals(kutAlpha)) {
+            double _strB = Double.parseDouble(ed.getText().toString());
+            double _kutAlpha = Double.parseDouble(ed2.getText().toString());
+            double _kutBeta = 180 - _kutAlpha;
+            double _strA = _strB * Math.tan(Math.toRadians(_kutAlpha/2));
+            double _dijagonala = Math.sqrt((Math.pow(_strA, 2) + Math.pow(_strB, 2)));
+            double _polumjer = _dijagonala/2;
+            double _opseg = 2 * (_strA + _strB);
+            double _povrsina = _strA * _strB;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
+        }
+        if (ed.equals(strB) && ed2.equals(kutBeta)) {
+            double _strB = Double.parseDouble(ed.getText().toString());
+            double _kutBeta = Double.parseDouble(ed2.getText().toString());
+            double _kutAlpha = 180 - _kutBeta;
+            double _strA = _strB * Math.tan(Math.toRadians(_kutAlpha/2));
+            double _dijagonala = Math.sqrt((Math.pow(_strA,2) + Math.pow(_strB, 2)));
+            double _polumjer = _dijagonala/2;
+            double _opseg = 2 * (_strA + _strB);
+            double _povrsina = _strA * _strB;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
+        }
+        if (ed.equals(strB) && ed2.equals(povrsina)) {
+            double _strB = Double.parseDouble(ed.getText().toString());
+            double _povrsina = Double.parseDouble(ed2.getText().toString());
+            double _strA = _povrsina/_strB;
+            double _dijagonala = Math.sqrt((Math.pow(_strA,2) + Math.pow(_strB, 2)));
+            double _polumjer = _dijagonala/2;
+            double _kutAlpha = Math.toDegrees(Math.asin(_strA/_dijagonala) * 2);
+            double _kutBeta = Math.toDegrees(Math.asin(_strB/_dijagonala) * 2);
+            double _opseg = 2 * (_strA + _strB);
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
+        }
+        if (ed.equals(strB) && ed2.equals(opseg)) {
+            double _strB = Double.parseDouble(ed.getText().toString());
+            double _opseg = Double.parseDouble(ed2.getText().toString());
+            if (_opseg <= (2 * _strB)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+                return;
+            }
+            double _strA = (_opseg - (2 * _strB))/2;
+            double _dijagonala = Math.sqrt((Math.pow(_strA,2) + Math.pow(_strB, 2)));
+            double _polumjer = _dijagonala/2;
+            double _kutAlpha = Math.toDegrees(Math.asin(_strA/_dijagonala) * 2);
+            double _kutBeta = Math.toDegrees(Math.asin(_strB/_dijagonala) * 2);
+            double _povrsina = _strA * _strB;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
+        }
+        if (ed.equals(povrsina) && ed2.equals(opseg)) {
+            double _povrsina = Double.parseDouble(ed.getText().toString());
+            double _opseg = Double.parseDouble(ed2.getText().toString());
+            if (16 * _povrsina >= Math.pow(_opseg, 2)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+                return;
+            }
+            double _strA = (_opseg + Math.sqrt(Math.pow(_opseg, 2) - (16 * _povrsina)))/4;
+            double _strB = _povrsina/_strA;
+            double _dijagonala = Math.sqrt(Math.pow(_strA, 2) + Math.pow(_strB, 2));
+            double _polumjer = _dijagonala/2;
+            double _kutAlpha = Math.toDegrees(Math.asin(_strA/_dijagonala) * 2);
+            double _kutBeta = Math.toDegrees(Math.asin(_strB/_dijagonala) * 2);
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
+        }
+        // dijag kutA
+        // dijag KutB
+        // dijag povr
+        // dijag opseg
+        // polu kuta
+        // polu kutb
+        // polu povr
+        // polu opseg
+        // kuta pov, opseg
+        // kutb pov, opseg
         // vrati nazad originalnu vrijednost
         changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
     }

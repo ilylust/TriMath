@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="?attr/homeAsUpIndicator"
         android:backgroundTint="@color/color3"
-        app:title="@string/pravokutnik" />
+        app:title="@string/Pravokutnik" />
 
     <EditText
         android:id="@+id/editTextNumber11"
@@ -30,7 +30,7 @@
         android:layout_height="48dp"
         android:ems="10"
         android:inputType="number|numberDecimal"
-        android:hint="@string/stranica_a"
+        android:hint="@string/Stranica_A"
         android:importantForAutofill="no"
         android:textColorHint="@color/color4"
         app:layout_constraintBottom_toTopOf="@+id/editTextNumber12"
@@ -43,7 +43,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/stranica_b"
+        android:hint="@string/Stranica_B"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
@@ -57,7 +57,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/dijagonala"
+        android:hint="@string/Dijagonala"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
@@ -71,7 +71,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/polumjer_opisane_kruznice"
+        android:hint="@string/Polumjer_opisane_kruznice"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
@@ -85,7 +85,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/kut_alpha"
+        android:hint="@string/Kut_alpha"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
@@ -99,7 +99,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/kut_beta"
+        android:hint="@string/Kut_beta"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
@@ -113,7 +113,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/povrsina"
+        android:hint="@string/Povrsina"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
@@ -127,7 +127,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/opseg"
+        android:hint="@string/Opseg"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
@@ -145,6 +145,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:backgroundTint="@color/color4"
-        android:text="@string/izracunaj" />
+        android:text="@string/Izracunaj" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
