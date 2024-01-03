@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/color1"
-    tools:context=".PravokutnikActivity">
+    tools:context=".PravokutniActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="?attr/homeAsUpIndicator"
         android:backgroundTint="@color/color3"
-        app:title="@string/Pravokutnik" />
+        app:title="@string/Pravo_kutni" />
 
     <EditText
         android:id="@+id/editTextNumber11"
@@ -57,21 +57,21 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/Dijagonala"
+        android:hint="@string/Stranica_C"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
-        app:layout_constraintBottom_toTopOf="@id/editTextNumber14"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumber14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber12" />
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber12" />
 
     <EditText
         android:id="@+id/editTextNumber14"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/Polumjer_opisane_kruznice"
+        android:hint="@string/Polumjer_upisane_kruznice"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
@@ -85,7 +85,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/Kut_alpha"
+        android:hint="@string/Polumjer_opisane_kruznice"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
@@ -99,7 +99,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/Kut_beta"
+        android:hint="@string/Kut_alpha"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
@@ -113,7 +113,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/Povrsina"
+        android:hint="@string/Kut_beta"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
@@ -127,24 +127,52 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
+        android:hint="@string/Povrsina"
+        android:importantForAutofill="no"
+        android:inputType="number|numberDecimal"
+        android:textColorHint="@color/color4"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumber19"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber17" />
+
+    <EditText
+        android:id="@+id/editTextNumber19"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:ems="10"
         android:hint="@string/Opseg"
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
-        app:layout_constraintBottom_toBottomOf="@id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextNumber17" />
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber18"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumber20"/>
+
+    <EditText
+        android:id="@+id/editTextNumber20"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/Visina_C"
+        android:importantForAutofill="no"
+        android:inputType="number|numberDecimal"
+        android:textColorHint="@color/color4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber19"
+        app:layout_constraintBottom_toTopOf="@id/button2"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextNumber18"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:backgroundTint="@color/color4"
-        android:text="@string/Izracunaj" />
+        android:text="@string/Izracunaj"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber20"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

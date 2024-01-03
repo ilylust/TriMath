@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/color1"
-    tools:context=".KrugActivity">
+    tools:context=".JednakoStranicnActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -22,14 +22,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="?attr/homeAsUpIndicator"
         android:backgroundTint="@color/color3"
-        app:title="@string/Krug" />
+        app:title="@string/Jednako_stranicni" />
 
     <EditText
         android:id="@+id/editTextNumber7"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/Polumjer"
+        android:hint="@string/Stranica_A"
         android:inputType="number|numberDecimal"
         android:importantForAutofill="no"
         android:textColorHint="@color/color4"
@@ -43,7 +43,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/Promjer"
+        android:hint="@string/Povrsina"
         android:inputType="number|numberDecimal"
         android:importantForAutofill="no"
         android:textColorHint="@color/color4"
@@ -57,7 +57,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/Povrsina"
+        android:hint="@string/Opseg"
         android:inputType="number|numberDecimal"
         android:importantForAutofill="no"
         android:textColorHint="@color/color4"
@@ -71,24 +71,56 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/Opseg"
-        android:inputType="number|numberDecimal"
+        android:hint="@string/Visina_A"
         android:importantForAutofill="no"
+        android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/button2"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumber11"
         app:layout_constraintTop_toBottomOf="@id/editTextNumber9" />
 
+    <EditText
+        android:id="@+id/editTextNumber12"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/Polumjer_upisane_kruznice"
+        android:importantForAutofill="no"
+        android:inputType="number|numberDecimal"
+        android:textColorHint="@color/color4"
+        app:layout_constraintBottom_toTopOf="@id/izracunaj"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber11"
+        app:layout_constraintVertical_bias="0.783" />
+
+    <EditText
+        android:id="@+id/editTextNumber11"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/Polumjer_opisane_kruznice"
+        android:importantForAutofill="no"
+        android:inputType="number|numberDecimal"
+        android:textColorHint="@color/color4"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumber12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber10"
+        app:layout_constraintVertical_bias="0.0" />
+
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/izracunaj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Izracunaj"
         android:backgroundTint="@color/color4"
+        android:text="@string/Izracunaj"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextNumber10" />
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber12"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

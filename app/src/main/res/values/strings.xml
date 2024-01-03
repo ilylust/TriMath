@@ -5,6 +5,7 @@
     <string name="Krug">Krug</string>
     <string name="Stranica_A">Stranica A</string>
     <string name="Stranica_B">Stranica B</string>
+    <string name="Stranica_C">Stranica C</string>
     <string name="Povrsina">Površina</string>
     <string name="Opseg">Opseg</string>
     <string name="Dijagonala">Dijagonala</string>
@@ -27,6 +28,7 @@
     <string name="nije_moguce">Nije moguće.</string>
     <string name="stranica_A">(stranica A)</string>
     <string name="stranica_B">(stranica B)</string>
+    <string name="stranica_C">(stranica C)</string>
     <string name="povrsina">(površina)</string>
     <string name="opseg">(opseg)</string>
     <string name="dijagonala">(dijagonala)</string>
@@ -36,4 +38,15 @@
     <string name="polumjer">(polumjer)</string>
     <string name="alpha">(alpha)</string>
     <string name="beta">(beta)</string>
+    <string name="gama">(gama)</string>
+    <string name="Jednako_kracni">Jednakokračni trokut</string>
+    <string name="Pravo_kutni">Pravokutni trokut</string>
+    <string name="Razno_stranicni">Raznostranični trkout</string>
+    <string name="Jednako_stranicni">Jednakostraničan trokut</string>
+    <string name="Visina_A">Visina na Stranicu a</string>
+    <string name="Visina_B">Visina na Stranicu b</string>
+    <string name="Visina_C">Visina na Stranicu c</string>
+    <string name="visina_A">(visina A)</string>
+    <string name="visina_B">(visina B)</string>
+    <string name="visina_C">(visina C)</string>
 </resources>

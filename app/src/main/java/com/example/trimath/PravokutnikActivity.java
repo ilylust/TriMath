@@ -94,6 +94,8 @@ public class PravokutnikActivity extends AppCompatActivity {
                 izracunaj(strB, opseg, "cm");
             } else if ((!checkEmpty(povrsina) && !checkEmpty(opseg)) && checkEmpty(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta)) {
                 izracunaj(povrsina, opseg, "cm");
+            }else if ((!checkEmpty(dijagonala) && !checkEmpty(kutAlpha)) && checkEmpty(strA, strB, opiskru, kutBeta, povrsina, opseg)) {
+                izracunaj(dijagonala, kutAlpha, "cm");
             } else {
                 st.toastShort(this, getString(R.string.Unesite_dvije_vrijednosti));
             }
@@ -335,8 +337,30 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        // dijag kutA
-        // dijag KutB
+        if (ed.equals(dijagonala) && ed2.equals(kutAlpha)) {
+            double _dijagonala = Double.parseDouble(ed.getText().toString());
+            double _kutAlpha = Double.parseDouble(ed2.getText().toString());
+            double _strA = _dijagonala * Math.sin(Math.toRadians(_kutAlpha/2));
+            double _strB = Math.sqrt(Math.pow(_dijagonala, 2) - Math.pow(_strA, 2));
+            double _povrsina = _strA * _strB;
+            double _opseg = 2 * (_strA + _strB);
+            double _polumjer = _dijagonala/2;
+            double _kutBeta = 180 - _kutAlpha;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
+        }
+        if (ed.equals(dijagonala) && ed2.equals(kutBeta)) {
+            double _dijagonala = Double.parseDouble(ed.getText().toString());
+            double _kutBeta = Double.parseDouble(ed2.getText().toString());
+            double _kutAlpha = 180 - _kutBeta;
+            double _strA = _dijagonala * Math.sin(Math.toRadians(_kutAlpha/2));
+            double _strB = Math.sqrt(Math.pow(_dijagonala, 2) - Math.pow(_strA, 2));
+            double _povrsina = _strA * _strB;
+            double _opseg = 2 * (_strA + _strB);
+            double _polumjer = _dijagonala/2;
+            resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
+            appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
+        }
         // dijag povr
         // dijag opseg
         // polu kuta
