@@ -1,6 +1,6 @@
 ### Kaj je gotovo
 - [x] Kvadrat
-- [ ] Pravokutnik
+- [x] Pravokutnik
 - [x] Krug
 - [x] Trokut (Jednakostranični)
 - [ ] Trokut (Jednakokračni)
