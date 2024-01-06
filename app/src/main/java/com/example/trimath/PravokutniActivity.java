@@ -66,7 +66,7 @@ public class PravokutniActivity extends AppCompatActivity {
                 return;
             }
 
-            // dva kuta, pov i opseg, opis i dijagona
+            // dva kuta
             if ((!kutAlpha.getText().toString().isEmpty() && !kutBeta.getText().toString().isEmpty()) && checkEmpty(strA, strB, strC, visina, povrsina, opseg, opis, upis)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!povrsina.getText().toString().isEmpty() && !opseg.getText().toString().isEmpty()) && checkEmpty(strA, strB, strC, visina, opis, upis, kutAlpha, kutBeta)) {
@@ -155,7 +155,7 @@ public class PravokutniActivity extends AppCompatActivity {
 
             if (_strA >= _strC || _strB >= _strC) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
+                //changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
                 return;
             }
 
@@ -282,15 +282,15 @@ public class PravokutniActivity extends AppCompatActivity {
             visina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/_strC));
             visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
         }
-            if (ed.equals(strB) && ed2.equals(strC)) {
+        if (ed.equals(strB) && ed2.equals(strC)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
             double _strA = Math.sqrt(Math.pow(_strC,2) - Math.pow(_strB,2));
 
             if (_strA >= _strC || _strB >= _strC) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
-                    return;
+                //changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
+                return;
             }
             strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
             strA.append(text + " (stranica A)");

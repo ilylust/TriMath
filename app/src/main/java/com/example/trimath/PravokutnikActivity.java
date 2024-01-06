@@ -121,7 +121,6 @@ public class PravokutnikActivity extends AppCompatActivity {
             }  else {
                 st.toastShort(this, getString(R.string.Unesite_dvije_vrijednosti));
             }
-            // A B P O
             // promijeni tekst na gumbu
             btn.setText(R.string.Izbrisi);
             // promijeni vrijednost zastavice
@@ -189,6 +188,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             double _dijagonala = Double.parseDouble(ed2.getText().toString());
             if (_strA >= _dijagonala) {
                 st.toastShort(this, getString(R.string.nije_moguce));
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
                 return;
             }
             double _strB = Math.sqrt((Math.pow(_dijagonala,2) - Math.pow(_strA,2)));
@@ -253,6 +253,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             double _opseg = Double.parseDouble(ed2.getText().toString());
             if (_opseg <= (2 * _strA)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
                 return;
             }
             double _strB = (_opseg - (2 * _strA))/2;
@@ -269,6 +270,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             double _dijagonala = Double.parseDouble(ed2.getText().toString());
             if (_strB >= _dijagonala) {
                 st.toastShort(this, getString(R.string.nije_moguce));
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
                 return;
             }
             double _strA = Math.sqrt((Math.pow(_dijagonala,2) - Math.pow(_strB,2)));
@@ -333,6 +335,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             double _opseg = Double.parseDouble(ed2.getText().toString());
             if (_opseg <= (2 * _strB)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
                 return;
             }
             double _strA = (_opseg - (2 * _strB))/2;
@@ -349,6 +352,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             double _opseg = Double.parseDouble(ed2.getText().toString());
             if (16 * _povrsina >= Math.pow(_opseg, 2)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
                 return;
             }
             double _strA = (_opseg + Math.sqrt(Math.pow(_opseg, 2) - (16 * _povrsina)))/4;
@@ -401,6 +405,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             double _opseg = Double.parseDouble(ed2.getText().toString());
             if (_opseg <= (_dijagonala * 2)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
                 return;
             }
             double _strA = (_opseg + Math.sqrt(-Math.pow(_opseg, 2) + (8 * _dijagonala)))/4;
@@ -454,6 +459,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             double _dijagonala = 2 * _polumjer;
             if (_opseg <= (_dijagonala * 2)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
                 return;
             }
             double _strA = (_opseg + Math.sqrt(-Math.pow(_opseg, 2) + (8 * Math.pow(_dijagonala, 2))))/4;
