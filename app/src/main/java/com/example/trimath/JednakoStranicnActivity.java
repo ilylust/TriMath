@@ -6,7 +6,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.text.InputType;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -60,17 +59,17 @@ public class JednakoStranicnActivity extends AppCompatActivity {
                 return;
             }
 
-            if (!strA.getText().toString().isEmpty() && checkEmpty(povrsina, opseg, visina, opis, upis)) {
+            if (!checkEmpty(strA) && checkEmpty(povrsina, opseg, visina, opis, upis)) {
                 izracunaj(strA, "cm");
-            } else if (!povrsina.getText().toString().isEmpty() && checkEmpty(strA, opseg, visina, opis, upis)){
+            } else if (!checkEmpty(povrsina) && checkEmpty(strA, opseg, visina, opis, upis)){
                 izracunaj(povrsina, "cm");
-            } else if (!opseg.getText().toString().isEmpty() && checkEmpty(strA, povrsina, visina, opis, upis)) {
+            } else if (!checkEmpty(opseg) && checkEmpty(strA, povrsina, visina, opis, upis)) {
                 izracunaj(opseg, "cm");
-            } else if (!visina.getText().toString().isEmpty() && checkEmpty(strA, povrsina, opseg, opis, upis)) {
+            } else if (!checkEmpty(visina) && checkEmpty(strA, povrsina, opseg, opis, upis)) {
                 izracunaj(visina, "cm");
-            } else if (!upis.getText().toString().isEmpty() && checkEmpty(strA, opseg, povrsina, visina, opis)) {
+            } else if (!checkEmpty(upis) && checkEmpty(strA, opseg, povrsina, visina, opis)) {
                 izracunaj(upis, "cm");
-            } else if (!opis.getText().toString().isEmpty() && checkEmpty(strA, opseg, povrsina, visina, upis)) {
+            } else if (!checkEmpty(opis) && checkEmpty(strA, opseg, povrsina, visina, upis)) {
                 izracunaj(opis, "cm");
             } else {
                 st.toastShort(this, getString(R.string.Unesite_samo_jednu_vrijednost));
@@ -86,141 +85,109 @@ public class JednakoStranicnActivity extends AppCompatActivity {
         });
     }
 
-        protected void izracunaj(EditText ed, String text) {
+    protected void appendToText(String text, double _strA, double _povrsina, double _opseg, double _visina, double _upis, double _opis) {
+        strA.append(String.format(Locale.getDefault(), "%.2f", _strA) + text + " " + getString(R.string.stranica_A));
+        opseg.append(String.format(Locale.getDefault(), "%.2f", _opseg) + text + " " + getString(R.string.opseg));
+        povrsina.append(String.format(Locale.getDefault(), "%.2f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
+        visina.append(String.format(Locale.getDefault(), "%.2f", _visina) + text + " " + getString(R.string.dijagonala));
+        upis.append(String.format(Locale.getDefault(), "%.2f", _upis) + text + " " + getString(R.string.upisana_kruz));
+        opis.append(String.format(Locale.getDefault(), "%.2f", _opis) + text + " " + getString(R.string.opisana_kruz));
+    }
 
-            // promijeni vrijednost inputType tako da se mogu prikazati znakovi
-            changeInputType(InputType.TYPE_CLASS_TEXT, strA, povrsina, opseg, visina , upis, opis);
-            if (ed.equals(strA)) {
-                // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
-                double _strA = Double.parseDouble(ed.getText().toString());
+    protected void izracunaj(EditText ed, String text) {
 
-                strA.append(text + " (stranica A)");
-                povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/4 * Math.pow(_strA, 2)));
-                povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-                opseg.append(String.format(Locale.getDefault(), "%.2f", 3 * _strA));
-                opseg.append(text + " (opseg)");
-                visina.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/2 * _strA));
-                visina.append(text + " (dijagonala)");
-                upis.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/6 * _strA));
-                upis.append(text + " (upisana kružnica)");
-                opis.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/3 * _strA));
-                opis.append(text + " (opisana kružnica)");
-            }
-            if (ed.equals(opseg)) {
-                // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
-                double _opseg = Double.parseDouble(ed.getText().toString());
-                double _strA=_opseg/3;
-
-                strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-                strA.append(text + " (stranica A)");
-                povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/4 * Math.pow(_strA, 2)));
-                povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-                opseg.append(text + " (opseg)");
-                visina.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/2 * _strA));
-                visina.append(text + " (dijagonala)");
-                upis.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/6 * _strA));
-                upis.append(text + " (upisana kružnica)");
-                opis.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/3 * _strA));
-                opis.append(text + " (opisana kružnica)");
-            }
-            if (ed.equals(povrsina)) {
-                // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
-                double _povrsina = Double.parseDouble(ed.getText().toString());
-                double _strA=Math.sqrt(4*_povrsina/Math.sqrt(3));
-
-                strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-                strA.append(text + " (stranica A)");
-                povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-                opseg.append(String.format(Locale.getDefault(), "%.2f", 3 * _strA));
-                opseg.append(text + " (opseg)");
-                visina.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/2 * _strA));
-                visina.append(text + " (dijagonala)");
-                upis.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/6 * _strA));
-                upis.append(text + " (upisana kružnica)");
-                opis.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/3 * _strA));
-                opis.append(text + " (opisana kružnica)");
-            }
-            if (ed.equals(visina)) {
-                // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
-                double _visina = Double.parseDouble(ed.getText().toString());
-                double _strA=2*_visina/Math.sqrt(3);
-
-                strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-                strA.append(text + " (stranica A)");
-                povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/4 * Math.pow(_strA, 2)));
-                povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-                opseg.append(String.format(Locale.getDefault(), "%.2f", 3 * _strA));
-                opseg.append(text + " (opseg)");
-                visina.append(text + " (dijagonala)");
-                upis.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/6 * _strA));
-                upis.append(text + " (upisana kružnica)");
-                opis.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/3 * _strA));
-                opis.append(text + " (opisana kružnica)");
-            }
-            if (ed.equals(upis)) {
-                // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
-                double _upis = Double.parseDouble(ed.getText().toString());
-                double _strA=6*_upis/Math.sqrt(3);
-
-                strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-                strA.append(text + " (stranica A)");
-                povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/4 * Math.pow(_strA, 2)));
-                povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-                opseg.append(String.format(Locale.getDefault(), "%.2f", 3 * _strA));
-                opseg.append(text + " (opseg)");
-                visina.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/2 * _strA));
-                visina.append(text + " (dijagonala)");
-                upis.append(text + " (upisana kružnica)");
-                opis.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/3 * _strA));
-                opis.append(text + " (opisana kružnica)");
-            }
-            if (ed.equals(opis)) {
-                // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
-                double _opis = Double.parseDouble(ed.getText().toString());
-                double _strA=3*_opis/Math.sqrt(3);
-
-                strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-                strA.append(text + " (stranica A)");
-                povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/4 * Math.pow(_strA, 2)));
-                povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-                opseg.append(String.format(Locale.getDefault(), "%.2f", 3 * _strA));
-                opseg.append(text + " (opseg)");
-                visina.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/2 * _strA));
-                visina.append(text + " (dijagonala)");
-                upis.append(String.format(Locale.getDefault(), "%.2f", Math.sqrt(3)/6 * _strA));
-                upis.append(text + " (upisana kružnica)");
-                opis.append(text + " (opisana kružnica)");
-            }
-
-
-
-            changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, povrsina, opseg, visina , upis, opis);
+        // promijeni vrijednost inputType tako da se mogu prikazati znakovi
+        changeInputType(InputType.TYPE_CLASS_TEXT, strA, povrsina, opseg, visina , upis, opis);
+        if (ed.equals(strA)) {
+            // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
+            double _strA = Double.parseDouble(ed.getText().toString());
+            double _povrsina = Math.sqrt(3)/4 * Math.pow(_strA, 2);
+            double _opseg = 3 * _strA;
+            double _visina = Math.sqrt(3)/2 * _strA;
+            double _upis = Math.sqrt(3)/6 * _strA;
+            double _opis = Math.sqrt(3)/3 * _strA;
+            resetTextOfFields(strA, opseg, povrsina, visina, upis, opis);
+            appendToText(text, _strA, _povrsina, _opseg, _visina, _upis, _opis);
         }
-        protected boolean checkEmpty(EditText... ed) {
-            int c = 0;
-            for (EditText editText : ed) {
-                if (editText.getText().toString().isEmpty()) {
-                    c++;
-                }
-            }
-            // ako su svi prazni vrati istinu
-            return c == ed.length;
+        if (ed.equals(opseg)) {
+            // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
+            double _opseg = Double.parseDouble(ed.getText().toString());
+            double _strA=_opseg/3;
+            double _povrsina = Math.sqrt(3)/4 * Math.pow(_strA, 2);
+            double _visina = Math.sqrt(3)/2 * _strA;
+            double _upis = Math.sqrt(3)/6 * _strA;
+            double _opis = Math.sqrt(3)/3 * _strA;
+            resetTextOfFields(strA, opseg, povrsina, visina, upis, opis);
+            appendToText(text, _strA, _povrsina, _opseg, _visina, _upis, _opis);
         }
-
-        protected void changeStatusOfFields(boolean bool, EditText... ed) {
-            for (EditText editText : ed) {
-                editText.setEnabled(bool);
+        if (ed.equals(povrsina)) {
+            // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
+            double _povrsina = Double.parseDouble(ed.getText().toString());
+            double _strA=Math.sqrt(4*_povrsina/Math.sqrt(3));
+            double _opseg = 3 * _strA;
+            double _visina = Math.sqrt(3)/2 * _strA;
+            double _upis = Math.sqrt(3)/6 * _strA;
+            double _opis = Math.sqrt(3)/3 * _strA;
+            resetTextOfFields(strA, opseg, povrsina, visina, upis, opis);
+            appendToText(text, _strA, _povrsina, _opseg, _visina, _upis, _opis);
+        }
+        if (ed.equals(visina)) {
+            // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
+            double _visina = Double.parseDouble(ed.getText().toString());
+            double _strA=2*_visina/Math.sqrt(3);
+            double _povrsina = Math.sqrt(3)/4 * Math.pow(_strA, 2);
+            double _opseg = 3 * _strA;
+            double _upis = Math.sqrt(3)/6 * _strA;
+            double _opis = Math.sqrt(3)/3 * _strA;
+            resetTextOfFields(strA, opseg, povrsina, visina, upis, opis);
+            appendToText(text, _strA, _povrsina, _opseg, _visina, _upis, _opis);
+        }
+        if (ed.equals(upis)) {
+            // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
+            double _upis = Double.parseDouble(ed.getText().toString());
+            double _strA=6*_upis/Math.sqrt(3);
+            double _povrsina = Math.sqrt(3)/4 * Math.pow(_strA, 2);
+            double _opseg = 3 * _strA;
+            double _visina = Math.sqrt(3)/2 * _strA;
+            double _opis = Math.sqrt(3)/3 * _strA;
+            resetTextOfFields(strA, opseg, povrsina, visina, upis, opis);
+            appendToText(text, _strA, _povrsina, _opseg, _visina, _upis, _opis);
+        }
+        if (ed.equals(opis)) {
+            // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
+            double _opis = Double.parseDouble(ed.getText().toString());
+            double _strA=3*_opis/Math.sqrt(3);
+            double _povrsina = Math.sqrt(3)/4 * Math.pow(_strA, 2);
+            double _opseg = 3 * _strA;
+            double _visina = Math.sqrt(3)/2 * _strA;
+            double _upis = Math.sqrt(3)/6 * _strA;
+            resetTextOfFields(strA, opseg, povrsina, visina, upis, opis);
+            appendToText(text, _strA, _povrsina, _opseg, _visina, _upis, _opis);
+        }
+        changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, povrsina, opseg, visina , upis, opis);
+    }
+    protected boolean checkEmpty(EditText... ed) {
+        int c = 0;
+        for (EditText editText : ed) {
+            if (editText.getText().toString().isEmpty() || editText.getText().toString().equals("0")) {
+                c++;
             }
         }
-
-        protected void resetTextOfFields(EditText... ed) {
-            for (EditText editText : ed) editText.setText("");
+        // ako su svi prazni vrati istinu
+        return c == ed.length;
+    }
+    protected void changeStatusOfFields(boolean bool, EditText... ed) {
+        for (EditText editText : ed) {
+            editText.setEnabled(bool);
         }
-
-        protected void changeInputType(int inputType, EditText... ed) {
-            for (EditText editText : ed) {
-                editText.setInputType(inputType);
-            }
+    }
+    protected void resetTextOfFields(EditText... ed) {
+        for (EditText editText : ed) editText.setText("");
+    }
+    protected void changeInputType(int inputType, EditText... ed) {
+        for (EditText editText : ed) {
+            editText.setInputType(inputType);
         }
+    }
 
 }

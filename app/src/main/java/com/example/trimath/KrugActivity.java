@@ -56,13 +56,13 @@ public class KrugActivity extends AppCompatActivity {
                 f = 0;
                 return;
             }
-            if (!polumjer.getText().toString().isEmpty() && checkEmpty(promjer, povrsina, opseg)) {
+            if (!checkEmpty(polumjer) && checkEmpty(promjer, povrsina, opseg)) {
                 izracunaj(polumjer, "cm");
-            } else if (!promjer.getText().toString().isEmpty() && checkEmpty(polumjer, povrsina, opseg)){
+            } else if (!checkEmpty(promjer) && checkEmpty(polumjer, povrsina, opseg)){
                 izracunaj(promjer, "cm");
-            } else if (!povrsina.getText().toString().isEmpty() && checkEmpty(promjer, polumjer, opseg)) {
+            } else if (!checkEmpty(povrsina) && checkEmpty(promjer, polumjer, opseg)) {
                 izracunaj(povrsina, "cm");
-            } else if (!opseg.getText().toString().isEmpty() && checkEmpty(promjer, povrsina, polumjer)) {
+            } else if (!checkEmpty(opseg) && checkEmpty(promjer, povrsina, polumjer)) {
                 izracunaj(opseg, "cm");
             } else {
                 st.toastShort(this, getString(R.string.Unesite_samo_jednu_vrijednost));
