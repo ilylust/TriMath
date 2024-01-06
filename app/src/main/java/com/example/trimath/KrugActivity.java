@@ -76,48 +76,51 @@ public class KrugActivity extends AppCompatActivity {
         });
     }
 
+    protected void appendToText(String text, double _polumjer, double _promjer, double _opseg, double _povrsina) {
+        polumjer.append(String.format(Locale.getDefault(), "%.2f", _polumjer) + text + " " + getString(R.string.polumjer));
+        promjer.append(String.format(Locale.getDefault(), "%.2f", _promjer) + text + " " + getString(R.string.promjer));
+        opseg.append(String.format(Locale.getDefault(), "%.2f", _opseg) + text + " " + getString(R.string.opseg));
+        povrsina.append(String.format(Locale.getDefault(), "%.2f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
+    }
+
     protected void izracunaj(EditText ed, String text) {
         // promijeni vrijednost inputType tako da se mogu prikazati znakovi
         changeInputType(InputType.TYPE_CLASS_TEXT, polumjer, promjer, povrsina, opseg);
         if (ed.equals(polumjer)) {
             // dohvati vrijednost polumjera i izračunaj ostale vrijednosti
             double _polumjer = Double.parseDouble(ed.getText().toString());
-
-            polumjer.append(text + " (polumjer)");
-            promjer.append(String.format(Locale.getDefault(), "%.2f", 2 * _polumjer) + text + " (promjer)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.PI * Math.pow(_polumjer,2)) + text + getString(R.string.nakvadratznak) + " (površina)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 2 * Math.PI * _polumjer) + text + " (opseg)");
+            double _povrsina = Math.PI * Math.pow(_polumjer, 2);
+            double _opseg = 2 * Math.PI * _polumjer;
+            double _promjer = 2 * _polumjer;
+            resetTextOfFields(polumjer, promjer, opseg, povrsina);
+            appendToText(text, _polumjer, _promjer, _opseg, _povrsina);
         }
         if (ed.equals(promjer)) {
             // izracunaj vrijednost polumjera i izračunaj ostale vrijednosti
-            double _polumjer = Double.parseDouble(ed.getText().toString());
-
-            polumjer.append(String.format(Locale.getDefault(), "%.2f", _polumjer) + text + " (polumjer)");
-            promjer.append(text + " (promjer)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.PI * Math.pow(_polumjer,2)) + text + getString(R.string.nakvadratznak) + " (površina)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 2 * Math.PI * _polumjer) + text + " (opseg)");
+            double _promjer = Double.parseDouble(ed.getText().toString());
+            double _polumjer = _promjer/2;
+            double _povrsina = Math.PI * Math.pow(_polumjer, 2);
+            double _opseg = 2 * Math.PI * _polumjer;
+            resetTextOfFields(polumjer, promjer, opseg, povrsina);
+            appendToText(text, _polumjer, _promjer, _opseg, _povrsina);
         }
         if (ed.equals(povrsina)) {
             // izracunaj vrijednost polumjera i izračunaj ostale vrijednosti
-            double _polumjer = Double.parseDouble(ed.getText().toString());
-
-            polumjer.append(String.format(Locale.getDefault(), "%.2f", _polumjer) + text + " (polumjer)");
-            promjer.append(String.format(Locale.getDefault(), "%.2f", 2 * _polumjer) + text + " (promjer)");
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 2 * Math.PI * _polumjer) + text + " (opseg)");
+            double _povrsina = Double.parseDouble(ed.getText().toString());
+            double _polumjer = Math.sqrt(_povrsina/Math.PI);
+            double _opseg = 2 * Math.PI * _polumjer;
+            double _promjer = 2 * _polumjer;
+            resetTextOfFields(polumjer, promjer, opseg, povrsina);
+            appendToText(text, _polumjer, _promjer, _opseg, _povrsina);
         }
         if (ed.equals(opseg)) {
             // izracunaj vrijednost polumjera i izračunaj ostale vrijednosti
-            double _polumjer = Double.parseDouble(ed.getText().toString());
-            // pi * r = O/2
-            _polumjer = _polumjer/2;
-            // r
-            _polumjer = _polumjer/Math.PI;
-
-            polumjer.append(String.format(Locale.getDefault(), "%.2f", _polumjer) + text + " (polumjer)");
-            promjer.append(String.format(Locale.getDefault(), "%.2f", 2 * _polumjer) + text + " (promjer)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.PI * Math.pow(_polumjer,2)) + text + getString(R.string.nakvadratznak) + " (površina)");
-            opseg.append(text + " (opseg)");
+            double _opseg = Double.parseDouble(ed.getText().toString());
+            double _polumjer = _opseg/(2 * Math.PI);
+            double _povrsina = Math.PI * Math.pow(_polumjer, 2);
+            double _promjer = 2 * _polumjer;
+            resetTextOfFields(polumjer, promjer, opseg, povrsina);
+            appendToText(text, _polumjer, _promjer, _opseg, _povrsina);
         }
         // vrati nazad originalnu vrijednost
         changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, polumjer, promjer, povrsina, opseg);
@@ -126,7 +129,7 @@ public class KrugActivity extends AppCompatActivity {
     protected boolean checkEmpty(EditText... ed) {
         int c = 0;
         for (EditText editText : ed) {
-            if (editText.getText().toString().isEmpty()) {
+            if (editText.getText().toString().isEmpty() || editText.getText().toString().equals("0")) {
                 c++;
             }
         }

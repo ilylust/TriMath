@@ -14,7 +14,8 @@
         tools:targetApi="31">
         <activity
             android:name=".TrokutMenu"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".PravokutnikActivity"
             android:exported="false"
@@ -27,6 +28,22 @@
             android:name=".KrugActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PravokutniActivity"
+            android:exported="false"
+            android:parentActivityName=".TrokutMenu"/>
+        <activity
+            android:name=".JednakoKracniAcitvity"
+            android:exported="false"
+            android:parentActivityName=".TrokutMenu"/>
+        <activity
+            android:name=".JednakoStranicnActivity"
+            android:exported="false"
+            android:parentActivityName=".TrokutMenu"/>
+        <activity
+            android:name=".RaznoStranicniActivity"
+            android:exported="false"
+            android:parentActivityName=".TrokutMenu"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -61,17 +61,17 @@ public class KvadratActivity extends AppCompatActivity {
                 f = 0;
                 return;
             }
-            if (!strA.getText().toString().isEmpty() && checkEmpty(povrsina, opseg, dijagonala, polupis, polopis)) {
+            if (!checkEmpty(strA) && checkEmpty(povrsina, opseg, dijagonala, polupis, polopis)) {
                 izracunaj(strA, "cm");
-            } else if (!povrsina.getText().toString().isEmpty() && checkEmpty(strA, opseg, dijagonala, polupis, polopis)){
+            } else if (!checkEmpty(povrsina) && checkEmpty(strA, opseg, dijagonala, polupis, polopis)){
                 izracunaj(povrsina, "cm");
-            } else if (!opseg.getText().toString().isEmpty() && checkEmpty(strA, povrsina, dijagonala, polupis, polopis)) {
+            } else if (!checkEmpty(opseg) && checkEmpty(strA, povrsina, dijagonala, polupis, polopis)) {
                 izracunaj(opseg, "cm");
-            } else if (!dijagonala.getText().toString().isEmpty() && checkEmpty(strA, povrsina, opseg, polupis, polopis)) {
+            } else if (!checkEmpty(dijagonala) && checkEmpty(strA, povrsina, opseg, polupis, polopis)) {
                 izracunaj(dijagonala, "cm");
-            } else if (!polupis.getText().toString().isEmpty() && checkEmpty(strA, povrsina, opseg, dijagonala, polopis)) {
+            } else if (!checkEmpty(polupis) && checkEmpty(strA, povrsina, opseg, dijagonala, polopis)) {
                 izracunaj(polupis, "cm");
-            } else if (!polopis.getText().toString().isEmpty() && checkEmpty(strA, povrsina, opseg, dijagonala, polupis)) {
+            } else if (!checkEmpty(polopis) && checkEmpty(strA, povrsina, opseg, dijagonala, polupis)) {
                 izracunaj(polopis, "cm");
             } else {
                 st.toastShort(this, getString(R.string.Unesite_samo_jednu_vrijednost));
@@ -85,109 +85,88 @@ public class KvadratActivity extends AppCompatActivity {
         });
     }
 
+    protected void appendToText(String text, double _strA, double _dijagonala, double _polupis, double _polopis, double _opseg, double _povrsina) {
+        strA.append(String.format(Locale.getDefault(), "%.2f", _strA) + text + " " + getString(R.string.stranica_A));
+        dijagonala.append(String.format(Locale.getDefault(), "%.2f", _dijagonala) + text + " " + getString(R.string.dijagonala));
+        polupis.append(String.format(Locale.getDefault(), "%.2f", _polupis) + text + " " + getString(R.string.upisana_kruz));
+        polopis.append(String.format(Locale.getDefault(), "%.2f", _polopis) + text + " " + getString(R.string.opisana_kruz));
+        opseg.append(String.format(Locale.getDefault(), "%.2f", _opseg) + text + " " + getString(R.string.opseg));
+        povrsina.append(String.format(Locale.getDefault(), "%.2f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
+    }
+
     protected void izracunaj(EditText ed, String text) {
         // promijeni vrijednost inputType tako da se mogu prikazati znakovi
         changeInputType(InputType.TYPE_CLASS_TEXT, strA, povrsina, opseg, dijagonala , polupis, polopis);
         if (ed.equals(strA)) {
             // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
             double _strA = Double.parseDouble(ed.getText().toString());
-
-            strA.append(text + " (stranica A)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.pow(_strA, 2)));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 4 * _strA));
-            opseg.append(text + " (opseg)");
-            dijagonala.append(String.format(Locale.getDefault(), "%.2f", _strA * Math.sqrt(2)));
-            dijagonala.append(text + " (dijagonala)");
-            polupis.append(String.format(Locale.getDefault(), "%.2f", _strA/2));
-            polupis.append(text + " (upisana kružnica)");
-            polopis.append(String.format(Locale.getDefault(), "%.2f", (_strA * Math.sqrt(2))/2));
-            polopis.append(text + " (opisana kružnica)");
+            double _dijagonala = _strA * Math.sqrt(2);
+            double _polupis = _strA/2;
+            double _polopis = (_strA * Math.sqrt(2))/2;
+            double _opseg = 4 * _strA;
+            double _povrsina = Math.pow(_strA, 2);
+            resetTextOfFields(strA, dijagonala, polupis, polopis, opseg, povrsina);
+            appendToText(text, _strA, _dijagonala, _polupis, _polopis, _opseg, _povrsina);
         }
         if (ed.equals(povrsina)) {
             // račun za stranicu a iz površine
             double _strA = Double.parseDouble(ed.getText().toString());
             _strA = Math.sqrt(_strA);
-
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 4 * _strA));
-            opseg.append(text + " (opseg)");
-            dijagonala.append(String.format(Locale.getDefault(), "%.2f", _strA * Math.sqrt(2)));
-            dijagonala.append(text + " (dijagonala)");
-            polupis.append(String.format(Locale.getDefault(), "%.2f", _strA/2));
-            polupis.append(text + " (upisana kružnica)");
-            polopis.append(String.format(Locale.getDefault(), "%.2f", (_strA * Math.sqrt(2))/2));
-            polopis.append(text + " (opisana kružnica)");
+            double _dijagonala = _strA * Math.sqrt(2);
+            double _polupis = _strA/2;
+            double _polopis = (_strA * Math.sqrt(2))/2;
+            double _opseg = 4 * _strA;
+            double _povrsina = Math.pow(_strA, 2);
+            resetTextOfFields(strA, dijagonala, polupis, polopis, opseg, povrsina);
+            appendToText(text, _strA, _dijagonala, _polupis, _polopis, _opseg, _povrsina);
         }
         if (ed.equals(opseg)) {
             // račun za stranicu a iz opsega
             double _strA = Double.parseDouble(ed.getText().toString());
             _strA = _strA/4;
-
-            opseg.append(text + " (opseg)");
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.pow(_strA, 2)));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            dijagonala.append(String.format(Locale.getDefault(), "%.2f", _strA * Math.sqrt(2)));
-            dijagonala.append(text + " (dijagonala)");
-            polupis.append(String.format(Locale.getDefault(), "%.2f", _strA/2));
-            polupis.append(text + " (upisana kružnica)");
-            polopis.append(String.format(Locale.getDefault(), "%.2f", (_strA * Math.sqrt(2))/2));
-            polopis.append(text + " (opisana kružnica)");
+            double _dijagonala = _strA * Math.sqrt(2);
+            double _polupis = _strA/2;
+            double _polopis = (_strA * Math.sqrt(2))/2;
+            double _opseg = 4 * _strA;
+            double _povrsina = Math.pow(_strA, 2);
+            resetTextOfFields(strA, dijagonala, polupis, polopis, opseg, povrsina);
+            appendToText(text, _strA, _dijagonala, _polupis, _polopis, _opseg, _povrsina);
         }
         if (ed.equals(dijagonala)) {
             // račun za stranicu a iz dijagonale
             double _strA = Double.parseDouble(ed.getText().toString());
             _strA = _strA/Math.sqrt(2);
-
-            dijagonala.append(text + " (dijagonala)");
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.pow(_strA, 2)));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 4 * _strA));
-            opseg.append(text + " (opseg)");
-            polupis.append(String.format(Locale.getDefault(), "%.2f", _strA/2));
-            polupis.append(text + " (upisana kružnica)");
-            polopis.append(String.format(Locale.getDefault(), "%.2f", (_strA * Math.sqrt(2))/2));
-            polopis.append(text + " (opisana kružnica)");
+            double _dijagonala = _strA * Math.sqrt(2);
+            double _polupis = _strA/2;
+            double _polopis = (_strA * Math.sqrt(2))/2;
+            double _opseg = 4 * _strA;
+            double _povrsina = Math.pow(_strA, 2);
+            resetTextOfFields(strA, dijagonala, polupis, polopis, opseg, povrsina);
+            appendToText(text, _strA, _dijagonala, _polupis, _polopis, _opseg, _povrsina);
         }
         if (ed.equals(polupis)) {
             // račun za stranicu a iz upisane kružnice
             double _strA = Double.parseDouble(ed.getText().toString());
             _strA = _strA*2;
-
-            polupis.append(text + " (upisana kružnica)");
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.pow(_strA, 2)));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 4 * _strA));
-            opseg.append(text + " (opseg)");
-            dijagonala.append(String.format(Locale.getDefault(), "%.2f", _strA * Math.sqrt(2)));
-            dijagonala.append(text + " (dijagonala)");
-            polopis.append(String.format(Locale.getDefault(), "%.2f", (_strA * Math.sqrt(2))/2));
-            polopis.append(text + " (opisana kružnica)");
+            double _dijagonala = _strA * Math.sqrt(2);
+            double _polupis = _strA/2;
+            double _polopis = (_strA * Math.sqrt(2))/2;
+            double _opseg = 4 * _strA;
+            double _povrsina = Math.pow(_strA, 2);
+            resetTextOfFields(strA, dijagonala, polupis, polopis, opseg, povrsina);
+            appendToText(text, _strA, _dijagonala, _polupis, _polopis, _opseg, _povrsina);
         }
         if (ed.equals(polopis)) {
             // račun za stranicu a iz opisane kružnice
             double _strA = Double.parseDouble(ed.getText().toString());
             _strA = _strA*Math.sqrt(2);
-
-            polopis.append(text + " (opisana kružnica)");
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", Math.pow(_strA, 2)));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", 4 * _strA));
-            opseg.append(text + " (opseg)");
-            dijagonala.append(String.format(Locale.getDefault(), "%.2f", _strA * Math.sqrt(2)));
-            dijagonala.append(text + " (dijagonala)");
-            polupis.append(String.format(Locale.getDefault(), "%.2f", _strA/2));
-            polupis.append(text + " (upisana kružnica)");
+            double _dijagonala = _strA * Math.sqrt(2);
+            double _polupis = _strA/2;
+            double _polopis = (_strA * Math.sqrt(2))/2;
+            double _opseg = 4 * _strA;
+            double _povrsina = Math.pow(_strA, 2);
+            resetTextOfFields(strA, dijagonala, polupis, polopis, opseg, povrsina);
+            appendToText(text, _strA, _dijagonala, _polupis, _polopis, _opseg, _povrsina);
         }
         // vrati nazad originalnu vrijednost
         changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, povrsina, opseg, dijagonala , polupis, polopis);
@@ -195,7 +174,7 @@ public class KvadratActivity extends AppCompatActivity {
     protected boolean checkEmpty(EditText... ed) {
         int c = 0;
         for (EditText editText : ed) {
-            if (editText.getText().toString().isEmpty()) {
+            if (editText.getText().toString().isEmpty() || editText.getText().toString().equals("0")) {
                 c++;
             }
         }
