@@ -17,9 +17,12 @@ public class PravokutniActivity extends AppCompatActivity {
     // Deklaracija gumba
     Button btn;
     SimplifiedToast st = new SimplifiedToast();
+
     int f = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         // ugasi dark mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
@@ -66,13 +69,24 @@ public class PravokutniActivity extends AppCompatActivity {
                 return;
             }
 
-            // dva kuta
+            //nemoguce kombinacije
             if ((!kutAlpha.getText().toString().isEmpty() && !kutBeta.getText().toString().isEmpty()) && checkEmpty(strA, strB, strC, visina, povrsina, opseg, opis, upis)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!povrsina.getText().toString().isEmpty() && !opseg.getText().toString().isEmpty()) && checkEmpty(strA, strB, strC, visina, opis, upis, kutAlpha, kutBeta)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!povrsina.getText().toString().isEmpty() && !visina.getText().toString().isEmpty()) && checkEmpty(strA, strB, strC, opseg, kutBeta, kutAlpha, opis, upis)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!povrsina.getText().toString().isEmpty() && !strC.getText().toString().isEmpty()) && checkEmpty(strA, strB, visina, opseg, kutBeta, kutAlpha, opis, upis)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!opseg.getText().toString().isEmpty() && !strC.getText().toString().isEmpty()) && checkEmpty(strA, strB, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!opseg.getText().toString().isEmpty() && !strB.getText().toString().isEmpty()) && checkEmpty(strA, strC, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!opseg.getText().toString().isEmpty() && !strA.getText().toString().isEmpty()) && checkEmpty(strB, strC, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
             }
-             else if ((!strA.getText().toString().isEmpty() && !strB.getText().toString().isEmpty()) && checkEmpty(strC, visina, povrsina, opseg, opis, upis, kutAlpha, kutBeta)) {
+            //moguce kombinacije
+            else if ((!strA.getText().toString().isEmpty() && !strB.getText().toString().isEmpty()) && checkEmpty(strC, visina, povrsina, opseg, opis, upis, kutAlpha, kutBeta)) {
                 izracunaj(strA, strB, "cm");
             } else if ((!strA.getText().toString().isEmpty() && !strC.getText().toString().isEmpty()) && checkEmpty(strB, visina, povrsina, opseg, opis, upis, kutAlpha, kutBeta)) {
                 izracunaj(strA, strC, "cm");
@@ -108,7 +122,6 @@ public class PravokutniActivity extends AppCompatActivity {
 
 
 
-
             // promijeni tekst na gumbu
             btn.setText(R.string.Izbrisi);
             // promijeni vrijednost zastavice
@@ -126,27 +139,9 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _strC = Math.sqrt((Math.pow(_strA,2) + Math.pow(_strB,2)));
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
 
-
-
-            strA.append(text + " (stranica A)");
-            strB.append(text + " (stranica B)");
-            strC.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            strC.append(text + " (Stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_strC))));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_strC))));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/_strC));
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
         }
         if (ed.equals(strA) && ed2.equals(strC)) {
             double _strA = Double.parseDouble(ed.getText().toString());
@@ -158,25 +153,8 @@ public class PravokutniActivity extends AppCompatActivity {
                 //changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
                 return;
             }
-
-            strA.append(text + " (stranica A)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            strC.append(text + " (stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_strC))));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_strC))));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/_strC));
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
         if (ed.equals(strA) && ed2.equals(visina)) {
             double _strA = Double.parseDouble(ed.getText().toString());
@@ -186,24 +164,8 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strC = _strA/Math.cos(_kutBeta);
             double _strB = Math.sqrt(Math.pow(_strC,2)-Math.pow(_strA,2));
 
-            strA.append(text + " (stranica A)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            strC.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            strC.append(text + " (stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_strC))));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(_kutBeta)));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
         if (ed.equals(strA) && ed2.equals(kutAlpha)) {
             double _strA = Double.parseDouble(ed.getText().toString());
@@ -211,24 +173,8 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strC = _strA/Math.sin(Math.toRadians(_kutAlpha));
             double _strB = Math.sqrt(Math.pow(_strC,2)-Math.pow(_strA,2));
 
-            strA.append(text + " (stranica A)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            strC.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            strC.append(text + " (Stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_strC))));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/_strC));
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
 
         if (ed.equals(strA) && ed2.equals(kutBeta)) {
@@ -237,24 +183,8 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strC = _strA/Math.cos(Math.toRadians(_kutBeta));
             double _strB = Math.sqrt(Math.pow(_strC,2)-Math.pow(_strA,2));
 
-            strA.append(text + " (stranica A)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            strC.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            strC.append(text + " (Stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_strC))));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/_strC));
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
 
         if (ed.equals(strA) && ed2.equals(povrsina)) {
@@ -263,24 +193,8 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strB = 2*_povrsina/_strA;
             double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2));
 
-            strA.append(text + " (stranica A)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            strC.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            strC.append(text + " (Stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_strC))));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_strC))));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/_strC));
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
         if (ed.equals(strB) && ed2.equals(strC)) {
             double _strB = Double.parseDouble(ed.getText().toString());
@@ -292,24 +206,8 @@ public class PravokutniActivity extends AppCompatActivity {
                 //changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
                 return;
             }
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            strB.append(text + " (stranica B)");
-            strC.append(text + " (stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_strC))));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_strC))));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/_strC));
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
         if (ed.equals(strB) && ed2.equals(kutAlpha)) {
             double _strB = Double.parseDouble(ed.getText().toString());
@@ -317,24 +215,8 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strC = _strB/Math.cos(Math.toRadians(_kutAlfa));
             double _strA = Math.sqrt(Math.pow(_strC,2)-Math.pow(_strB,2));
 
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            strB.append(text + " (stranica B)");
-            strC.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            strC.append(text + " (Stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_strC))));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/_strC));
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
         if (ed.equals(strB) && ed2.equals(kutBeta)) {
             double _strB = Double.parseDouble(ed.getText().toString());
@@ -342,24 +224,8 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strC = _strB/Math.sin(Math.toRadians(_kutBeta));
             double _strA = Math.sqrt(Math.pow(_strC,2)-Math.pow(_strB,2));
 
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            strB.append(text + " (stranica B)");
-            strC.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            strC.append(text + " (Stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_strC))));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/_strC));
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
         if (ed.equals(strB) && ed2.equals(visina)) {
             double _strB = Double.parseDouble(ed.getText().toString());
@@ -369,24 +235,8 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strC = _strB/Math.cos(_kutAlpha);
             double _strA = Math.sqrt(Math.pow(_strC,2)-Math.pow(_strB,2));
 
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            strB.append(text + " (stranica B)");
-            strC.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            strC.append(text + " (stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(_kutAlpha)));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_strC))));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
         if (ed.equals(strB) && ed2.equals(povrsina)) {
             double _strB = Double.parseDouble(ed.getText().toString());
@@ -394,24 +244,8 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strA = 2*_povrsina/_strB;
             double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2));
 
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            strB.append(text + " (stranica B)");
-            strC.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            strC.append(text + " (Stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_strC))));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_strC))));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/_strC));
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
         if (ed.equals(kutAlpha) && ed2.equals(strC)) {
             double _kutAlpha = Double.parseDouble(ed.getText().toString());
@@ -419,24 +253,8 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strA = _strC * Math.sin(Math.toRadians(_kutAlpha));
             double _strB = Math.sqrt(Math.pow(_strC,2)-Math.pow(_strA,2));
 
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            strC.append(text + " (Stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_strC))));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/_strC));
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
         if (ed.equals(kutAlpha) && ed2.equals(visina)) {
             double _kutAlpha = Double.parseDouble(ed.getText().toString());
@@ -445,24 +263,8 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strA =  _visina/Math.sin(Math.toRadians(90-_kutAlpha));
             double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2));
 
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            strC.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            strC.append(text + " (Stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strB/_strC))));
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
         if (ed.equals(kutBeta) && ed2.equals(strC)) {
             double _kutBeta = Double.parseDouble(ed.getText().toString());
@@ -470,24 +272,8 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strA = _strC * Math.cos(Math.toRadians(_kutBeta));
             double _strB = Math.sqrt(Math.pow(_strC,2)-Math.pow(_strA,2));
 
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            strC.append(text + " (Stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_strC))));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/_strC));
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
         if (ed.equals(kutBeta) && ed2.equals(visina)) {
             double _kutBeta = Double.parseDouble(ed.getText().toString());
@@ -496,32 +282,39 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strB =  _visina/Math.sin(Math.toRadians(90-_kutBeta));
             double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2));
 
-            strA.append(String.format(Locale.getDefault(), "%.2f", _strA));
-            strA.append(text + " (stranica A)");
-            strB.append(String.format(Locale.getDefault(), "%.2f", _strB));
-            strB.append(text + " (stranica B)");
-            strC.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            strC.append(text + " (Stranica C)");
-            opis.append(String.format(Locale.getDefault(), "%.2f", _strC));
-            opis.append(text + " (polumjer opisane)");
-            upis.append(String.format(Locale.getDefault(), "%.2f", (_strA+_strB-_strC)/2));
-            upis.append(text + " (polumjer upisane)");
-            kutAlpha.append(String.format(Locale.getDefault(), "%.2f", Math.toDegrees(Math.asin(_strA/_strC))));
-            kutAlpha.append(getString(R.string.stupnjeviznak) + " (alpha)");
-            kutBeta.append(getString(R.string.stupnjeviznak) + " (beta)");
-            opseg.append(String.format(Locale.getDefault(), "%.2f", _strA + _strB+_strC));
-            opseg.append(text + " (opseg)");
-            povrsina.append(String.format(Locale.getDefault(), "%.2f", _strA * _strB/2));
-            povrsina.append(text + getString(R.string.nakvadratznak) + " (površina)");
-            visina.append(text + getString(R.string.nakvadratznak) + " (visina)");
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
         }
+
 
 
         // vrati nazad originalnu vrijednost
         changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
     }
 
+    protected void appendToText(String text,double _strA, double _strB, double _strC, double _povrsina, double _opseg, double _opis, double _upis, double _visina, double _kutAlpha, double _kutBeta) {
+        strA.append(String.format(Locale.getDefault(), "%.2f", _strA) + text + " " + getString(R.string.stranica_A));
+        strB.append(String.format(Locale.getDefault(), "%.2f", _strB) + text + " " + getString(R.string.stranica_B));
+        strC.append(String.format(Locale.getDefault(), "%.2f", _strC) + text + " " + getString(R.string.stranica_C));
+        kutAlpha.append(String.format(Locale.getDefault(), "%.2f", _kutAlpha) + text + " " + getString(R.string.Kut_alpha));
+        kutBeta.append(String.format(Locale.getDefault(), "%.2f", _kutBeta) + getString(R.string.beta) + " " + getString(R.string.Kut_beta));
+        opseg.append(String.format(Locale.getDefault(), "%.2f", _opseg) + text + " " + getString(R.string.opseg));
+        povrsina.append(String.format(Locale.getDefault(), "%.2f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
+        visina.append(String.format(Locale.getDefault(), "%.2f", _visina) + text + " " + getString(R.string.visina_C));
+        upis.append(String.format(Locale.getDefault(), "%.2f", _upis) + text + " " + getString(R.string.upisana_kruz));
+        opis.append(String.format(Locale.getDefault(), "%.2f", _opis) + text + " " + getString(R.string.opisana_kruz));
+    }
+    protected void izracunaj(double _strA, double _strB, double _strC, String text)
+    {
+        double _opseg = _strA +_strA+_strC;
+        double _povrsina = _strA +_strA+_strC;
+        double _upis = (_strA +_strA-_strC)/2;
+        double _kutAlpha = Math.toDegrees(Math.asin(_strA/_strC));
+        double _kutBeta = Math.toDegrees(Math.asin(_strB/_strC));
+        double _visina = _strA*_strB/_strC;
 
+        appendToText(text,_strA,_strB,_strC, _povrsina, _opseg, _strC, _upis, _visina, _kutAlpha, _kutBeta);
+    }
 
     protected boolean checkEmpty(EditText... ed) {
         int c = 0;
