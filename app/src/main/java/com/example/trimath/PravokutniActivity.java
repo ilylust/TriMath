@@ -70,57 +70,55 @@ public class PravokutniActivity extends AppCompatActivity {
             }
 
             //nemoguce kombinacije
-            if ((!kutAlpha.getText().toString().isEmpty() && !kutBeta.getText().toString().isEmpty()) && checkEmpty(strA, strB, strC, visina, povrsina, opseg, opis, upis)) {
+            if ((!checkEmpty(kutAlpha) && !checkEmpty(kutBeta)) && checkEmpty(strA, strB, strC, visina, povrsina, opseg, opis, upis)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!povrsina.getText().toString().isEmpty() && !opseg.getText().toString().isEmpty()) && checkEmpty(strA, strB, strC, visina, opis, upis, kutAlpha, kutBeta)) {
+            } else if ((!checkEmpty(povrsina) && !checkEmpty(opseg)) && checkEmpty(strA, strB, strC, visina, opis, upis, kutAlpha, kutBeta)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!povrsina.getText().toString().isEmpty() && !visina.getText().toString().isEmpty()) && checkEmpty(strA, strB, strC, opseg, kutBeta, kutAlpha, opis, upis)) {
+            } else if ((!checkEmpty(povrsina) && !checkEmpty(visina)) && checkEmpty(strA, strB, strC, opseg, kutBeta, kutAlpha, opis, upis)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!povrsina.getText().toString().isEmpty() && !strC.getText().toString().isEmpty()) && checkEmpty(strA, strB, visina, opseg, kutBeta, kutAlpha, opis, upis)) {
+            } else if ((!checkEmpty(povrsina) && !checkEmpty(strC)) && checkEmpty(strA, strB, visina, opseg, kutBeta, kutAlpha, opis, upis)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!opseg.getText().toString().isEmpty() && !strC.getText().toString().isEmpty()) && checkEmpty(strA, strB, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
+            } else if ((!checkEmpty(opseg) && !checkEmpty(strC)) && checkEmpty(strA, strB, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!opseg.getText().toString().isEmpty() && !strB.getText().toString().isEmpty()) && checkEmpty(strA, strC, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
+            } else if ((!checkEmpty(opseg) && !checkEmpty(strB)) && checkEmpty(strA, strC, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!opseg.getText().toString().isEmpty() && !strA.getText().toString().isEmpty()) && checkEmpty(strB, strC, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
+            } else if ((!checkEmpty(opseg) && !checkEmpty(strA)) && checkEmpty(strB, strC, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
             }
             //moguce kombinacije
-            else if ((!strA.getText().toString().isEmpty() && !strB.getText().toString().isEmpty()) && checkEmpty(strC, visina, povrsina, opseg, opis, upis, kutAlpha, kutBeta)) {
+            else if ((!checkEmpty(strA) && !checkEmpty(strB)) && checkEmpty(strC, visina, povrsina, opseg, opis, upis, kutAlpha, kutBeta)) {
                 izracunaj(strA, strB, "cm");
-            } else if ((!strA.getText().toString().isEmpty() && !strC.getText().toString().isEmpty()) && checkEmpty(strB, visina, povrsina, opseg, opis, upis, kutAlpha, kutBeta)) {
+            } else if ((!checkEmpty(strA) && !checkEmpty(strC)) && checkEmpty(strB, visina, povrsina, opseg, opis, upis, kutAlpha, kutBeta)) {
                 izracunaj(strA, strC, "cm");
-            } else if ((!strA.getText().toString().isEmpty() && !visina.getText().toString().isEmpty()) && checkEmpty(strB, strC, povrsina, opseg, kutAlpha, kutBeta,opis,upis)) {
+            } else if ((!checkEmpty(strA) && !checkEmpty(visina)) && checkEmpty(strB, strC, povrsina, opseg, kutAlpha, kutBeta,opis,upis)) {
                 izracunaj(strA, visina, "cm");
-            } else if ((!strA.getText().toString().isEmpty() && !kutAlpha.getText().toString().isEmpty()) && checkEmpty(strB, strC, kutBeta, opseg, povrsina, visina,opis,upis)) {
+            } else if ((!checkEmpty(strA) && !checkEmpty(kutAlpha)) && checkEmpty(strB, strC, kutBeta, opseg, povrsina, visina,opis,upis)) {
                 izracunaj(strA, kutAlpha, "cm");
-            } else if ((!strA.getText().toString().isEmpty() && !kutBeta.getText().toString().isEmpty()) && checkEmpty(strB, strC, kutAlpha, opseg, povrsina, visina,opis,upis)) {
+            } else if ((!checkEmpty(strA) && !checkEmpty(kutBeta)) && checkEmpty(strB, strC, kutAlpha, opseg, povrsina, visina,opis,upis)) {
                 izracunaj(strA, kutBeta, "cm");
-            } else if ((!strA.getText().toString().isEmpty() && !povrsina.getText().toString().isEmpty()) && checkEmpty(strB, strC, kutAlpha, visina, opseg, kutBeta, opis, upis)) {
+            } else if ((!checkEmpty(strA) && !checkEmpty(povrsina)) && checkEmpty(strB, strC, kutAlpha, visina, opseg, kutBeta, opis, upis)) {
                 izracunaj(strA, povrsina, "cm");
-            } else if ((!strB.getText().toString().isEmpty() && !strC.getText().toString().isEmpty()) && checkEmpty(strA, kutAlpha, kutBeta, visina, povrsina, opseg,  opis, upis)) {
+            } else if ((!checkEmpty(strB) && !checkEmpty(strC)) && checkEmpty(strA, kutAlpha, kutBeta, visina, povrsina, opseg,  opis, upis)) {
                 izracunaj(strB, strC, "cm");
-            } else if ((!strB.getText().toString().isEmpty() && !kutAlpha.getText().toString().isEmpty()) && checkEmpty(strA, strC, kutBeta, visina, povrsina, opseg,  opis, upis)) {
+            } else if ((!checkEmpty(strB) && !checkEmpty(kutAlpha)) && checkEmpty(strA, strC, kutBeta, visina, povrsina, opseg,  opis, upis)) {
                 izracunaj(strB, kutAlpha, "cm");
-            } else if ((!strB.getText().toString().isEmpty() && !kutBeta.getText().toString().isEmpty()) && checkEmpty(strA, strC, kutAlpha, visina, povrsina, opseg,  opis, upis)) {
+            } else if ((!checkEmpty(strB) && !checkEmpty(kutBeta)) && checkEmpty(strA, strC, kutAlpha, visina, povrsina, opseg,  opis, upis)) {
                 izracunaj(strB, kutBeta, "cm");
-            } else if ((!strB.getText().toString().isEmpty() && !visina.getText().toString().isEmpty()) && checkEmpty(strA, strC, kutAlpha, kutBeta, povrsina, opseg,  opis, upis)) {
+            } else if ((!checkEmpty(strB) && !checkEmpty(visina)) && checkEmpty(strA, strC, kutAlpha, kutBeta, povrsina, opseg,  opis, upis)) {
                 izracunaj(strB, visina, "cm");
-            } else if ((!strB.getText().toString().isEmpty() && !povrsina.getText().toString().isEmpty()) && checkEmpty(strA, strC, kutAlpha, visina, opseg, kutBeta, opis, upis)) {
+            } else if ((!checkEmpty(strB) && !checkEmpty(povrsina)) && checkEmpty(strA, strC, kutAlpha, visina, opseg, kutBeta, opis, upis)) {
                 izracunaj(strB, povrsina, "cm");
-            } else if ((!kutAlpha.getText().toString().isEmpty() && !strC.getText().toString().isEmpty()) && checkEmpty(strA, strB, visina, opseg, povrsina, kutBeta, opis, upis)) {
+            } else if ((!checkEmpty(kutAlpha) && !checkEmpty(strC)) && checkEmpty(strA, strB, visina, opseg, povrsina, kutBeta, opis, upis)) {
                 izracunaj(kutAlpha, strC, "cm");
-            } else if ((!kutAlpha.getText().toString().isEmpty() && !visina.getText().toString().isEmpty()) && checkEmpty(strA, strB, strC, opseg, povrsina, kutBeta, opis, upis)) {
+            } else if ((!checkEmpty(kutAlpha) && !checkEmpty(visina)) && checkEmpty(strA, strB, strC, opseg, povrsina, kutBeta, opis, upis)) {
                 izracunaj(kutAlpha, visina, "cm");
-            } else if ((!kutBeta.getText().toString().isEmpty() && !strC.getText().toString().isEmpty()) && checkEmpty(strA, strB, visina, opseg, povrsina, kutAlpha, opis, upis)) {
+            } else if ((!checkEmpty(kutBeta) && !checkEmpty(strC)) && checkEmpty(strA, strB, visina, opseg, povrsina, kutAlpha, opis, upis)) {
                 izracunaj(kutBeta, strC, "cm");
-            } else if ((!kutBeta.getText().toString().isEmpty() && !visina.getText().toString().isEmpty()) && checkEmpty(strA, strB, strC, opseg, povrsina, kutAlpha, opis, upis)) {
+            } else if ((!checkEmpty(kutBeta) && !checkEmpty(visina)) && checkEmpty(strA, strB, strC, opseg, povrsina, kutAlpha, opis, upis)) {
                 izracunaj(kutBeta, visina, "cm");
+            } else {
+                st.toastShort(this, getString(R.string.Unesite_dvije_vrijednosti));
             }
-
-
-
-
 
             // promijeni tekst na gumbu
             btn.setText(R.string.Izbrisi);
@@ -319,7 +317,7 @@ public class PravokutniActivity extends AppCompatActivity {
     protected boolean checkEmpty(EditText... ed) {
         int c = 0;
         for (EditText editText : ed) {
-            if (editText.getText().toString().isEmpty()) {
+            if (editText.getText().toString().isEmpty() || editText.getText().toString().equals("0") {
                 c++;
             }
         }
