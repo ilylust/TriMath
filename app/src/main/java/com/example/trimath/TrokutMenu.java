@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class TrokutMenu extends AppCompatActivity {
 
-    ImageView trokut1,trokut2,trokut3,trokut4;
+    ImageView trokut1,trokut2,trokut4;
     SimplifiedToast st = new SimplifiedToast();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class TrokutMenu extends AppCompatActivity {
 
         trokut1 = findViewById(R.id.jedstr);
         trokut2 = findViewById(R.id.razstr);
-        trokut3 = findViewById(R.id.jedkrac);
+        //trokut3 = findViewById(R.id.jedkrac); ---> nije u funkciji
         trokut4 = findViewById(R.id.pravokut);
 
         // Deklaracija i inicijalizacija navigacijske trake
@@ -50,13 +50,14 @@ public class TrokutMenu extends AppCompatActivity {
             }
         });
         //Jednakokračni trokut
-        trokut3.setOnClickListener(v -> {
+        //u budućoj verziji
+        /*trokut3.setOnClickListener(v -> {
             try {
                 openActivity(JednakoKracniAcitvity.class);
             } catch (Exception ex) {
                 st.toastShort(this, "ERR");
             }
-        });
+        });*/
         //Pravokutni trokut
         trokut4.setOnClickListener(v -> {
             try {
@@ -65,9 +66,6 @@ public class TrokutMenu extends AppCompatActivity {
                 st.toastShort(this, "ERR");
             }
         });
-
-
-
 
     }
     private void openActivity(Class<?> _class) {

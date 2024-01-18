@@ -33,10 +33,6 @@
             android:exported="false"
             android:parentActivityName=".TrokutMenu"/>
         <activity
-            android:name=".JednakoKracniAcitvity"
-            android:exported="false"
-            android:parentActivityName=".TrokutMenu"/>
-        <activity
             android:name=".JednakoStranicnActivity"
             android:exported="false"
             android:parentActivityName=".TrokutMenu"/>

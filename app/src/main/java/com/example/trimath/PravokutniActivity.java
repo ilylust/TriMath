@@ -72,17 +72,7 @@ public class PravokutniActivity extends AppCompatActivity {
             //nemoguce kombinacije
             if ((!checkEmpty(kutAlpha) && !checkEmpty(kutBeta)) && checkEmpty(strA, strB, strC, visina, povrsina, opseg, opis, upis)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(povrsina) && !checkEmpty(opseg)) && checkEmpty(strA, strB, strC, visina, opis, upis, kutAlpha, kutBeta)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(povrsina) && !checkEmpty(visina)) && checkEmpty(strA, strB, strC, opseg, kutBeta, kutAlpha, opis, upis)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(povrsina) && !checkEmpty(strC)) && checkEmpty(strA, strB, visina, opseg, kutBeta, kutAlpha, opis, upis)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(strC)) && checkEmpty(strA, strB, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(strB)) && checkEmpty(strA, strC, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(strA)) && checkEmpty(strB, strC, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
             }
             //moguce kombinacije
@@ -116,6 +106,16 @@ public class PravokutniActivity extends AppCompatActivity {
                 izracunaj(kutBeta, strC, "cm");
             } else if ((!checkEmpty(kutBeta) && !checkEmpty(visina)) && checkEmpty(strA, strB, strC, opseg, povrsina, kutAlpha, opis, upis)) {
                 izracunaj(kutBeta, visina, "cm");
+            } else if ((!checkEmpty(povrsina) && !checkEmpty(opseg)) && checkEmpty(strA, strB, strC, visina, opis, upis, kutAlpha, kutBeta)) {
+                izracunaj(povrsina, opseg, "cm");
+            } else if ((!checkEmpty(opseg) && !checkEmpty(strC)) && checkEmpty(strA, strB, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
+                izracunaj(strC, opseg, "cm");
+            } else if ((!checkEmpty(opseg) && !checkEmpty(strB)) && checkEmpty(strA, strC, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
+                izracunaj(strB, opseg, "cm");
+            } else if ((!checkEmpty(opseg) && !checkEmpty(strA)) && checkEmpty(strB, strC, visina, povrsina, kutBeta, kutAlpha, opis, upis)) {
+                izracunaj(strA, opseg, "cm");
+            } else if ((!checkEmpty(povrsina) && !checkEmpty(strC)) && checkEmpty(strA, strB, visina, opseg, kutBeta, kutAlpha, opis, upis)) {
+                izracunaj(strC, povrsina, "cm");
             } else {
                 st.toastShort(this, getString(R.string.Unesite_dvije_vrijednosti));
             }
@@ -148,7 +148,7 @@ public class PravokutniActivity extends AppCompatActivity {
 
             if (_strA >= _strC || _strB >= _strC) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-                //changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
                 return;
             }
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
@@ -201,7 +201,7 @@ public class PravokutniActivity extends AppCompatActivity {
 
             if (_strA >= _strC || _strB >= _strC) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-                //changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
                 return;
             }
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
@@ -283,9 +283,74 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-
-
-
+        if (ed.equals(povrsina) && ed2.equals(opseg)) {
+            double _povrsina = Double.parseDouble(ed.getText().toString());
+            double _opseg = Double.parseDouble(ed2.getText().toString());
+            // vrijednost da se formule ne ponavljaju
+            double _t = 16 * Math.pow(_povrsina, 2) + Math.pow(_opseg, 4);
+            if ((24 * _povrsina * Math.pow(_opseg, 4)) > _t) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
+                return;
+            }
+            double _strA = (4 * _povrsina + Math.pow(_opseg, 2) + Math.sqrt(_t - (24 * _povrsina * Math.pow(_opseg, 4))))/4 * _opseg;
+            double _strB = (2 * _povrsina)/_strA;
+            double _strC = Math.sqrt(Math.pow(_strA, 2) + Math.pow(_strB, 2));
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(strC) && ed2.equals(opseg)) {
+            double _strC = Double.parseDouble(ed.getText().toString());
+            double _opseg = Double.parseDouble(ed2.getText().toString());
+            if ((2 * _opseg * _strC + Math.pow(_strC, 2)) < Math.pow(_opseg, 2)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
+                return;
+            }
+            double _strA = (_strC - _opseg + Math.sqrt(-(Math.pow(_opseg, 2) + (2 * _opseg * _strC) + Math.pow(_strC, 2))))/-2;
+            double _strB = Math.sqrt(Math.pow(_strC, 2) - Math.pow(_strA, 2));
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(strB) && ed2.equals(opseg)) {
+            double _strB = Double.parseDouble(ed.getText().toString());
+            double _opseg = Double.parseDouble(ed2.getText().toString());
+            if (Math.pow(_opseg, 2) < (2 * _strB * _opseg)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
+                return;
+            }
+            double _strA = (Math.pow(_opseg, 2) - 2 * _strB * _opseg)/(2*(_opseg - _strB));
+            double _strC = Math.sqrt(Math.pow(_strA, 2) + Math.pow(_strB, 2));
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(strA) && ed2.equals(opseg)) {
+            double _strA = Double.parseDouble(ed.getText().toString());
+            double _opseg = Double.parseDouble(ed2.getText().toString());
+            if (Math.pow(_opseg, 2) < (2 * _strA * _opseg)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
+                return;
+            }
+            double _strB = (Math.pow(_opseg, 2) - 2 * _strA * _opseg)/(2*(_opseg - _strA));
+            double _strC = Math.sqrt(Math.pow(_strA, 2) + Math.pow(_strB, 2));
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(strC) && ed2.equals(povrsina)) {
+            double _strC = Double.parseDouble(ed.getText().toString());
+            double _povrsina = Double.parseDouble(ed2.getText().toString());
+            if (Math.pow(_strC, 4) < (16 * Math.pow(_povrsina, 2))) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+                changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
+                return;
+            }
+            double _strA = Math.sqrt((Math.pow(_strC, 2) + Math.sqrt(Math.pow(_strC, 4) - (16 * Math.pow(_povrsina, 2))))/2);
+            double _strB = Math.sqrt(Math.pow(_strC, 2) - Math.pow(_strA, 2));
+            resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
+            izracunaj(_strA,_strB,_strC,text);
+        }
         // vrati nazad originalnu vrijednost
         changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, upis, opis, kutAlpha, kutBeta, povrsina, opseg,visina);
     }
@@ -317,7 +382,7 @@ public class PravokutniActivity extends AppCompatActivity {
     protected boolean checkEmpty(EditText... ed) {
         int c = 0;
         for (EditText editText : ed) {
-            if (editText.getText().toString().isEmpty() || editText.getText().toString().equals("0") {
+            if (editText.getText().toString().isEmpty() || editText.getText().toString().equals("0")) {
                 c++;
             }
         }
