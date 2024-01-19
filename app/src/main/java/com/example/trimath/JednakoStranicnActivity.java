@@ -75,7 +75,6 @@ public class JednakoStranicnActivity extends AppCompatActivity {
                 st.toastShort(this, getString(R.string.Unesite_samo_jednu_vrijednost));
             }
 
-
             // promijeni tekst na gumbu
             btn.setText(R.string.Izbrisi);
             // promijeni vrijednost zastavice
@@ -109,7 +108,7 @@ public class JednakoStranicnActivity extends AppCompatActivity {
             resetTextOfFields(strA, opseg, povrsina, visina, upis, opis);
             appendToText(text, _strA, _povrsina, _opseg, _visina, _upis, _opis);
         }
-        if (ed.equals(opseg)) {
+        else if (ed.equals(opseg)) {
             // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
             double _opseg = Double.parseDouble(ed.getText().toString());
             double _strA=_opseg/3;
@@ -120,7 +119,7 @@ public class JednakoStranicnActivity extends AppCompatActivity {
             resetTextOfFields(strA, opseg, povrsina, visina, upis, opis);
             appendToText(text, _strA, _povrsina, _opseg, _visina, _upis, _opis);
         }
-        if (ed.equals(povrsina)) {
+        else if (ed.equals(povrsina)) {
             // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
             double _povrsina = Double.parseDouble(ed.getText().toString());
             double _strA=Math.sqrt(4*_povrsina/Math.sqrt(3));
@@ -131,7 +130,7 @@ public class JednakoStranicnActivity extends AppCompatActivity {
             resetTextOfFields(strA, opseg, povrsina, visina, upis, opis);
             appendToText(text, _strA, _povrsina, _opseg, _visina, _upis, _opis);
         }
-        if (ed.equals(visina)) {
+        else if (ed.equals(visina)) {
             // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
             double _visina = Double.parseDouble(ed.getText().toString());
             double _strA=2*_visina/Math.sqrt(3);
@@ -142,7 +141,7 @@ public class JednakoStranicnActivity extends AppCompatActivity {
             resetTextOfFields(strA, opseg, povrsina, visina, upis, opis);
             appendToText(text, _strA, _povrsina, _opseg, _visina, _upis, _opis);
         }
-        if (ed.equals(upis)) {
+        else if (ed.equals(upis)) {
             // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
             double _upis = Double.parseDouble(ed.getText().toString());
             double _strA=6*_upis/Math.sqrt(3);
@@ -153,7 +152,7 @@ public class JednakoStranicnActivity extends AppCompatActivity {
             resetTextOfFields(strA, opseg, povrsina, visina, upis, opis);
             appendToText(text, _strA, _povrsina, _opseg, _visina, _upis, _opis);
         }
-        if (ed.equals(opis)) {
+        else if (ed.equals(opis)) {
             // dohvati vrijednost stranice a i izračunaj ostale vrijednosti
             double _opis = Double.parseDouble(ed.getText().toString());
             double _strA=3*_opis/Math.sqrt(3);

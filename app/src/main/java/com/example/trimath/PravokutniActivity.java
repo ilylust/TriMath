@@ -139,9 +139,8 @@ public class PravokutniActivity extends AppCompatActivity {
             double _strC = Math.sqrt((Math.pow(_strA,2) + Math.pow(_strB,2)));
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
-
         }
-        if (ed.equals(strA) && ed2.equals(strC)) {
+        else if (ed.equals(strA) && ed2.equals(strC)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
             double _strB = Math.sqrt((Math.pow(_strC,2) - Math.pow(_strA,2)));
@@ -154,7 +153,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(visina)) {
+        else if (ed.equals(strA) && ed2.equals(visina)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _visina = Double.parseDouble(visina.getText().toString());
             double _kutBeta = Math.asin(_visina/_strA);
@@ -165,7 +164,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(kutAlpha)) {
+        else if (ed.equals(strA) && ed2.equals(kutAlpha)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _kutAlpha = Double.parseDouble(ed2.getText().toString());
             double _strC = _strA/Math.sin(Math.toRadians(_kutAlpha));
@@ -174,8 +173,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-
-        if (ed.equals(strA) && ed2.equals(kutBeta)) {
+        else if (ed.equals(strA) && ed2.equals(kutBeta)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _kutBeta = Double.parseDouble(ed2.getText().toString());
             double _strC = _strA/Math.cos(Math.toRadians(_kutBeta));
@@ -184,8 +182,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-
-        if (ed.equals(strA) && ed2.equals(povrsina)) {
+        else if (ed.equals(strA) && ed2.equals(povrsina)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _strB = 2*_povrsina/_strA;
@@ -194,7 +191,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(strC)) {
+        else if (ed.equals(strB) && ed2.equals(strC)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
             double _strA = Math.sqrt(Math.pow(_strC,2) - Math.pow(_strB,2));
@@ -207,7 +204,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(kutAlpha)) {
+        else if (ed.equals(strB) && ed2.equals(kutAlpha)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _kutAlfa = Double.parseDouble(ed2.getText().toString());
             double _strC = _strB/Math.cos(Math.toRadians(_kutAlfa));
@@ -216,7 +213,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(kutBeta)) {
+        else if (ed.equals(strB) && ed2.equals(kutBeta)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _kutBeta = Double.parseDouble(ed2.getText().toString());
             double _strC = _strB/Math.sin(Math.toRadians(_kutBeta));
@@ -225,7 +222,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(visina)) {
+        else if (ed.equals(strB) && ed2.equals(visina)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _visina = Double.parseDouble(visina.getText().toString());
             double _kutAlpha = Math.asin(_visina/_strB);
@@ -236,7 +233,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(povrsina)) {
+        else if (ed.equals(strB) && ed2.equals(povrsina)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _strA = 2*_povrsina/_strB;
@@ -245,7 +242,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(strC)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(strC)) {
             double _kutAlpha = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
             double _strA = _strC * Math.sin(Math.toRadians(_kutAlpha));
@@ -254,7 +251,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(visina)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(visina)) {
             double _kutAlpha = Double.parseDouble(ed.getText().toString());
             double _visina = Double.parseDouble(ed2.getText().toString());
             double _strB =  _visina/Math.sin(Math.toRadians(_kutAlpha));
@@ -264,7 +261,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(strC)) {
+        else if (ed.equals(kutBeta) && ed2.equals(strC)) {
             double _kutBeta = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
             double _strA = _strC * Math.cos(Math.toRadians(_kutBeta));
@@ -273,7 +270,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(visina)) {
+        else if (ed.equals(kutBeta) && ed2.equals(visina)) {
             double _kutBeta = Double.parseDouble(ed.getText().toString());
             double _visina = Double.parseDouble(ed2.getText().toString());
             double _strA =  _visina/Math.sin(Math.toRadians(_kutBeta));
@@ -283,7 +280,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(povrsina) && ed2.equals(opseg)) {
+        else if (ed.equals(povrsina) && ed2.equals(opseg)) {
             double _povrsina = Double.parseDouble(ed.getText().toString());
             double _opseg = Double.parseDouble(ed2.getText().toString());
             // vrijednost da se formule ne ponavljaju
@@ -299,7 +296,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strC) && ed2.equals(opseg)) {
+        else if (ed.equals(strC) && ed2.equals(opseg)) {
             double _strC = Double.parseDouble(ed.getText().toString());
             double _opseg = Double.parseDouble(ed2.getText().toString());
             if ((2 * _opseg * _strC + Math.pow(_strC, 2)) < Math.pow(_opseg, 2)) {
@@ -312,7 +309,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(opseg)) {
+        else if (ed.equals(strB) && ed2.equals(opseg)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _opseg = Double.parseDouble(ed2.getText().toString());
             if (Math.pow(_opseg, 2) < (2 * _strB * _opseg)) {
@@ -325,7 +322,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(opseg)) {
+        else if (ed.equals(strA) && ed2.equals(opseg)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _opseg = Double.parseDouble(ed2.getText().toString());
             if (Math.pow(_opseg, 2) < (2 * _strA * _opseg)) {
@@ -338,7 +335,7 @@ public class PravokutniActivity extends AppCompatActivity {
             resetTextOfFields(strA,strB,strC, povrsina, opseg, visina, opis, upis,kutAlpha,kutBeta,visina);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strC) && ed2.equals(povrsina)) {
+        else if (ed.equals(strC) && ed2.equals(povrsina)) {
             double _strC = Double.parseDouble(ed.getText().toString());
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             if (Math.pow(_strC, 4) < (16 * Math.pow(_povrsina, 2))) {

@@ -95,7 +95,7 @@ public class KrugActivity extends AppCompatActivity {
             resetTextOfFields(polumjer, promjer, opseg, povrsina);
             appendToText(text, _polumjer, _promjer, _opseg, _povrsina);
         }
-        if (ed.equals(promjer)) {
+        else if (ed.equals(promjer)) {
             // izracunaj vrijednost polumjera i izračunaj ostale vrijednosti
             double _promjer = Double.parseDouble(ed.getText().toString());
             double _polumjer = _promjer/2;
@@ -104,7 +104,7 @@ public class KrugActivity extends AppCompatActivity {
             resetTextOfFields(polumjer, promjer, opseg, povrsina);
             appendToText(text, _polumjer, _promjer, _opseg, _povrsina);
         }
-        if (ed.equals(povrsina)) {
+        else if (ed.equals(povrsina)) {
             // izracunaj vrijednost polumjera i izračunaj ostale vrijednosti
             double _povrsina = Double.parseDouble(ed.getText().toString());
             double _polumjer = Math.sqrt(_povrsina/Math.PI);
@@ -113,7 +113,7 @@ public class KrugActivity extends AppCompatActivity {
             resetTextOfFields(polumjer, promjer, opseg, povrsina);
             appendToText(text, _polumjer, _promjer, _opseg, _povrsina);
         }
-        if (ed.equals(opseg)) {
+        else if (ed.equals(opseg)) {
             // izracunaj vrijednost polumjera i izračunaj ostale vrijednosti
             double _opseg = Double.parseDouble(ed.getText().toString());
             double _polumjer = _opseg/(2 * Math.PI);

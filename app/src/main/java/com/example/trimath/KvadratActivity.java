@@ -108,7 +108,7 @@ public class KvadratActivity extends AppCompatActivity {
             resetTextOfFields(strA, dijagonala, polupis, polopis, opseg, povrsina);
             appendToText(text, _strA, _dijagonala, _polupis, _polopis, _opseg, _povrsina);
         }
-        if (ed.equals(povrsina)) {
+        else if (ed.equals(povrsina)) {
             // račun za stranicu a iz površine
             double _strA = Double.parseDouble(ed.getText().toString());
             _strA = Math.sqrt(_strA);
@@ -120,7 +120,7 @@ public class KvadratActivity extends AppCompatActivity {
             resetTextOfFields(strA, dijagonala, polupis, polopis, opseg, povrsina);
             appendToText(text, _strA, _dijagonala, _polupis, _polopis, _opseg, _povrsina);
         }
-        if (ed.equals(opseg)) {
+        else if (ed.equals(opseg)) {
             // račun za stranicu a iz opsega
             double _strA = Double.parseDouble(ed.getText().toString());
             _strA = _strA/4;
@@ -132,7 +132,7 @@ public class KvadratActivity extends AppCompatActivity {
             resetTextOfFields(strA, dijagonala, polupis, polopis, opseg, povrsina);
             appendToText(text, _strA, _dijagonala, _polupis, _polopis, _opseg, _povrsina);
         }
-        if (ed.equals(dijagonala)) {
+        else if (ed.equals(dijagonala)) {
             // račun za stranicu a iz dijagonale
             double _strA = Double.parseDouble(ed.getText().toString());
             _strA = _strA/Math.sqrt(2);
@@ -144,7 +144,7 @@ public class KvadratActivity extends AppCompatActivity {
             resetTextOfFields(strA, dijagonala, polupis, polopis, opseg, povrsina);
             appendToText(text, _strA, _dijagonala, _polupis, _polopis, _opseg, _povrsina);
         }
-        if (ed.equals(polupis)) {
+        else if (ed.equals(polupis)) {
             // račun za stranicu a iz upisane kružnice
             double _strA = Double.parseDouble(ed.getText().toString());
             _strA = _strA*2;
@@ -156,7 +156,7 @@ public class KvadratActivity extends AppCompatActivity {
             resetTextOfFields(strA, dijagonala, polupis, polopis, opseg, povrsina);
             appendToText(text, _strA, _dijagonala, _polupis, _polopis, _opseg, _povrsina);
         }
-        if (ed.equals(polopis)) {
+        else if (ed.equals(polopis)) {
             // račun za stranicu a iz opisane kružnice
             double _strA = Double.parseDouble(ed.getText().toString());
             _strA = _strA*Math.sqrt(2);

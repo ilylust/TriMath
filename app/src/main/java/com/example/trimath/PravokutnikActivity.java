@@ -183,7 +183,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(strA) && ed2.equals(dijagonala)) {
+        else if (ed.equals(strA) && ed2.equals(dijagonala)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _dijagonala = Double.parseDouble(ed2.getText().toString());
             if (_strA >= _dijagonala) {
@@ -200,7 +200,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(strA) && ed2.equals(opiskru)) {
+        else if (ed.equals(strA) && ed2.equals(opiskru)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _polumjer = Double.parseDouble(ed2.getText().toString());
             double _dijagonala = _polumjer * 2;
@@ -212,7 +212,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(strA) && ed2.equals(kutAlpha)) {
+        else if (ed.equals(strA) && ed2.equals(kutAlpha)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _kutAlpha = Double.parseDouble(ed2.getText().toString());
             double _kutBeta = 180 - _kutAlpha;
@@ -224,7 +224,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(strA) && ed2.equals(kutBeta)) {
+        else if (ed.equals(strA) && ed2.equals(kutBeta)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _kutBeta = Double.parseDouble(ed2.getText().toString());
             double _kutAlpha = 180 - _kutBeta;
@@ -236,7 +236,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(strA) && ed2.equals(povrsina)) {
+        else if (ed.equals(strA) && ed2.equals(povrsina)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _strB = _povrsina/_strA;
@@ -248,7 +248,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(strA) && ed2.equals(opseg)) {
+        else if (ed.equals(strA) && ed2.equals(opseg)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _opseg = Double.parseDouble(ed2.getText().toString());
             if (_opseg <= (2 * _strA)) {
@@ -265,7 +265,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(strB) && ed2.equals(dijagonala)) {
+        else if (ed.equals(strB) && ed2.equals(dijagonala)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _dijagonala = Double.parseDouble(ed2.getText().toString());
             if (_strB >= _dijagonala) {
@@ -282,7 +282,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(strB) && ed2.equals(opiskru)) {
+        else if (ed.equals(strB) && ed2.equals(opiskru)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _polumjer = Double.parseDouble(ed2.getText().toString());
             double _dijagonala = _polumjer * 2;
@@ -294,7 +294,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(strB) && ed2.equals(kutAlpha)) {
+        else if (ed.equals(strB) && ed2.equals(kutAlpha)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _kutAlpha = Double.parseDouble(ed2.getText().toString());
             double _kutBeta = 180 - _kutAlpha;
@@ -306,7 +306,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(strB) && ed2.equals(kutBeta)) {
+        else if (ed.equals(strB) && ed2.equals(kutBeta)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _kutBeta = Double.parseDouble(ed2.getText().toString());
             double _kutAlpha = 180 - _kutBeta;
@@ -318,7 +318,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(strB) && ed2.equals(povrsina)) {
+        else if (ed.equals(strB) && ed2.equals(povrsina)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _strA = _povrsina/_strB;
@@ -330,7 +330,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(strB) && ed2.equals(opseg)) {
+        else if (ed.equals(strB) && ed2.equals(opseg)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double _opseg = Double.parseDouble(ed2.getText().toString());
             if (_opseg <= (2 * _strB)) {
@@ -347,7 +347,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(povrsina) && ed2.equals(opseg)) {
+        else if (ed.equals(povrsina) && ed2.equals(opseg)) {
             double _povrsina = Double.parseDouble(ed.getText().toString());
             double _opseg = Double.parseDouble(ed2.getText().toString());
             if (16 * _povrsina >= Math.pow(_opseg, 2)) {
@@ -364,7 +364,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(dijagonala) && ed2.equals(kutAlpha)) {
+        else if (ed.equals(dijagonala) && ed2.equals(kutAlpha)) {
             double _dijagonala = Double.parseDouble(ed.getText().toString());
             double _kutAlpha = Double.parseDouble(ed2.getText().toString());
             double _strA = _dijagonala * Math.sin(Math.toRadians(_kutAlpha/2));
@@ -376,7 +376,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(dijagonala) && ed2.equals(kutBeta)) {
+        else if (ed.equals(dijagonala) && ed2.equals(kutBeta)) {
             double _dijagonala = Double.parseDouble(ed.getText().toString());
             double _kutBeta = Double.parseDouble(ed2.getText().toString());
             double _kutAlpha = 180 - _kutBeta;
@@ -388,7 +388,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(dijagonala) && ed2.equals(povrsina)) {
+        else if (ed.equals(dijagonala) && ed2.equals(povrsina)) {
             double _dijagonala = Double.parseDouble(ed.getText().toString());
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _strA = Math.sqrt((Math.pow(_dijagonala, 2) + Math.sqrt(Math.pow(_dijagonala, 4) - (4 * Math.pow(_povrsina, 2))))/2);
@@ -400,7 +400,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(dijagonala) && ed2.equals(opseg)) {
+        else if (ed.equals(dijagonala) && ed2.equals(opseg)) {
             double _dijagonala = Double.parseDouble(ed.getText().toString());
             double _opseg = Double.parseDouble(ed2.getText().toString());
             if (_opseg <= (_dijagonala * 2)) {
@@ -417,7 +417,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(opiskru) && ed2.equals(kutAlpha)) {
+        else if (ed.equals(opiskru) && ed2.equals(kutAlpha)) {
             double _polumjer = Double.parseDouble(ed.getText().toString());
             double _kutAlpha = Double.parseDouble(ed2.getText().toString());
             double _kutBeta = 180 - _kutAlpha;
@@ -429,7 +429,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(opiskru) && ed2.equals(kutBeta)) {
+        else if (ed.equals(opiskru) && ed2.equals(kutBeta)) {
             double _polumjer = Double.parseDouble(ed.getText().toString());
             double _kutBeta = Double.parseDouble(ed2.getText().toString());
             double _kutAlpha = 180 - _kutBeta;
@@ -441,7 +441,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(opiskru) && ed2.equals(povrsina)) {
+        else if (ed.equals(opiskru) && ed2.equals(povrsina)) {
             double _polumjer = Double.parseDouble(ed.getText().toString());
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _dijagonala = 2 * _polumjer;
@@ -453,7 +453,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(opiskru) && ed2.equals(opseg)) {
+        else if (ed.equals(opiskru) && ed2.equals(opseg)) {
             double _polumjer = Double.parseDouble(ed.getText().toString());
             double _opseg = Double.parseDouble(ed2.getText().toString());
             double _dijagonala = 2 * _polumjer;
@@ -470,7 +470,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(povrsina)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(povrsina)) {
             double _kutAlpha = Double.parseDouble(ed.getText().toString());
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _strA = Math.sqrt(_povrsina * Math.tan(Math.toRadians(_kutAlpha)/2));
@@ -482,7 +482,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(opseg)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(opseg)) {
             double _kutAlpha = Double.parseDouble(ed.getText().toString());
             double _opseg = Double.parseDouble(ed2.getText().toString());
             double _strA = (_opseg * Math.tan(Math.toRadians(_kutAlpha)/2))/(2 * (Math.tan(Math.toRadians(_kutAlpha)/2) + 1));
@@ -494,7 +494,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(kutBeta) && ed2.equals(povrsina)) {
+        else if (ed.equals(kutBeta) && ed2.equals(povrsina)) {
             double _kutBeta = Double.parseDouble(ed.getText().toString());
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _kutAlpha = 180 - _kutBeta;
@@ -506,7 +506,7 @@ public class PravokutnikActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, dijagonala, opiskru, kutAlpha, kutBeta, povrsina, opseg);
             appendToText(text, _strA, _strB, _dijagonala, _polumjer, _kutAlpha, _kutBeta, _opseg, _povrsina);
         }
-        if (ed.equals(kutBeta) && ed2.equals(opseg)) {
+        else if (ed.equals(kutBeta) && ed2.equals(opseg)) {
             double _kutBeta = Double.parseDouble(ed.getText().toString());
             double _opseg = Double.parseDouble(ed2.getText().toString());
             double _kutAlpha = 180 - _kutBeta;
