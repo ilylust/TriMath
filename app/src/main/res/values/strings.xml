@@ -59,6 +59,9 @@
     <string name="Postotak">Postotak</string>
     <string name="Proporcionalnost">Proporcionalnost</string>
     <string name="Obrnuta_proporcionalnost">Obrnuta proporcionalnost</string>
+    <string name="Linearna_jednadžba">Linearna jednadžba</string>
+    <string name="Kvadratna_jednadzba">Kvadratna jednadžba</string>
+    <string name="Sustav_jednadzbi">Sustav jednadžbi</string>
     <string name="Geometrijska_tijela">Geometrijska tijela</string>
     <string name="Geometrijski_likovi">Geometrijski likovi</string>
     <string name="nepoznanica_postotak">X %</string>

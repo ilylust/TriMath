@@ -1,6 +1,7 @@
 package com.example.trimath;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
@@ -19,6 +20,8 @@ public class PostotakActivity extends AppCompatActivity {
     int f = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // ugasi dark mode
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_postotak);
 

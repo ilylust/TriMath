@@ -62,7 +62,7 @@
     <EditText
         android:id="@+id/editTextNumber24"
         android:hint="X"
-        android:layout_width="75dp"
+        android:layout_width="110dp"
         android:layout_height="48dp"
         android:ems="10"
         android:inputType="number|numberDecimal"
@@ -76,7 +76,7 @@
     <EditText
         android:id="@+id/editTextNumber25"
         android:hint="Y"
-        android:layout_width="75dp"
+        android:layout_width="110dp"
         android:layout_height="48dp"
         android:ems="10"
         android:inputType="number|numberDecimal"
@@ -90,7 +90,7 @@
     <EditText
         android:id="@+id/editTextNumber26"
         android:hint="x"
-        android:layout_width="75dp"
+        android:layout_width="110dp"
         android:layout_height="48dp"
         android:ems="10"
         android:inputType="number|numberDecimal"
@@ -104,7 +104,7 @@
     <EditText
         android:id="@+id/editTextNumber27"
         android:hint="y"
-        android:layout_width="75dp"
+        android:layout_width="110dp"
         android:layout_height="48dp"
         android:ems="10"
         android:inputType="number|numberDecimal"

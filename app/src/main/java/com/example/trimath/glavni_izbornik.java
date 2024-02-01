@@ -41,6 +41,7 @@ public class glavni_izbornik extends AppCompatActivity {
         // otvori meni za geo likove
         btn.setOnClickListener(v -> {
             try {
+                // ndms preimenovat mozda kasnije
                 openActivity(MainActivity.class);
             } catch (Exception ex) {
                 st.toastShort(this, "ERR");
@@ -49,7 +50,7 @@ public class glavni_izbornik extends AppCompatActivity {
         // meni za geo tijela
         btn2.setOnClickListener(v -> {
             try {
-                //openActivity();
+                //openActivity(GeometrijskaTijelaMenu.class);
             } catch (Exception ex) {
                 st.toastShort(this, "ERR");
             }
@@ -65,7 +66,7 @@ public class glavni_izbornik extends AppCompatActivity {
         // meni za račune s jednadžbama
         btn4.setOnClickListener(v -> {
             try {
-                //openActivity(JednadzbeActivity.class);
+                openActivity(JednadzbeMenuActivity.class);
             } catch (Exception ex) {
                 st.toastShort(this, "ERR");
             }
@@ -78,6 +79,8 @@ public class glavni_izbornik extends AppCompatActivity {
                 st.toastShort(this, "ERR");
             }
         });
+        // kad se klikne back button na glavnom meniju/izborniku da se
+        // prikaže poruka jesu li sigurni žele li izaći il ne
         OnBackPressedCallback bCallback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {

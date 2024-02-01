@@ -86,13 +86,14 @@
 
     <EditText
         android:id="@+id/editTextNumber30"
-        android:layout_width="75dp"
+        android:layout_width="110dp"
         android:layout_height="48dp"
         android:ems="10"
         android:hint="@string/slovo_Z"
         android:importantForAutofill="no"
         android:enabled="false"
         android:inputType="text"
+        android:scrollbars="horizontal"
         android:textColorHint="@color/color4"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toTopOf="@id/radioButton3"
