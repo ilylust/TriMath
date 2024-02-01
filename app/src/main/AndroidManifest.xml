@@ -13,36 +13,59 @@
         android:theme="@style/Theme.TriMath"
         tools:targetApi="31">
         <activity
+            android:name=".PostotakActivity"
+            android:parentActivityName=".glavni_izbornik"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".ProporcionalnostActivity"
+            android:exported="false"
+            android:parentActivityName=".glavni_izbornik"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:parentActivityName=".glavni_izbornik"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".TrokutMenu"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PravokutnikActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".KvadratActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".KrugActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PravokutniActivity"
             android:exported="false"
-            android:parentActivityName=".TrokutMenu"/>
+            android:parentActivityName=".TrokutMenu"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".JednakoStranicnActivity"
             android:exported="false"
-            android:parentActivityName=".TrokutMenu"/>
+            android:parentActivityName=".TrokutMenu"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RaznoStranicniActivity"
             android:exported="false"
-            android:parentActivityName=".TrokutMenu"/>
+            android:parentActivityName=".TrokutMenu"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".glavni_izbornik"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

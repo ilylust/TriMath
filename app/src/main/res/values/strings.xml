@@ -1,4 +1,5 @@
 <resources>
+    <string name="prazno"> </string>
     <string name="app_name">TriMath</string>
     <string name="Kvadrat">Kvadrat</string>
     <string name="Pravokutnik">Pravokutnik</string>
@@ -16,6 +17,8 @@
     <string name="Unesite_jednu_vrijednost">Unesite jednu vrijednost!</string>
     <string name="Unesite_samo_dvije_vrijednosti">Unesite samo dvije vrijednosti!</string>
     <string name="Unesite_dvije_vrijednosti">Unesite dvije vrijednosti!</string>
+    <string name="Unesite_tri_vrijednosti">Unesite tri vrijednosti!</string>
+    <string name="Unesite_samo_tri_vrijednosti">Unesite samo tri vrijednosti!</string>
     <string name="Izbrisi">Izbriši</string>
     <string name="nakvadratznak">²</string>
     <string name="stupnjeviznak">°</string>
@@ -40,6 +43,7 @@
     <string name="alpha">(alpha)</string>
     <string name="beta">(beta)</string>
     <string name="gama">(gama)</string>
+    <string name="posto_znak">%</string>
     <string name="Jednako_kracni">Jednakokračni trokut</string>
     <string name="Pravo_kutni">Pravokutni trokut</string>
     <string name="Razno_stranicni">Raznostranični trkout</string>
@@ -50,4 +54,20 @@
     <string name="visina_A">(visina A)</string>
     <string name="visina_B">(visina B)</string>
     <string name="visina_C">(visina C)</string>
+    <string name="Kalkulatori">Kalkulatori</string>
+    <string name="Jednadzbe">Jednadžbe</string>
+    <string name="Postotak">Postotak</string>
+    <string name="Proporcionalnost">Proporcionalnost</string>
+    <string name="Obrnuta_proporcionalnost">Obrnuta proporcionalnost</string>
+    <string name="Geometrijska_tijela">Geometrijska tijela</string>
+    <string name="Geometrijski_likovi">Geometrijski likovi</string>
+    <string name="nepoznanica_postotak">X %</string>
+    <string name="neki_broj">broja Y</string>
+    <string name="broj_X">Broj X</string>
+    <string name="doslovno_samo_od">od</string>
+    <string name="je_jednako">= </string>
+    <string name="x_posto_od_broja_y">X% od broja Y</string>
+    <string name="broj_x_je_posto_broja_y">Broj X je Z% od broja Y</string>
+    <string name="slovo_Z">Z</string>
+    <string name="slovo_Z_postotak">Z%</string>
 </resources>

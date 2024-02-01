@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="?attr/homeAsUpIndicator"
         android:backgroundTint="@color/color3"
-        app:title="@string/Izbornik" />
+        app:title="@string/Geometrijski_likovi" />
 
     <ImageView
         android:id="@+id/imageView"

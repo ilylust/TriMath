@@ -283,6 +283,68 @@ public class RaznoStranicniActivity extends AppCompatActivity {
                 izracunaj(strA, strC, visinab, "cm");
             } else if ((!checkEmpty(strA) && !checkEmpty(strC) && !checkEmpty(visinac)) && checkEmpty(kutAlpha, visinaa, upis, opseg, visinab , kutGama ,kutBeta ,strB,povrsina,opis)) {
                 izracunaj(strA, strC, visinac, "cm");
+            } else if ((!checkEmpty(strB) && !checkEmpty(upis))) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(strC) && !checkEmpty(opis) && !checkEmpty(kutBeta)) && checkEmpty(strA,strB,upis,kutAlpha,kutGama,povrsina,opseg,visinaa,visinab,visinac)) {
+                izracunaj(strC, opis, kutBeta, "cm");
+            } else if ((!checkEmpty(strC) && !checkEmpty(opis) && !checkEmpty(kutGama)) && checkEmpty(strA,strB,upis,kutAlpha,kutBeta,povrsina,opseg,visinaa,visinab,visinac)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(strC) && !checkEmpty(opis) && !checkEmpty(povrsina)) && checkEmpty(strA,strB,upis,kutAlpha,opseg,kutGama,kutBeta,visinaa,visinab,visinac)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(strC) && !checkEmpty(opis) && !checkEmpty(opseg)) && checkEmpty(strA,strB,upis,kutAlpha,povrsina,kutGama,kutBeta,visinaa,visinab,visinac)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(strC) && !checkEmpty(opis) && !checkEmpty(visinaa)) && checkEmpty(strA,strB,upis,kutAlpha,povrsina,kutGama,kutBeta,opseg,visinab,visinac)) {
+                izracunaj(strC, opis, visinaa, "cm");
+            } else if ((!checkEmpty(strC) && !checkEmpty(opis) && !checkEmpty(visinab)) && checkEmpty(strA,strB,upis,kutAlpha,povrsina,kutGama,kutBeta,opseg,visinaa,visinac)) {
+                izracunaj(strC, opis, visinab, "cm");
+            } else if ((!checkEmpty(strC) && !checkEmpty(opis) && !checkEmpty(visinac)) && checkEmpty(strA,strB,upis,kutAlpha,povrsina,kutGama,kutBeta,opseg,visinab,visinaa)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            }  else if ((!checkEmpty(upis) && !checkEmpty(kutAlpha))) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(strA)) && checkEmpty(visinaa,strB,upis,kutAlpha,povrsina,kutGama,strC,opseg,visinab,visinac)) {
+                izracunaj(opis, kutBeta, strA, "cm");
+            } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(povrsina)) && checkEmpty(visinaa,strA,upis,kutAlpha,strB,kutGama,strC,opseg,visinab,visinac)) {
+                izracunaj(opis, kutBeta, povrsina, "cm");
+            } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(opseg)) && checkEmpty(visinaa,strA,upis,kutAlpha,strB,kutGama,strC,povrsina,visinab,visinac)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(visinaa)) && checkEmpty(povrsina,strA,upis,kutAlpha,strB,kutGama,strC,opseg,visinab,visinac)) {
+                izracunaj(opis, kutBeta, visinaa, "cm");
+            } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(visinab)) && checkEmpty(povrsina,strA,upis,kutAlpha,strB,kutGama,strC,opseg,visinaa,visinac)) {
+                izracunaj(opis, kutBeta, visinab, "cm");
+            } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(visinac)) && checkEmpty(povrsina,strA,upis,kutAlpha,strB,kutGama,strC,opseg,visinab,visinaa)) {
+                izracunaj(opis, kutBeta, visinac, "cm");
+            } else if ((!checkEmpty(kutAlpha) && !checkEmpty(kutGama) && !checkEmpty(strA)) && checkEmpty(povrsina,opis,upis,visinac,strB,kutBeta,strC,opseg,visinab,visinaa)) {
+                izracunaj(kutAlpha, kutGama, strA, "cm");
+            } else if ((!checkEmpty(kutAlpha) && !checkEmpty(kutGama) && !checkEmpty(strB)) && checkEmpty(povrsina,opis,upis,visinac,strA,kutBeta,strC,opseg,visinab,visinaa)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(kutAlpha) && !checkEmpty(kutGama) && !checkEmpty(strC)) && checkEmpty(povrsina,opis,upis,visinac,strB,kutBeta,strA,opseg,visinab,visinaa)) {
+                izracunaj(kutAlpha, kutGama, strC, "cm");
+            } else if ((!checkEmpty(kutAlpha) && !checkEmpty(kutGama) && !checkEmpty(opseg)) && checkEmpty(povrsina,opis,upis,visinac,strB,kutBeta,strA,strC,visinab,visinaa)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(kutAlpha) && !checkEmpty(kutGama) && !checkEmpty(povrsina)) && checkEmpty(opseg,opis,upis,visinac,strB,kutBeta,strA,strC,visinab,visinaa)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(kutAlpha) && !checkEmpty(kutGama) && !checkEmpty(visinaa)) && checkEmpty(opseg,opis,upis,visinac,strB,kutBeta,strA,strC,visinab,povrsina)) {
+                izracunaj(kutAlpha, kutGama, visinaa, "cm");
+            } else if ((!checkEmpty(kutAlpha) && !checkEmpty(kutGama) && !checkEmpty(visinab)) && checkEmpty(opseg,opis,upis,visinac,strB,kutBeta,strA,strC,visinaa,povrsina)) {
+                izracunaj(kutAlpha, kutGama, visinab, "cm");
+            } else if ((!checkEmpty(kutAlpha) && !checkEmpty(kutGama) && !checkEmpty(visinac)) && checkEmpty(opseg,opis,upis,visinaa,strB,kutBeta,strA,strC,visinab,povrsina)) {
+                izracunaj(kutAlpha, kutGama, visinac, "cm");
+            } else if ((!checkEmpty(kutBeta) && !checkEmpty(povrsina) && !checkEmpty(strA)) && checkEmpty(opseg,opis,upis,visinaa,strB,kutAlpha,visinac,strC,visinab,kutGama)) {
+                izracunaj(kutBeta, povrsina, strA, "cm");
+            } else if ((!checkEmpty(kutBeta) && !checkEmpty(povrsina) && !checkEmpty(strB)) && checkEmpty(opseg,opis,upis,visinaa,strA,kutAlpha,visinac,strC,visinab,kutGama)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(kutBeta) && !checkEmpty(povrsina) && !checkEmpty(strC)) && checkEmpty(opseg,opis,upis,visinaa,strA,kutAlpha,visinac,strB,visinab,kutGama)) {
+                izracunaj(kutBeta, povrsina, strC, "cm");
+            } else if ((!checkEmpty(kutBeta) && !checkEmpty(povrsina) && !checkEmpty(upis)) && checkEmpty(opseg,opis,strB,visinaa,strA,kutAlpha,visinac,strC,visinab,kutGama)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(kutBeta) && !checkEmpty(povrsina) && !checkEmpty(visinaa)) && checkEmpty(opseg,opis,strB,upis,strA,kutAlpha,visinac,strC,visinab,kutGama)) {
+                izracunaj(kutBeta, povrsina, visinaa, "cm");
+            } else if ((!checkEmpty(kutBeta) && !checkEmpty(povrsina) && !checkEmpty(visinab)) && checkEmpty(opseg,opis,strB,upis,strA,kutAlpha,visinac,strC,visinaa,kutGama)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(kutBeta) && !checkEmpty(povrsina) && !checkEmpty(visinac)) && checkEmpty(opseg,opis,strB,upis,strA,kutAlpha,visinaa,strC,visinab,kutGama)) {
+                izracunaj(kutBeta, povrsina, visinac, "cm");
+            } else if ((!checkEmpty(kutGama) && !checkEmpty(opseg))) {
+                st.toastShort(this, getString(R.string.nije_moguce));
             }
 
             // promijeni tekst na gumbu
@@ -638,9 +700,9 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _strB = Double.parseDouble(ed3.getText().toString());
-
-            double _strA = (_strB*Math.sin(Math.PI-_kutBeta-_kutGama))/Math.sin(_kutBeta);
-            double _strC = (_strB*Math.sin(Math.PI-_kutBeta-_kutGama))/Math.sin(_kutGama);
+            double _t=_strB*Math.sin(Math.PI-_kutBeta-_kutGama);
+            double _strA = _t/Math.sin(_kutBeta);
+            double _strC = _t/Math.sin(_kutGama);
 
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
@@ -1043,6 +1105,183 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
+        if (ed.equals(strC) && ed2.equals(opis) && ed3.equals(kutBeta)) {
+            double _strC = Double.parseDouble(ed.getText().toString());
+            double _opis = Double.parseDouble(ed2.getText().toString());
+            double _kutBeta = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
+            double _kutGama = Math.asin(_strC/(2*_opis));
+            double _strB = 2*_opis*Math.sin(_kutBeta);
+            double _strA = Math.sqrt(Math.pow(_strB,2)+Math.pow(_strC,2)-2*_strB*_strC*Math.cos(Math.PI-_kutBeta-_kutGama));
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+
+        if (ed.equals(strC) && ed2.equals(opis) && ed3.equals(visinaa)) {
+            double _strC = Double.parseDouble(ed.getText().toString());
+            double _opis = Double.parseDouble(ed2.getText().toString());
+            double _visinaa =Double.parseDouble(ed3.getText().toString());
+            double _kutGama = Math.asin(_strC/(2*_opis));
+            double _strB = _visinaa/Math.sin(_kutGama);
+            double _kutBeta = Math.asin(_strB/(2*_opis));
+            double _strA = Math.sqrt(Math.pow(_strB,2)+Math.pow(_strC,2)-2*_strB*_strC*Math.cos(Math.PI-_kutBeta-_kutGama));
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(strC) && ed2.equals(opis) && ed3.equals(visinab)) {
+            double _strC = Double.parseDouble(ed.getText().toString());
+            double _opis = Double.parseDouble(ed2.getText().toString());
+            double _visinab =Double.parseDouble(ed3.getText().toString());
+            double _kutGama = Math.asin(_strC/(2*_opis));
+            double _strA = _visinab/Math.sin(_kutGama);
+            double _kutAlpha = Math.asin(_strA/(2*_opis));
+            double _strB = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strC,2)-2*_strA*_strC*Math.cos(Math.PI-_kutAlpha-_kutGama));
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        } if (ed.equals(opis) && ed2.equals(kutBeta) && ed3.equals(strA)) {
+            double _opis = Double.parseDouble(ed.getText().toString());
+            double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
+            double _strA =Double.parseDouble(ed3.getText().toString());
+            double _kutAlpha = Math.asin(_strA/(2*_opis));
+            double _strB = Math.sin(_kutBeta)*2*_opis;
+            double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2)-2*_strA*_strB*Math.cos(Math.PI-_kutAlpha-_kutBeta));
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }  if (ed.equals(opis) && ed2.equals(kutBeta) && ed3.equals(visinaa)) {
+            double _opis = Double.parseDouble(ed.getText().toString());
+            double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
+            double _visinaa =Double.parseDouble(ed3.getText().toString());
+            double _strC = _visinaa/Math.sin(_kutBeta);
+            double _strB = Math.sin(_kutBeta)*2*_opis;
+            double _kutAlpha = Math.PI-_kutBeta-Math.asin(_strC/(2*_opis));
+            double _strA = Math.sqrt(Math.pow(_strB,2)+Math.pow(_strC,2)-2*_strB*_strC*Math.cos(_kutAlpha));
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        } if (ed.equals(opis) && ed2.equals(kutBeta) && ed3.equals(visinac)) {
+            double _opis = Double.parseDouble(ed.getText().toString());
+            double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
+            double _visinac =Double.parseDouble(ed3.getText().toString());
+
+            double _strA = _visinac/Math.sin(_kutBeta);
+            double _strB = Math.sin(_kutBeta)*2*_opis;
+            double _kutAlpha = Math.PI-_kutBeta-Math.asin(_strA/(2*_opis));
+            double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2)-2*_strA*_strB*Math.cos(_kutAlpha));
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(opis) && ed2.equals(kutBeta) && ed3.equals(visinac)) {
+            double _opis = Double.parseDouble(ed.getText().toString());
+            double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
+            double _visinac =Double.parseDouble(ed3.getText().toString());
+
+            double _strA = _visinac/Math.sin(_kutBeta);
+            double _strB = Math.sin(_kutBeta)*2*_opis;
+            double _kutAlpha = Math.PI-_kutBeta-Math.asin(_strA/(2*_opis));
+            double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2)-2*_strA*_strB*Math.cos(_kutAlpha));
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(strA)) {
+            double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
+            double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
+            double _strA =Double.parseDouble(ed3.getText().toString());
+            double _strC=(_strA*Math.sin(_kutGama))/Math.sin(_kutAlpha);
+            double _strB = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strC,2)-2*_strA*_strC*Math.cos(Math.PI-_kutAlpha-_kutGama));
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(strC)) {
+            double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
+            double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
+            double _strC =Double.parseDouble(ed3.getText().toString());
+            double _strA=  (_strC*Math.sin(_kutAlpha))/Math.sin(_kutGama);
+            double _strB = Math.sqrt(Math.pow(_strC,2)+Math.pow(_strA,2)-2*_strC*_strA*Math.cos(Math.PI-_kutAlpha-_kutGama));
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(visinaa)) {
+            double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
+            double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
+            double _visinaa =Double.parseDouble(ed3.getText().toString());
+            double _strB = _visinaa/Math.sin(_kutGama);
+            double _strC = _visinaa/Math.sin(Math.PI-_kutAlpha-_kutGama);
+            double _strA=  (_strC*Math.sin(_kutAlpha))/Math.sin(_kutGama);
+
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(visinab)) {
+            double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
+            double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
+            double _visinab =Double.parseDouble(ed3.getText().toString());
+            double _strA=  _visinab/Math.sin(_kutGama);
+            double _strC = _visinab/Math.sin(_kutAlpha);
+            double _strB = (_strC*Math.sin(_kutAlpha))/Math.sin(_kutGama);
+
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(visinac)) {
+            double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
+            double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
+            double _visinac =Double.parseDouble(ed3.getText().toString());
+            double _strB = _visinac/Math.sin(_kutAlpha);
+
+            double _strA = _visinac/Math.sin(Math.PI-_kutAlpha-_kutGama);
+            double _strC = Math.sqrt(Math.pow(_strB,2)+Math.pow(_strA,2)-2*_strB*_strA*Math.cos(_kutGama));
+
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(kutBeta) && ed2.equals(povrsina) && ed3.equals(strA)) {
+            double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
+            double _povrsina = Double.parseDouble(ed2.getText().toString());
+            double _strA =Double.parseDouble(ed3.getText().toString());
+            double _visinaa = 2*_povrsina/_strA;
+            double _strC = _visinaa/Math.sin(_kutBeta);
+            double _strB = Math.sqrt(Math.pow(_strC,2)+Math.pow(_strA,2)-2*_strC*_strA*Math.cos(_kutBeta));
+
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(kutBeta) && ed2.equals(povrsina) && ed3.equals(strC)) {
+            double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
+            double _povrsina = Double.parseDouble(ed2.getText().toString());
+            double _strC =Double.parseDouble(ed3.getText().toString());
+            double _visinac = 2*_povrsina/_strC;
+            double _strA = _visinac/Math.sin(_kutBeta);
+            double _strB = Math.sqrt(Math.pow(_strC,2)+Math.pow(_strA,2)-2*_strC*_strA*Math.cos(_kutBeta));
+
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(kutBeta) && ed2.equals(povrsina) && ed3.equals(visinaa)) {
+            double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
+            double _povrsina = Double.parseDouble(ed2.getText().toString());
+            double _visinaa =Double.parseDouble(ed3.getText().toString());
+            double _strA = (2*_povrsina)/_visinaa;
+            double _strC = _visinaa/Math.sin(_kutBeta);
+            double _strB = Math.sqrt(Math.pow(_strC,2)+Math.pow(_strA,2)-2*_strC*_strA*Math.cos(_kutBeta));
+
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+        if (ed.equals(kutBeta) && ed2.equals(povrsina) && ed3.equals(visinac)) {
+            double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
+            double _povrsina = Double.parseDouble(ed2.getText().toString());
+            double _visinac =Double.parseDouble(ed3.getText().toString());
+            double _strC = (2*_povrsina)/_visinac;
+            double _strA = _visinac/Math.sin(_kutBeta);
+            double _strB = Math.sqrt(Math.pow(_strC,2)+Math.pow(_strA,2)-2*_strC*_strA*Math.cos(_kutBeta));
+
+            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            izracunaj(_strA,_strB,_strC,text);
+        }
+
+
+
+
+
+
 
 
 

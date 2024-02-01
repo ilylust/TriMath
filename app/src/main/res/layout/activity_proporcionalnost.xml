@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color1"
+    tools:context=".ProporcionalnostActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        android:backgroundTint="@color/color3"
+        app:title="@string/Proporcionalnost" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/Proporcionalnost"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/radioButton2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber27" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Obrnuta_proporcionalnost"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button8"
+        app:layout_constraintTop_toBottomOf="@id/radioButton" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Izracunaj"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioButton2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/color4"
+        />
+
+    <EditText
+        android:id="@+id/editTextNumber24"
+        android:hint="X"
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="number|numberDecimal"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/color4"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumber25"
+        app:layout_constraintEnd_toStartOf="@id/editTextNumber26"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <EditText
+        android:id="@+id/editTextNumber25"
+        android:hint="Y"
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="number|numberDecimal"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/color4"
+        app:layout_constraintBottom_toTopOf="@id/radioButton"
+        app:layout_constraintEnd_toStartOf="@id/editTextNumber27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber24" />
+
+    <EditText
+        android:id="@+id/editTextNumber26"
+        android:hint="x"
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="number|numberDecimal"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/color4"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumber27"
+        app:layout_constraintStart_toEndOf="@id/editTextNumber24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <EditText
+        android:id="@+id/editTextNumber27"
+        android:hint="y"
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="number|numberDecimal"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/color4"
+        app:layout_constraintStart_toEndOf="@id/editTextNumber25"
+        app:layout_constraintBottom_toTopOf="@id/radioButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber26" />
+</androidx.constraintlayout.widget.ConstraintLayout>
