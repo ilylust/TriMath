@@ -26,23 +26,22 @@ public class glavni_izbornik extends AppCompatActivity {
         btn4 = findViewById(R.id.button7);
         btn5 = findViewById(R.id.button8);
 
+        // koristi se za iskočni prozorčić za potvrdu izlaza iz aplikacije
+        AlertDialog.Builder builder = new AlertDialog.Builder(glavni_izbornik.this);
+        builder.setMessage("Želite li izaći iz aplikacije?")
+                .setCancelable(true)
+                .setPositiveButton("Da", (dialog, id) -> finish())
+                .setNegativeButton("Ne", (dialog, id) -> dialog.cancel());
+        AlertDialog alert = builder.create();
+
         // Deklaracija i inicijalizacija navigacijske trake
         Toolbar tb = findViewById(R.id.toolbar);
         // Inicijalizacija slušatelja događaja
-        tb.setNavigationOnClickListener(v -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Želite li izaći iz aplikacije?")
-                    .setCancelable(true)
-                    .setPositiveButton("Da", (dialog, id) -> finish())
-                    .setNegativeButton("Ne", (dialog, id) -> dialog.cancel());
-            AlertDialog alert = builder.create();
-            alert.show();
-        });
+        tb.setNavigationOnClickListener(v -> alert.show());
         // otvori meni za geo likove
         btn.setOnClickListener(v -> {
             try {
-                // ndms preimenovat mozda kasnije
-                openActivity(MainActivity.class);
+                openActivity(GeometrijskiLikoviMenu.class);
             } catch (Exception ex) {
                 st.toastShort(this, "ERR");
             }
@@ -50,7 +49,7 @@ public class glavni_izbornik extends AppCompatActivity {
         // meni za geo tijela
         btn2.setOnClickListener(v -> {
             try {
-                //openActivity(GeometrijskaTijelaMenu.class);
+                openActivity(GeometrijskaTijelaMenu.class);
             } catch (Exception ex) {
                 st.toastShort(this, "ERR");
             }
@@ -84,12 +83,6 @@ public class glavni_izbornik extends AppCompatActivity {
         OnBackPressedCallback bCallback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(glavni_izbornik.this);
-                builder.setMessage("Želite li izaći iz aplikacije?")
-                        .setCancelable(true)
-                        .setPositiveButton("Da", (dialog, id) -> finish())
-                        .setNegativeButton("Ne", (dialog, id) -> dialog.cancel());
-                AlertDialog alert = builder.create();
                 alert.show();
             }
         };

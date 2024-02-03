@@ -12,7 +12,7 @@ public class SimplifiedToast {
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
     }
 
-    public void toastLong(Context context, String text) {
+    /*public void toastLong(Context context, String text) { <- nikad se ne koristi..
         Toast.makeText(context, text, Toast.LENGTH_LONG).show();
-    }
+    }*/
 }

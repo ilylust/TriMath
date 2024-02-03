@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/color1"
-    tools:context=".MainActivity">
+    tools:context=".GeometrijskiLikoviMenu">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -26,6 +26,7 @@
 
     <ImageView
         android:id="@+id/imageView"
+        android:contentDescription="@string/Kvadrat"
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
@@ -36,6 +37,7 @@
 
     <ImageView
         android:id="@+id/imageView2"
+        android:contentDescription="@string/Pravokutnik"
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
@@ -46,6 +48,7 @@
 
     <ImageView
         android:id="@+id/imageView3"
+        android:contentDescription="@string/Krug"
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,6 +59,7 @@
 
     <ImageView
         android:id="@+id/imageView4"
+        android:contentDescription="@string/Trokut"
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"

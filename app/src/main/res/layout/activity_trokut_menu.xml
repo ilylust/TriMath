@@ -10,6 +10,7 @@
 
     <ImageView
         android:id="@+id/pravokut"
+        android:contentDescription="@string/Pravo_kutni"
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,10 +18,11 @@
         app:layout_constraintStart_toEndOf="@id/jedstr"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintVertical_bias="0.235"
-        app:srcCompat="@drawable/pravokutnitr" />
+        app:srcCompat="@drawable/prav_trokut" />
 
     <ImageView
         android:id="@+id/jedstr"
+        android:contentDescription="@string/Jednako_stranicni"
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:layout_constraintBottom_toTopOf="@id/razstr"
@@ -31,6 +33,7 @@
 
     <ImageView
         android:id="@+id/razstr"
+        android:contentDescription="@string/Razno_stranicni"
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +41,7 @@
         app:layout_constraintHorizontal_bias="0.141"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jedstr"
-        app:srcCompat="@drawable/raznostr" />
+        app:srcCompat="@drawable/raz_trokut" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

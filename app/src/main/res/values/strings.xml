@@ -72,5 +72,9 @@
     <string name="x_posto_od_broja_y">X% od broja Y</string>
     <string name="broj_x_je_posto_broja_y">Broj X je Z% od broja Y</string>
     <string name="slovo_Z">Z</string>
+    <string name="slovo_X">X</string>
+    <string name="slovo_x">x</string>
+    <string name="slovo_Y">Y</string>
+    <string name="slovo_y">y</string>
     <string name="slovo_Z_postotak">Z%</string>
 </resources>

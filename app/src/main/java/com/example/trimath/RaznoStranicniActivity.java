@@ -360,8 +360,6 @@ public class RaznoStranicniActivity extends AppCompatActivity {
         changeInputType(InputType.TYPE_CLASS_TEXT, strA, strB, strC, upis, opis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
 
         if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(strC)) {
-
-
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _strC = Double.parseDouble(ed3.getText().toString());
@@ -372,7 +370,6 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             }
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
-
         }
         if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(opis)) {
             double _strA = Double.parseDouble(ed.getText().toString());

@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class GeometrijskiLikoviMenu extends AppCompatActivity {
 
     ImageView kvadrat, pravokutnik, trokut, krug;
     SimplifiedToast st = new SimplifiedToast();

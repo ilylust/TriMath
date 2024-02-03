@@ -27,7 +27,8 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button4"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
+        android:minWidth="150dp"
         android:layout_height="150dp"
         android:text="@string/Geometrijski_likovi"
         android:textSize="20sp"
@@ -43,18 +44,19 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button5"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
+        android:maxWidth="150dp"
         android:layout_height="150dp"
-        android:text="@string/Geometrijska_tijela"
-        android:textSize="20sp"
-        android:textAllCaps="false"
+        android:background="@drawable/glavni_gumb2"
         android:gravity="center"
+        android:text="@string/Geometrijska_tijela"
+        android:textAllCaps="false"
         android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        android:background="@drawable/glavni_gumb2"/>
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button6"
@@ -87,7 +89,8 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button8"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
+        android:minWidth="150dp"
         android:layout_height="150dp"
         android:text="@string/Proporcionalnost"
         android:textSize="15sp"
