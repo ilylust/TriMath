@@ -77,4 +77,10 @@
     <string name="slovo_Y">Y</string>
     <string name="slovo_y">y</string>
     <string name="slovo_Z_postotak">Z%</string>
+    <string name="element_skupa">∈</string>
+    <string name="doslovno_nula">0</string>
+    <string name="doslovno_nula_2">0 </string>
+    <string name="slovo_A">A</string>
+    <string name="slovo_B">B</string>
+    <string name="x_plus">x +</string>
 </resources>
