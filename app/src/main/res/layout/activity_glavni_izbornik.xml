@@ -53,7 +53,7 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
+        app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
@@ -67,12 +67,13 @@
         android:textAllCaps="false"
         android:gravity="center"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/button7"
+        app:layout_constraintEnd_toStartOf="@+id/button8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button4"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/glavni_gumb5"/>
+        android:background="@drawable/glavni_gumb3"/>
 
+    <!--
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button7"
         android:layout_width="150dp"
@@ -85,7 +86,7 @@
         app:layout_constraintStart_toEndOf="@id/button6"
         app:layout_constraintTop_toBottomOf="@id/button5"
         app:layout_constraintBottom_toTopOf="@id/button8"
-        android:background="@drawable/glavni_gumb6"/>
+        android:background="@drawable/glavni_gumb6"/> -->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button8"
@@ -99,7 +100,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button6"
-        app:layout_constraintTop_toBottomOf="@id/button7"
+        app:layout_constraintTop_toBottomOf="@id/button5"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@drawable/glavni_gumb4"/>
 

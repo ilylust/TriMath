@@ -13,8 +13,25 @@
         android:theme="@style/Theme.TriMath"
         tools:targetApi="31">
         <activity
+            android:name=".ValjakActivity"
+            android:exported="false"
+            android:parentActivityName=".GeometrijskaTijelaMenu"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".KuglaActivity"
+            android:exported="false"
+            android:parentActivityName=".GeometrijskaTijelaMenu"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".KockaActivity"
+            android:exported="false"
+            android:parentActivityName=".GeometrijskaTijelaMenu"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".GeometrijskaTijelaMenu"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".glavni_izbornik"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SustaviJednadzbi"
             android:exported="false"

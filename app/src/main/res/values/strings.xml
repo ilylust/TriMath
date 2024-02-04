@@ -83,4 +83,25 @@
     <string name="slovo_A">A</string>
     <string name="slovo_B">B</string>
     <string name="x_plus">x +</string>
+    <string name="Kocka">Kocka</string>
+    <string name="Brid">Brid</string>
+    <string name="brid">(brid)</string>
+    <string name="Prostorna_dijagonala">Prostorna dijagonala</string>
+    <string name="prostorna_dijagonala">(prostorna)</string>
+    <string name="Plosna_dijagonala">Plošna dijagonala</string>
+    <string name="plosna_dijagonala">(plošna)</string>
+    <string name="Obujam">Obujam</string>
+    <string name="obujam">(obujam)</string>
+    <string name="Oplosje">Oplošje</string>
+    <string name="oplosje">(oplošje)</string>
+    <string name="Povrsina_baze">Površina baze</string>
+    <string name="povrsina_baze">(površina baze)</string>
+    <string name="Povrsina_pobocja">Površina pobočja</string>
+    <string name="povrsina_pobocja">(površina pobočja)</string>
+    <string name="centimetar">cm</string>
+    <string name="natrecu">³</string>
+    <string name="Kugla">Kugla</string>
+    <string name="visina">(visina)</string>
+    <string name="Visina">Visina</string>
+    <string name="Valjak">Valjak</string>
 </resources>

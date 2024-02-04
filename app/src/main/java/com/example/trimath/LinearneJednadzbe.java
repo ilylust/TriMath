@@ -70,6 +70,13 @@ public class LinearneJednadzbe extends AppCompatActivity {
         });
     }
 
+    protected void racun(double A, double B, double C, double D) {
+        double[] brojevi = new double[4];
+        // A default vrijednost je uvijek 1 ako se ne unese drugacije
+        if (A == 0) brojevi[0] = 1;
+        
+    }
+
     protected boolean checkEmpty(EditText... ed) {
         int c = 0;
         for (EditText editText : ed) {

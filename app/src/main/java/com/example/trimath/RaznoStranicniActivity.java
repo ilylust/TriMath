@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.text.InputType;
+
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -112,7 +113,9 @@ public class RaznoStranicniActivity extends AppCompatActivity {
                 izracunaj(strB, strC,visinab,"cm");
             } else if ((!checkEmpty(strB) && !checkEmpty(strC)&& !checkEmpty(visinac)) && checkEmpty(strA, kutGama, opis, upis ,kutAlpha, povrsina, kutBeta, opseg,visinab,visinaa)) {
                 izracunaj(strB, strC,visinac,"cm");
-            } else if ((!checkEmpty(opis) && !checkEmpty(upis))) {
+            } else if ((!checkEmpty(strC) && !checkEmpty(upis))) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(upis) && !checkEmpty(opis))) {
                 st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(opis) && !checkEmpty(kutAlpha)&& !checkEmpty(strA)) && checkEmpty(strB, strC, kutGama, kutBeta, upis , povrsina, opseg,visinab,visinaa,visinac)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
@@ -157,15 +160,15 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             } else if ((!checkEmpty(kutAlpha) && !checkEmpty(kutBeta) && !checkEmpty(visinac)) && checkEmpty(strB, visinaa, strA, opis, upis ,kutGama,povrsina ,strC,opseg,visinab)) {
                 izracunaj(kutAlpha, kutBeta, visinac, "cm");
             } else if ((!checkEmpty(kutBeta) && !checkEmpty(kutGama) && !checkEmpty(strA)) && checkEmpty(strB, visinac, visinaa, opis, upis ,kutAlpha,povrsina ,strC,opseg,visinab)) {
-                izracunaj(kutAlpha, kutBeta, visinaa, "cm");
+                izracunaj(kutBeta, kutGama, strA, "cm");
             } else if ((!checkEmpty(kutBeta) && !checkEmpty(kutGama) && !checkEmpty(strB)) && checkEmpty(visinab, visinac, strA, opis, upis , kutAlpha,povrsina ,strC,opseg,visinaa)) {
-                izracunaj(kutAlpha, kutBeta, visinab, "cm");
+                izracunaj(kutBeta, kutGama, strB, "cm");
             } else if ((!checkEmpty(kutBeta) && !checkEmpty(kutGama) && !checkEmpty(strC)) && checkEmpty(strB, visinaa, visinac, opis, upis ,kutAlpha,povrsina ,visinac,opseg,visinab)) {
-                izracunaj(kutAlpha, kutBeta, visinac, "cm");
+                izracunaj(kutBeta, kutGama, strC, "cm");
             } else if ((!checkEmpty(kutBeta) && !checkEmpty(kutGama) && !checkEmpty(upis)) && checkEmpty(strB, visinaa, visinac, opis, strC ,kutAlpha,povrsina ,visinac,opseg,visinab)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(kutBeta) && !checkEmpty(kutGama) && !checkEmpty(opis)) && checkEmpty(strB, visinaa, visinac, upis, strC ,kutAlpha,povrsina ,visinac,opseg,visinab)) {
-                izracunaj(kutAlpha, kutBeta, opis, "cm");
+                izracunaj(kutBeta, kutGama, opis, "cm");
             } else if ((!checkEmpty(kutBeta) && !checkEmpty(kutGama) && !checkEmpty(povrsina)) && checkEmpty(strB, visinaa, visinac, opis, strC ,kutAlpha,upis ,visinac,opseg,visinab)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(kutBeta) && !checkEmpty(kutGama) && !checkEmpty(opseg)) && checkEmpty(strB, visinaa, visinac, opis, strC ,kutAlpha,upis ,visinac,povrsina,visinab)) {
@@ -198,25 +201,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
                 st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(opseg) && !checkEmpty(povrsina))) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(visinaa) && !checkEmpty(strA)) && checkEmpty(visinac, strB, kutGama, opis, upis ,kutAlpha,kutBeta ,strC,visinab,povrsina)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(visinaa) && !checkEmpty(strB)) && checkEmpty(visinac, strA, kutGama, opis, upis ,kutAlpha,kutBeta ,strC,visinab,povrsina)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(visinaa) && !checkEmpty(strC)) && checkEmpty(visinac, strA, kutGama, opis, upis ,kutAlpha,kutBeta ,strB,visinab,povrsina)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(visinaa) && !checkEmpty(upis)) && checkEmpty(visinac, strA, kutGama, opis, strC ,kutAlpha,kutBeta ,strB,visinab,povrsina)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(visinaa) && !checkEmpty(opis)) && checkEmpty(visinac, strA, kutGama, upis, strC ,kutAlpha,kutBeta ,strB,visinab,povrsina)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(visinaa) && !checkEmpty(kutAlpha)) && checkEmpty(visinac, strA, kutGama, upis, strC ,opis,kutBeta ,strB,visinab,povrsina)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(visinaa) && !checkEmpty(kutBeta)) && checkEmpty(visinac, strA, kutGama, upis, strC ,opis,kutAlpha ,strB,visinab,povrsina)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(visinaa) && !checkEmpty(kutGama)) && checkEmpty(visinac, strA, kutBeta, upis, strC ,opis,kutAlpha ,strB,visinab,povrsina)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(visinaa) && !checkEmpty(visinab)) && checkEmpty(visinac, strA, kutAlpha, upis, strC , opis,kutGama ,strB,povrsina,kutBeta)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opseg) && !checkEmpty(visinaa) && !checkEmpty(visinac)) && checkEmpty(visinab, strA, kutAlpha, upis, strC , opis,kutGama ,strB,povrsina,kutBeta)) {
+            } else if ((!checkEmpty(opseg) && !checkEmpty(visinaa))) {
                 st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(visinaa) && !checkEmpty(visinab) && !checkEmpty(strA)) && checkEmpty(visinac, strB, kutGama, opis, upis ,kutAlpha,kutBeta ,strC,opseg,povrsina)) {
                 izracunaj(visinaa, visinab, strA, "cm");
@@ -244,6 +229,10 @@ public class RaznoStranicniActivity extends AppCompatActivity {
                 izracunaj(visinab, visinac, strB, "cm");
             } else if ((!checkEmpty(visinab) && !checkEmpty(visinac) && !checkEmpty(strC)) && checkEmpty(opseg, visinaa, kutAlpha, upis, strA , opis,kutGama ,strB,povrsina,kutBeta)) {
                 izracunaj(visinab, visinac, strC, "cm");
+            } else if ((!checkEmpty(visinab) && !checkEmpty(visinac) && !checkEmpty(opis)) && checkEmpty(opseg, visinaa, kutAlpha, upis, strC , strB,kutGama ,strA,povrsina,kutBeta)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
+            } else if ((!checkEmpty(visinab) && !checkEmpty(visinac) && !checkEmpty(upis)) && checkEmpty(opseg, visinaa, kutAlpha, strC, strA , opis,kutGama ,strB,povrsina,kutBeta)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(visinab) && !checkEmpty(visinac) && !checkEmpty(kutAlpha)) && checkEmpty(strC, visinaa, povrsina, upis, strA , opis,kutGama ,strB,opseg,kutBeta)) {
                 izracunaj(visinab, visinac, kutAlpha, "cm");
             } else if ((!checkEmpty(visinab) && !checkEmpty(visinac) && !checkEmpty(kutBeta)) && checkEmpty(strC, visinaa, povrsina, upis, strA , opis,kutGama ,strB,opseg,kutAlpha)) {
@@ -308,14 +297,16 @@ public class RaznoStranicniActivity extends AppCompatActivity {
                 st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(strA)) && checkEmpty(visinaa,strB,upis,kutAlpha,povrsina,kutGama,strC,opseg,visinab,visinac)) {
                 izracunaj(opis, kutBeta, strA, "cm");
+            } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(strB)) && checkEmpty(visinaa,strA,upis,kutAlpha,povrsina,kutGama,strC,opseg,visinab,visinac)) {
+                st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(povrsina)) && checkEmpty(visinaa,strA,upis,kutAlpha,strB,kutGama,strC,opseg,visinab,visinac)) {
-                izracunaj(opis, kutBeta, povrsina, "cm");
+                st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(opseg)) && checkEmpty(visinaa,strA,upis,kutAlpha,strB,kutGama,strC,povrsina,visinab,visinac)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(visinaa)) && checkEmpty(povrsina,strA,upis,kutAlpha,strB,kutGama,strC,opseg,visinab,visinac)) {
                 izracunaj(opis, kutBeta, visinaa, "cm");
             } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(visinab)) && checkEmpty(povrsina,strA,upis,kutAlpha,strB,kutGama,strC,opseg,visinaa,visinac)) {
-                izracunaj(opis, kutBeta, visinab, "cm");
+                st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(opis) && !checkEmpty(kutBeta) && !checkEmpty(visinac)) && checkEmpty(povrsina,strA,upis,kutAlpha,strB,kutGama,strC,opseg,visinab,visinaa)) {
                 izracunaj(opis, kutBeta, visinac, "cm");
             } else if ((!checkEmpty(kutAlpha) && !checkEmpty(kutGama) && !checkEmpty(strA)) && checkEmpty(povrsina,opis,upis,visinac,strB,kutBeta,strC,opseg,visinab,visinaa)) {
@@ -421,7 +412,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             } else if ((!checkEmpty(strB) && !checkEmpty(opis)) && !checkEmpty(visinac) &&  checkEmpty(povrsina,strC,upis, strA, visinab,kutBeta,kutGama,kutAlpha,visinaa,opseg)) {
                 izracunaj(strB, opis , visinac, "cm");
             } else if ((!checkEmpty(strC) && !checkEmpty(kutAlpha)) && !checkEmpty(povrsina) &&  checkEmpty(visinac,strB,upis, strA, visinab,kutBeta,kutGama,opis,visinaa,opseg)) {
-                izracunaj(strB, opis , visinac, "cm");
+                izracunaj(strC, kutAlpha , povrsina, "cm");
             } else if ((!checkEmpty(strC) && !checkEmpty(kutAlpha)) && !checkEmpty(opseg) &&  checkEmpty(visinac,strB, strA,upis, visinab,kutBeta,kutGama,opis,visinaa,povrsina)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(strC) && !checkEmpty(kutAlpha)) && !checkEmpty(visinaa) &&  checkEmpty(visinac,strB, strA,upis, visinab,kutBeta,kutGama,opis,opseg,povrsina)) {
@@ -432,13 +423,13 @@ public class RaznoStranicniActivity extends AppCompatActivity {
                 izracunaj(strC, kutAlpha , visinac, "cm");
             } else if ((!checkEmpty(upis) && !checkEmpty(kutBeta))) {
                 st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(opis) && !checkEmpty(kutGama)) && !checkEmpty(strA) &&  checkEmpty(visinaa,strB, visinac,upis, visinab,kutBeta,kutAlpha,strC,opseg,opis)) {
+            } else if ((!checkEmpty(opis) && !checkEmpty(kutGama)) && !checkEmpty(strA) &&  checkEmpty(visinaa,strB, visinac,upis, visinab,kutBeta,kutAlpha,strC,opseg,povrsina)) {
                 izracunaj(opis,kutGama,strA, "cm");
-            } else if ((!checkEmpty(opis) && !checkEmpty(kutGama)) && !checkEmpty(visinaa) &&  checkEmpty(strA,strB, visinac,upis, visinab,kutBeta,kutAlpha,strC,opseg,opis)) {
+            } else if ((!checkEmpty(opis) && !checkEmpty(kutGama)) && !checkEmpty(visinaa) &&  checkEmpty(strA,strB, visinac,upis, visinab,kutBeta,kutAlpha,strC,opseg,povrsina)) {
                 izracunaj(opis,kutGama,visinaa, "cm");
-            } else if ((!checkEmpty(opis) && !checkEmpty(kutGama)) && !checkEmpty(visinab) &&  checkEmpty(visinaa,strA, visinac,upis, strB,kutBeta,kutAlpha,strC,opseg,opis)) {
+            } else if ((!checkEmpty(opis) && !checkEmpty(kutGama)) && !checkEmpty(visinab) &&  checkEmpty(visinaa,strA, visinac,upis, strB,kutBeta,kutAlpha,strC,opseg,povrsina)) {
                 izracunaj(opis,kutGama,visinab, "cm");
-            } else if ((!checkEmpty(opis) && !checkEmpty(kutGama)) && !checkEmpty(visinac) &&  checkEmpty(visinaa,strB, strC,upis, visinab,kutBeta,kutAlpha,strA,opseg,opis)) {
+            } else if ((!checkEmpty(opis) && !checkEmpty(kutGama)) && !checkEmpty(visinac) &&  checkEmpty(visinaa,strB, strC,upis, visinab,kutBeta,kutAlpha,strA,opseg,povrsina)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
             } else if ((!checkEmpty(kutAlpha) && !checkEmpty(povrsina)) && !checkEmpty(strA) &&  checkEmpty(visinaa,strB, strC,upis, visinab,kutBeta,kutGama,visinac,opseg,opis)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
@@ -483,27 +474,38 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             } else if ((!checkEmpty(visinac) && !checkEmpty(strC)) && !checkEmpty(kutBeta) &&  checkEmpty(povrsina,visinaa, strB,strA, kutGama,kutAlpha,opis,visinab,opseg,upis)) {
                 izracunaj(visinac, strC, kutBeta, "cm");
             } else if ((!checkEmpty(visinac) && !checkEmpty(strC)) && !checkEmpty(kutGama) &&  checkEmpty(povrsina,visinaa, strB,strA, kutBeta,kutAlpha,opis,visinab,opseg,upis)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
+                izracunaj(visinac, strC, kutGama, "cm");
             } else if ((!checkEmpty(visinac) && !checkEmpty(strC)) && !checkEmpty(povrsina) &&  checkEmpty(kutGama,visinaa, strB,strA, kutBeta,kutAlpha,opis,visinab,opseg,upis)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(strA) && !checkEmpty(opis)) && !checkEmpty(opseg) &&  checkEmpty(kutGama,visinaa, strB,visinac, kutBeta,kutAlpha,strC,visinab,povrsina,upis)) {
-                st.toastShort(this, getString(R.string.nije_moguce));
-            } else if ((!checkEmpty(strB) && !checkEmpty(kutAlpha)) && !checkEmpty(visinaa) &&  checkEmpty(kutGama,opseg, strA,visinac, kutBeta,opis,strC,visinab,povrsina,upis)) {
+                izracunaj(visinac, strC, povrsina, "cm");                               // strA opis opseg
+            } else if ((!checkEmpty(strA) && !checkEmpty(opis)) && !checkEmpty(opseg) &&  checkEmpty(strB, strC, upis, kutAlpha, kutGama, kutBeta, povrsina, visinaa, visinab, visinac)) {   //
+                izracunaj(strA, opis, opseg, "cm");                                     // strB, kutAlpha, visinaa
+            } else if ((!checkEmpty(strB) && !checkEmpty(kutAlpha)) && !checkEmpty(visinaa) &&  checkEmpty(strA, strC, opis, upis, kutBeta, kutGama, povrsina, opseg, visinab, visinac)) {
                 izracunaj(strB, kutAlpha, visinaa, "cm");
             } else if ((!checkEmpty(strC) && !checkEmpty(kutBeta)) && !checkEmpty(visinab) &&  checkEmpty(kutGama,opseg, strA,visinac, kutAlpha,opis,strB,visinaa,povrsina,upis)) {
                 izracunaj(strC, kutBeta, visinab, "cm");
-            } else if ((!checkEmpty(upis) && !checkEmpty(kutGama))) {
+            } else if ((!checkEmpty(upis) && !checkEmpty(kutGama)) ) {                          // strA, strB, strC, opis, upis, kutAlpha, kutBeta, kutGama, povrsina, opseg,visinaa,visinab,visinac
+                st.toastShort(this, getString(R.string.nije_moguce));                                   // opis, povrsina, strA
+            } else if ((!checkEmpty(opis) && !checkEmpty(povrsina)) && !checkEmpty(strA) &&  checkEmpty(strB, strC, upis, kutAlpha, kutBeta, kutGama, opseg, visinaa, visinab, visinac)) {
+                izracunaj(opis, povrsina, strA, "cm");                                   // kutAlpha, opseg, strB
+            } else if ((!checkEmpty(kutAlpha) && !checkEmpty(opseg)) && !checkEmpty(strB) &&  checkEmpty(strA, strC, opis, upis, kutBeta, kutGama, povrsina, visinaa, visinab, visinac)) {
+                izracunaj(kutAlpha, opseg, strB, "cm");                                  // kutBeta visinaa strC
+            } else if ((!checkEmpty(kutBeta) && !checkEmpty(visinaa)) && !checkEmpty(strC) &&  checkEmpty(strA, strB, opis, upis, kutAlpha, kutGama, povrsina, opseg, visinab, visinac)) {
+                izracunaj(kutBeta, visinaa, strC, "cm");                                 // kutGama visinab upis
+            } else if ((!checkEmpty(kutGama) && !checkEmpty(visinab)) && !checkEmpty(upis) &&  checkEmpty(strA, strB, strC, opis, kutAlpha, kutBeta, povrsina, opseg, visinaa, visinac)) {
+                izracunaj(kutGama, visinab, upis, "cm");                                 // povrsina, visinac, opis
+            } else if ((!checkEmpty(povrsina) && !checkEmpty(visinac)) && !checkEmpty(opis) &&  checkEmpty(strA, strB, strC, upis, kutAlpha, kutBeta, kutGama, opseg, visinaa, visinab)) {
+                izracunaj(povrsina, visinac, opis, "cm");                                // opseg, strA, kutAlpha
+            } else if ((!checkEmpty(opseg) && !checkEmpty(strA)) && !checkEmpty(kutAlpha) &&  checkEmpty(strB, strC, opis, upis, kutBeta, kutGama, povrsina, visinaa, visinab, visinac)) {
+                izracunaj(opseg, strA, kutAlpha, "cm");                                  // visinaa strB kutBeta
+            } else if ((!checkEmpty(visinaa) && !checkEmpty(strB)) && !checkEmpty(kutBeta) &&  checkEmpty(strA, strC, opis, upis, kutAlpha, kutGama, povrsina, opseg, visinab, visinac)) {
+                izracunaj(visinaa, strB, kutBeta, "cm");                                 // visinab strC kutGama
+            }  else if ((!checkEmpty(visinab) && !checkEmpty(strC)) && !checkEmpty(kutGama) &&  checkEmpty(strA, strB, opis, upis, kutAlpha, kutBeta, povrsina, opseg, visinaa, visinac)) {
+                izracunaj(visinab, strC, kutGama, "cm");                                 // visinac upis povrsina
+            } else if ((!checkEmpty(visinac) && !checkEmpty(upis)) && !checkEmpty(povrsina) &&  checkEmpty(strA, strB, strC, opis, kutAlpha, kutBeta, kutGama, opseg, visinaa, visinab)) {
                 st.toastShort(this, getString(R.string.nije_moguce));
             } else {
                 st.toastShort(this, getString(R.string.Unesite_tri_vrijednosti));
             }
-
-
-
-
-
-
-
             // promijeni tekst na gumbu
             btn.setText(R.string.Izbrisi);
             // promijeni vrijednost zastavice
@@ -528,7 +530,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(opis)) {
+        else if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(opis)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _opis = Double.parseDouble(ed3.getText().toString());
@@ -536,7 +538,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(kutAlpha)) {
+        else if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(kutAlpha)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -545,7 +547,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(kutBeta)) {
+        else if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(kutBeta)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _kutBeta = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -554,7 +556,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(kutGama)) {
+        else if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(kutGama)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _kutGama = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -562,7 +564,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(povrsina)) {
+        else if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(povrsina)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _povrsina = Double.parseDouble(ed3.getText().toString());
@@ -572,7 +574,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(opseg)) {
+        else if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(opseg)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _opseg = Double.parseDouble(ed3.getText().toString());
@@ -580,7 +582,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(visinaa)) {
+        else if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(visinaa)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _visinaa = Double.parseDouble(ed3.getText().toString());
@@ -589,7 +591,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(visinab)) {
+        else if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(visinab)) {
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _visinab = Double.parseDouble(ed3.getText().toString());
@@ -598,7 +600,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(visinac)) {
+        else if (ed.equals(strA) && ed2.equals(strB) && ed3.equals(visinac)) {
 
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
@@ -610,7 +612,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(opis)) {
+        else if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(opis)) {
 
             double _strB = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -622,7 +624,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(kutAlpha)) {
+        else if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(kutAlpha)) {
 
             double _strB = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -632,7 +634,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(kutBeta)) {
+        else if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(kutBeta)) {
 
             double _strB = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -643,7 +645,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(kutGama)) {
+        else if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(kutGama)) {
 
             double _strB = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -654,7 +656,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(opseg)) {
+        else if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(opseg)) {
 
             double _strB = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -664,7 +666,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(povrsina)) {
+        else if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(povrsina)) {
 
             double _strB = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -676,9 +678,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-
-
-        if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(visinaa)) {
+        else if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(visinaa)) {
 
             double _strB = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -689,7 +689,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(visinab)) {
+        else if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(visinab)) {
 
             double _strB = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -699,7 +699,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(visinac)) {
+        else if (ed.equals(strB) && ed2.equals(strC) && ed3.equals(visinac)) {
 
             double _strB = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -710,7 +710,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             izracunaj(_strA,_strB,_strC,text);
         }
 
-        if (ed.equals(opis) && ed2.equals(kutAlpha) && ed3.equals(strB)) {
+        else if (ed.equals(opis) && ed2.equals(kutAlpha) && ed3.equals(strB)) {
 
             double _opis = Double.parseDouble(ed.getText().toString());
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -721,7 +721,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(opis) && ed2.equals(kutAlpha) && ed3.equals(strC)) {
+        else if (ed.equals(opis) && ed2.equals(kutAlpha) && ed3.equals(strC)) {
 
             double _opis = Double.parseDouble(ed.getText().toString());
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -733,7 +733,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(opis) && ed2.equals(kutAlpha) && ed3.equals(kutBeta)) {
+        else if (ed.equals(opis) && ed2.equals(kutAlpha) && ed3.equals(kutBeta)) {
 
             double _opis = Double.parseDouble(ed.getText().toString());
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -744,7 +744,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(opis) && ed2.equals(kutAlpha) && ed3.equals(kutGama)) {
+        else if (ed.equals(opis) && ed2.equals(kutAlpha) && ed3.equals(kutGama)) {
 
             double _opis = Double.parseDouble(ed.getText().toString());
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -756,7 +756,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(opis) && ed2.equals(kutAlpha) && ed3.equals(visinab)) {
+        else if (ed.equals(opis) && ed2.equals(kutAlpha) && ed3.equals(visinab)) {
 
             double _opis = Double.parseDouble(ed.getText().toString());
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -769,20 +769,20 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(opis) && ed2.equals(kutAlpha) && ed3.equals(visinac)) {
+        else if (ed.equals(opis) && ed2.equals(kutAlpha) && ed3.equals(visinac)) {
 
             double _opis = Double.parseDouble(ed.getText().toString());
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _visinac = Double.parseDouble(ed3.getText().toString());
             double _strA = 2*_opis*Math.sin(_kutAlpha);
             double _kutBeta = Math.asin(_visinac/_strA);
-            double _strB = 2*_opis*Math.sin(_kutAlpha);
+            double _strB = 2*_opis*Math.sin(_kutBeta);
             double _strC =2*_opis*Math.sin(Math.PI-_kutAlpha-_kutBeta);
 
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(strA)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(strA)) {
 
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -793,7 +793,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(strB)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(strB)) {
 
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -804,7 +804,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(strC)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(strC)) {
 
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -815,7 +815,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(opis)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(opis)) {
 
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -826,7 +826,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
 
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
-        } if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(visinaa)) {
+        } else if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(visinaa)) {
 
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -838,11 +838,12 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(visinab)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(visinab)) {
 
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _visinab = Double.parseDouble(ed3.getText().toString());
+
             double _strA = _visinab/Math.sin(Math.PI-_kutAlpha-_kutBeta);
             double _strC = _visinab/Math.sin(_kutAlpha);
             double _strB = (_strC*Math.sin(_kutBeta))/Math.sin(Math.PI-_kutAlpha-_kutBeta);
@@ -850,7 +851,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(visinac)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(kutBeta) && ed3.equals(visinac)) {
 
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -862,7 +863,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(strA)) {
+        else if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(strA)) {
 
             double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -874,7 +875,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(strB)) {
+        else if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(strB)) {
 
             double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -886,7 +887,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(strC)) {
+        else if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(strC)) {
 
             double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -898,7 +899,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(opis)) {
+        else if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(opis)) {
 
             double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -911,7 +912,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(visinaa)) {
+        else if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(visinaa)) {
 
             double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -924,7 +925,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(visinab)) {
+        else if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(visinab)) {
 
             double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -937,7 +938,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(visinac)) {
+        else if (ed.equals(kutBeta) && ed2.equals(kutGama) && ed3.equals(visinac)) {
 
             double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
@@ -950,7 +951,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutGama) && ed2.equals(povrsina) && ed3.equals(strA)) {
+        else if (ed.equals(kutGama) && ed2.equals(povrsina) && ed3.equals(strA)) {
 
             double _kutGama = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _povrsina = Double.parseDouble(ed2.getText().toString());
@@ -962,7 +963,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutGama) && ed2.equals(povrsina) && ed3.equals(strB)) {
+        else if (ed.equals(kutGama) && ed2.equals(povrsina) && ed3.equals(strB)) {
 
             double _kutGama = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _povrsina = Double.parseDouble(ed2.getText().toString());
@@ -974,7 +975,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutGama) && ed2.equals(povrsina) && ed3.equals(visinaa)) {
+        else if (ed.equals(kutGama) && ed2.equals(povrsina) && ed3.equals(visinaa)) {
 
             double _kutGama = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _povrsina = Double.parseDouble(ed2.getText().toString());
@@ -987,7 +988,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutGama) && ed2.equals(povrsina) && ed3.equals(visinab)) {
+        else if (ed.equals(kutGama) && ed2.equals(povrsina) && ed3.equals(visinab)) {
 
             double _kutGama = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _povrsina = Double.parseDouble(ed2.getText().toString());
@@ -1000,18 +1001,17 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(strA)) {
-
+        else if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(strA)) {
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double _visinab = Double.parseDouble(ed2.getText().toString());
             double _strA = Double.parseDouble(ed3.getText().toString());
-            double _strB = (_strA*_visinaa*2)/(2*_visinab);
-            double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2)-2*_strA*_strB*Math.cos(Math.asin(_visinab/_strB)));
-
+            double _kutGama = Math.asin(_visinab/_strA);
+            double _strB = _visinaa/Math.sin(_kutGama);
+            double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2)-2*_strA*_strB*Math.cos(_kutGama));
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(strB)) {
+        else if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(strB)) {
 
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double _visinab = Double.parseDouble(ed2.getText().toString());
@@ -1021,7 +1021,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(strC)) {
+        else if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(strC)) {
 
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double _visinab = Double.parseDouble(ed2.getText().toString());
@@ -1033,7 +1033,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(kutAlpha)) {
+        else if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(kutAlpha)) {
 
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double _visinab = Double.parseDouble(ed2.getText().toString());
@@ -1045,7 +1045,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(kutBeta)) {
+        else if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(kutBeta)) {
 
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double _visinab = Double.parseDouble(ed2.getText().toString());
@@ -1057,7 +1057,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(kutGama)) {
+        else if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(kutGama)) {
 
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double _visinab = Double.parseDouble(ed2.getText().toString());
@@ -1068,7 +1068,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(povrsina)) {
+        else if (ed.equals(visinaa) && ed2.equals(visinab) && ed3.equals(povrsina)) {
 
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double _visinab = Double.parseDouble(ed2.getText().toString());
@@ -1080,7 +1080,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinab) && ed2.equals(visinac) && ed3.equals(strA)) {
+        else if (ed.equals(visinab) && ed2.equals(visinac) && ed3.equals(strA)) {
 
             double _visinab = Double.parseDouble(ed.getText().toString());
             double _visinac = Double.parseDouble(ed2.getText().toString());
@@ -1092,7 +1092,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinab) && ed2.equals(visinac) && ed3.equals(strB)) {
+        else if (ed.equals(visinab) && ed2.equals(visinac) && ed3.equals(strB)) {
 
             double _visinab = Double.parseDouble(ed.getText().toString());
             double _visinac = Double.parseDouble(ed2.getText().toString());
@@ -1103,7 +1103,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinab) && ed2.equals(visinac) && ed3.equals(strC)) {
+        else if (ed.equals(visinab) && ed2.equals(visinac) && ed3.equals(strC)) {
 
             double _visinab = Double.parseDouble(ed.getText().toString());
             double _visinac = Double.parseDouble(ed2.getText().toString());
@@ -1114,7 +1114,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta, kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA, _strB, _strC, text);
         }
-        if (ed.equals(visinab) && ed2.equals(visinac) && ed3.equals(kutAlpha)) {
+        else if (ed.equals(visinab) && ed2.equals(visinac) && ed3.equals(kutAlpha)) {
 
             double _visinab = Double.parseDouble(ed.getText().toString());
             double _visinac = Double.parseDouble(ed2.getText().toString());
@@ -1125,7 +1125,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinab) && ed2.equals(visinac) && ed3.equals(kutBeta)) {
+        else if (ed.equals(visinab) && ed2.equals(visinac) && ed3.equals(kutBeta)) {
 
             double _visinab = Double.parseDouble(ed.getText().toString());
             double _visinac = Double.parseDouble(ed2.getText().toString());
@@ -1137,7 +1137,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinab) && ed2.equals(visinac) && ed3.equals(kutGama)) {
+        else if (ed.equals(visinab) && ed2.equals(visinac) && ed3.equals(kutGama)) {
 
             double _visinab = Double.parseDouble(ed.getText().toString());
             double _visinac = Double.parseDouble(ed2.getText().toString());
@@ -1149,7 +1149,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinac) && ed2.equals(strA) && ed3.equals(strC)) {
+        else if (ed.equals(visinac) && ed2.equals(strA) && ed3.equals(strC)) {
 
             double _visinac = Double.parseDouble(ed.getText().toString());
             double _strA = Double.parseDouble(ed2.getText().toString());
@@ -1159,7 +1159,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinac) && ed2.equals(strA) && ed3.equals(opis)) {
+        else if (ed.equals(visinac) && ed2.equals(strA) && ed3.equals(opis)) {
 
             double _visinac = Double.parseDouble(ed.getText().toString());
             double _strA = Double.parseDouble(ed2.getText().toString());
@@ -1171,7 +1171,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinac) && ed2.equals(strA) && ed3.equals(kutAlpha)) {
+        else if (ed.equals(visinac) && ed2.equals(strA) && ed3.equals(kutAlpha)) {
 
             double _visinac = Double.parseDouble(ed.getText().toString());
             double _strA = Double.parseDouble(ed2.getText().toString());
@@ -1182,7 +1182,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinac) && ed2.equals(strA) && ed3.equals(kutGama)) {
+        else if (ed.equals(visinac) && ed2.equals(strA) && ed3.equals(kutGama)) {
 
             double _visinac = Double.parseDouble(ed.getText().toString());
             double _strA = Double.parseDouble(ed2.getText().toString());
@@ -1193,18 +1193,18 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(opis)) {
+        else if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(opis)) {
 
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
             double _opis = Double.parseDouble(ed3.getText().toString());
-            double _kutAlpha = Math.asin((2*_opis)/_strA);
-            double _kutGama = Math.asin((2*_opis)/_strC);
+            double _kutAlpha = Math.asin(_strA/(2*_opis));
+            double _kutGama = Math.asin(_strC/(2*_opis));
             double _strB = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strC,2)-2*_strA*_strC*Math.cos(Math.PI-_kutGama-_kutAlpha));
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(kutAlpha)) {
+        else if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(kutAlpha)) {
 
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -1214,7 +1214,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(kutBeta)) {
+        else if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(kutBeta)) {
 
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -1223,7 +1223,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(kutGama)) {
+        else if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(kutGama)) {
 
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -1233,7 +1233,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(opseg)) {
+        else if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(opseg)) {
 
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -1242,7 +1242,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(povrsina)) {
+        else if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(povrsina)) {
 
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -1253,7 +1253,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(visinaa)) {
+        else if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(visinaa)) {
 
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -1263,7 +1263,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(visinab)) {
+        else if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(visinab)) {
 
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -1274,7 +1274,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(visinac)) {
+        else if (ed.equals(strA) && ed2.equals(strC) && ed3.equals(visinac)) {
 
             double _strA = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
@@ -1284,7 +1284,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strC) && ed2.equals(opis) && ed3.equals(kutBeta)) {
+        else if (ed.equals(strC) && ed2.equals(opis) && ed3.equals(kutBeta)) {
             double _strC = Double.parseDouble(ed.getText().toString());
             double _opis = Double.parseDouble(ed2.getText().toString());
             double _kutBeta = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1295,7 +1295,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             izracunaj(_strA,_strB,_strC,text);
         }
 
-        if (ed.equals(strC) && ed2.equals(opis) && ed3.equals(visinaa)) {
+        else if (ed.equals(strC) && ed2.equals(opis) && ed3.equals(visinaa)) {
             double _strC = Double.parseDouble(ed.getText().toString());
             double _opis = Double.parseDouble(ed2.getText().toString());
             double _visinaa =Double.parseDouble(ed3.getText().toString());
@@ -1305,18 +1305,17 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             double _strA = Math.sqrt(Math.pow(_strB,2)+Math.pow(_strC,2)-2*_strB*_strC*Math.cos(Math.PI-_kutBeta-_kutGama));
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
-        }
-        if (ed.equals(strC) && ed2.equals(opis) && ed3.equals(visinab)) {
+        } else if (ed.equals(strC) && ed2.equals(opis) && ed3.equals(visinab)) {
             double _strC = Double.parseDouble(ed.getText().toString());
             double _opis = Double.parseDouble(ed2.getText().toString());
             double _visinab =Double.parseDouble(ed3.getText().toString());
             double _kutGama = Math.asin(_strC/(2*_opis));
             double _strA = _visinab/Math.sin(_kutGama);
-            double _kutAlpha = Math.asin(_strA/(2*_opis));
-            double _strB = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strC,2)-2*_strA*_strC*Math.cos(Math.PI-_kutAlpha-_kutGama));
+            double _kutAlpha = _visinab/_strC;
+            double _strB = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strC,2)-2*_strA*_strC*Math.cos(Math.PI-_kutGama-_kutAlpha));
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
-        } if (ed.equals(opis) && ed2.equals(kutBeta) && ed3.equals(strA)) {
+        } else if (ed.equals(opis) && ed2.equals(kutBeta) && ed3.equals(strA)) {
             double _opis = Double.parseDouble(ed.getText().toString());
             double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _strA =Double.parseDouble(ed3.getText().toString());
@@ -1325,7 +1324,8 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2)-2*_strA*_strB*Math.cos(Math.PI-_kutAlpha-_kutBeta));
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
-        }  if (ed.equals(opis) && ed2.equals(kutBeta) && ed3.equals(visinaa)) {
+        }
+        else if (ed.equals(opis) && ed2.equals(kutBeta) && ed3.equals(visinaa)) {
             double _opis = Double.parseDouble(ed.getText().toString());
             double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _visinaa =Double.parseDouble(ed3.getText().toString());
@@ -1335,31 +1335,20 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             double _strA = Math.sqrt(Math.pow(_strB,2)+Math.pow(_strC,2)-2*_strB*_strC*Math.cos(_kutAlpha));
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
-        } if (ed.equals(opis) && ed2.equals(kutBeta) && ed3.equals(visinac)) {
+        }
+        else if (ed.equals(opis) && ed2.equals(kutBeta) && ed3.equals(visinac)) {
             double _opis = Double.parseDouble(ed.getText().toString());
             double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _visinac =Double.parseDouble(ed3.getText().toString());
 
             double _strA = _visinac/Math.sin(_kutBeta);
             double _strB = Math.sin(_kutBeta)*2*_opis;
-            double _kutAlpha = Math.PI-_kutBeta-Math.asin(_strA/(2*_opis));
-            double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2)-2*_strA*_strB*Math.cos(_kutAlpha));
+            double _kutGama = Math.PI-_kutBeta - Math.asin(_strA/(2*_opis));
+            double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2)-2*_strA*_strB*Math.cos(_kutGama));
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(opis) && ed2.equals(kutBeta) && ed3.equals(visinac)) {
-            double _opis = Double.parseDouble(ed.getText().toString());
-            double _kutBeta = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
-            double _visinac =Double.parseDouble(ed3.getText().toString());
-
-            double _strA = _visinac/Math.sin(_kutBeta);
-            double _strB = Math.sin(_kutBeta)*2*_opis;
-            double _kutAlpha = Math.PI-_kutBeta-Math.asin(_strA/(2*_opis));
-            double _strC = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strB,2)-2*_strA*_strB*Math.cos(_kutAlpha));
-            resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
-            izracunaj(_strA,_strB,_strC,text);
-        }
-        if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(strA)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(strA)) {
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _strA =Double.parseDouble(ed3.getText().toString());
@@ -1368,7 +1357,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(strC)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(strC)) {
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _strC =Double.parseDouble(ed3.getText().toString());
@@ -1377,7 +1366,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(visinaa)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(visinaa)) {
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _visinaa =Double.parseDouble(ed3.getText().toString());
@@ -1388,18 +1377,18 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(visinab)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(visinab)) {
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _visinab =Double.parseDouble(ed3.getText().toString());
             double _strA=  _visinab/Math.sin(_kutGama);
             double _strC = _visinab/Math.sin(_kutAlpha);
-            double _strB = (_strC*Math.sin(_kutAlpha))/Math.sin(_kutGama);
+            double _strB = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strC,2)-2*_strA*_strC*Math.cos(Math.PI-_kutAlpha-_kutGama));
 
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(visinac)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(kutGama) && ed3.equals(visinac)) {
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _kutGama = Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _visinac =Double.parseDouble(ed3.getText().toString());
@@ -1411,7 +1400,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(povrsina) && ed3.equals(strA)) {
+        else if (ed.equals(kutBeta) && ed2.equals(povrsina) && ed3.equals(strA)) {
             double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _strA =Double.parseDouble(ed3.getText().toString());
@@ -1422,7 +1411,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(povrsina) && ed3.equals(strC)) {
+        else if (ed.equals(kutBeta) && ed2.equals(povrsina) && ed3.equals(strC)) {
             double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _strC =Double.parseDouble(ed3.getText().toString());
@@ -1433,7 +1422,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(povrsina) && ed3.equals(visinaa)) {
+        else if (ed.equals(kutBeta) && ed2.equals(povrsina) && ed3.equals(visinaa)) {
             double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _visinaa =Double.parseDouble(ed3.getText().toString());
@@ -1444,7 +1433,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutBeta) && ed2.equals(povrsina) && ed3.equals(visinac)) {
+        else if (ed.equals(kutBeta) && ed2.equals(povrsina) && ed3.equals(visinac)) {
             double _kutBeta = Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _visinac =Double.parseDouble(ed3.getText().toString());
@@ -1455,7 +1444,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(povrsina) && ed2.equals(visinaa) && ed3.equals(strB)) {
+        else if (ed.equals(povrsina) && ed2.equals(visinaa) && ed3.equals(strB)) {
             double _povrsina = Double.parseDouble(ed.getText().toString());
             double  _visinaa= Double.parseDouble(ed2.getText().toString());
             double _strB = Double.parseDouble(ed3.getText().toString());
@@ -1466,7 +1455,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(povrsina) && ed2.equals(visinaa) && ed3.equals(strC)) {
+        else if (ed.equals(povrsina) && ed2.equals(visinaa) && ed3.equals(strC)) {
             double _povrsina = Double.parseDouble(ed.getText().toString());
             double  _visinaa= Double.parseDouble(ed2.getText().toString());
             double _strC = Double.parseDouble(ed3.getText().toString());
@@ -1477,7 +1466,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(povrsina) && ed2.equals(visinaa) && ed3.equals(visinac)) {
+        else if (ed.equals(povrsina) && ed2.equals(visinaa) && ed3.equals(visinac)) {
             double _povrsina = Double.parseDouble(ed.getText().toString());
             double  _visinaa= Double.parseDouble(ed2.getText().toString());
             double _visinac = Double.parseDouble(ed3.getText().toString());
@@ -1489,7 +1478,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinac) && ed3.equals(strA)) {
+        else if (ed.equals(visinaa) && ed2.equals(visinac) && ed3.equals(strA)) {
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double  _visinac= Double.parseDouble(ed2.getText().toString());
             double _strA = Double.parseDouble(ed3.getText().toString());
@@ -1499,7 +1488,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinac) && ed3.equals(strB)) {
+        else if (ed.equals(visinaa) && ed2.equals(visinac) && ed3.equals(strB)) {
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double  _visinac= Double.parseDouble(ed2.getText().toString());
             double _strB = Double.parseDouble(ed3.getText().toString());
@@ -1512,7 +1501,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinac) && ed3.equals(strC)) {
+        else if (ed.equals(visinaa) && ed2.equals(visinac) && ed3.equals(strC)) {
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double  _visinac= Double.parseDouble(ed2.getText().toString());
             double _strC = Double.parseDouble(ed3.getText().toString());
@@ -1522,7 +1511,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinac) && ed3.equals(kutAlpha)) {
+        else if (ed.equals(visinaa) && ed2.equals(visinac) && ed3.equals(kutAlpha)) {
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double  _visinac= Double.parseDouble(ed2.getText().toString());
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1534,7 +1523,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinac) && ed3.equals(kutBeta)) {
+        else if (ed.equals(visinaa) && ed2.equals(visinac) && ed3.equals(kutBeta)) {
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double  _visinac= Double.parseDouble(ed2.getText().toString());
             double _kutBeta = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1545,7 +1534,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(visinac) && ed3.equals(kutGama)) {
+        else if (ed.equals(visinaa) && ed2.equals(visinac) && ed3.equals(kutGama)) {
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double  _visinac= Double.parseDouble(ed2.getText().toString());
             double _kutGama = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1557,7 +1546,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinab) && ed2.equals(strA) && ed3.equals(kutAlpha)) {
+        else if (ed.equals(visinab) && ed2.equals(strA) && ed3.equals(kutAlpha)) {
             double _visinab = Double.parseDouble(ed.getText().toString());
             double  _strA= Double.parseDouble(ed2.getText().toString());
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1568,7 +1557,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinab) && ed2.equals(strA) && ed3.equals(kutBeta)) {
+        else if (ed.equals(visinab) && ed2.equals(strA) && ed3.equals(kutBeta)) {
             double _visinab = Double.parseDouble(ed.getText().toString());
             double  _strA= Double.parseDouble(ed2.getText().toString());
             double _kutBeta = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1579,7 +1568,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinab) && ed2.equals(strA) && ed3.equals(povrsina)) {
+        else if (ed.equals(visinab) && ed2.equals(strA) && ed3.equals(povrsina)) {
             double _visinab = Double.parseDouble(ed.getText().toString());
             double  _strA= Double.parseDouble(ed2.getText().toString());
             double _povrsina = Double.parseDouble(ed3.getText().toString());
@@ -1589,7 +1578,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinac) && ed2.equals(strB) && ed3.equals(opis)) {
+        else if (ed.equals(visinac) && ed2.equals(strB) && ed3.equals(opis)) {
             double _visinac = Double.parseDouble(ed.getText().toString());
             double  _strB= Double.parseDouble(ed2.getText().toString());
             double _opis = Double.parseDouble(ed3.getText().toString());
@@ -1601,7 +1590,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinac) && ed2.equals(strB) && ed3.equals(kutBeta)) {
+        else if (ed.equals(visinac) && ed2.equals(strB) && ed3.equals(kutBeta)) {
             double _visinac = Double.parseDouble(ed.getText().toString());
             double  _strB= Double.parseDouble(ed2.getText().toString());
             double _kutBeta = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1612,7 +1601,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinac) && ed2.equals(strB) && ed3.equals(kutGama)) {
+        else if (ed.equals(visinac) && ed2.equals(strB) && ed3.equals(kutGama)) {
             double _visinac = Double.parseDouble(ed.getText().toString());
             double  _strB= Double.parseDouble(ed2.getText().toString());
             double _kutGama = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1623,7 +1612,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinac) && ed2.equals(strB) && ed3.equals(povrsina)) {
+        else if (ed.equals(visinac) && ed2.equals(strB) && ed3.equals(povrsina)) {
             double _visinac = Double.parseDouble(ed.getText().toString());
             double  _strB= Double.parseDouble(ed2.getText().toString());
             double _povrsina = Double.parseDouble(ed3.getText().toString());
@@ -1633,7 +1622,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(opis) && ed3.equals(kutGama)) {
+        else if (ed.equals(strB) && ed2.equals(opis) && ed3.equals(kutGama)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double  _opis= Double.parseDouble(ed2.getText().toString());
             double _kutGama = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1644,7 +1633,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(opis) && ed3.equals(visinaa)) {
+        else if (ed.equals(strB) && ed2.equals(opis) && ed3.equals(visinaa)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double  _opis= Double.parseDouble(ed2.getText().toString());
             double _visinaa = Double.parseDouble(ed3.getText().toString());
@@ -1656,7 +1645,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strB) && ed2.equals(opis) && ed3.equals(visinac)) {
+        else if (ed.equals(strB) && ed2.equals(opis) && ed3.equals(visinac)) {
             double _strB = Double.parseDouble(ed.getText().toString());
             double  _opis= Double.parseDouble(ed2.getText().toString());
             double _visinac = Double.parseDouble(ed3.getText().toString());
@@ -1668,7 +1657,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strC) && ed2.equals(kutAlpha) && ed3.equals(povrsina)) {
+        else if (ed.equals(strC) && ed2.equals(kutAlpha) && ed3.equals(povrsina)) {
             double _strC = Double.parseDouble(ed.getText().toString());
             double _kutAlpha= Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _povrsina = Double.parseDouble(ed3.getText().toString());
@@ -1678,7 +1667,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strC) && ed2.equals(kutAlpha) && ed3.equals(visinaa)) {
+        else if (ed.equals(strC) && ed2.equals(kutAlpha) && ed3.equals(visinaa)) {
             double _strC = Double.parseDouble(ed.getText().toString());
             double _kutAlpha= Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _visinaa = Double.parseDouble(ed3.getText().toString());
@@ -1688,7 +1677,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(strC) && ed2.equals(kutAlpha) && ed3.equals(visinac)) {
+        else if (ed.equals(strC) && ed2.equals(kutAlpha) && ed3.equals(visinac)) {
             double _strC = Double.parseDouble(ed.getText().toString());
             double _kutAlpha= Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _visinac = Double.parseDouble(ed3.getText().toString());
@@ -1697,7 +1686,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(opis) && ed2.equals(kutGama) && ed3.equals(strA)) {
+        else if (ed.equals(opis) && ed2.equals(kutGama) && ed3.equals(strA)) {
             double _opis = Double.parseDouble(ed.getText().toString());
             double _kutGama= Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _strA = Double.parseDouble(ed3.getText().toString());
@@ -1707,7 +1696,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(opis) && ed2.equals(kutGama) && ed3.equals(visinaa)) {
+        else if (ed.equals(opis) && ed2.equals(kutGama) && ed3.equals(visinaa)) {
             double _opis = Double.parseDouble(ed.getText().toString());
             double _kutGama= Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _visinaa = Double.parseDouble(ed3.getText().toString());
@@ -1718,7 +1707,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(opis) && ed2.equals(kutGama) && ed3.equals(visinab)) {
+        else if (ed.equals(opis) && ed2.equals(kutGama) && ed3.equals(visinab)) {
             double _opis = Double.parseDouble(ed.getText().toString());
             double _kutGama= Math.toRadians(Double.parseDouble(ed2.getText().toString()));
             double _visinab = Double.parseDouble(ed3.getText().toString());
@@ -1729,7 +1718,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(povrsina) && ed3.equals(strB)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(povrsina) && ed3.equals(strB)) {
             double _kutAlpha= Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _strB = Double.parseDouble(ed3.getText().toString());
@@ -1739,7 +1728,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(povrsina) && ed3.equals(visinab)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(povrsina) && ed3.equals(visinab)) {
             double _kutAlpha= Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _visinab = Double.parseDouble(ed3.getText().toString());
@@ -1749,7 +1738,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutAlpha) && ed2.equals(povrsina) && ed3.equals(visinac)) {
+        else if (ed.equals(kutAlpha) && ed2.equals(povrsina) && ed3.equals(visinac)) {
             double _kutAlpha= Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _povrsina = Double.parseDouble(ed2.getText().toString());
             double _visinac = Double.parseDouble(ed3.getText().toString());
@@ -1759,7 +1748,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutGama) && ed2.equals(visinaa) && ed3.equals(strA)) {
+        else if (ed.equals(kutGama) && ed2.equals(visinaa) && ed3.equals(strA)) {
             double _kutGama= Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _visinaa = Double.parseDouble(ed2.getText().toString());
             double _strA = Double.parseDouble(ed3.getText().toString());
@@ -1768,7 +1757,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(kutGama) && ed2.equals(visinaa) && ed3.equals(strC)) {
+        else if (ed.equals(kutGama) && ed2.equals(visinaa) && ed3.equals(strC)) {
             double _kutGama= Math.toRadians(Double.parseDouble(ed.getText().toString()));
             double _visinaa = Double.parseDouble(ed2.getText().toString());
             double _strC = Double.parseDouble(ed3.getText().toString());
@@ -1778,7 +1767,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinaa) && ed2.equals(strA) && ed3.equals(kutBeta)) {
+        else if (ed.equals(visinaa) && ed2.equals(strA) && ed3.equals(kutBeta)) {
             double _visinaa = Double.parseDouble(ed.getText().toString());
             double _strA = Double.parseDouble(ed2.getText().toString());
             double _kutBeta= Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1787,7 +1776,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinab) && ed2.equals(strB) && ed3.equals(kutAlpha)) {
+        else if (ed.equals(visinab) && ed2.equals(strB) && ed3.equals(kutAlpha)) {
             double _visinab = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _kutAlpha= Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1796,7 +1785,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinab) && ed2.equals(strB) && ed3.equals(kutGama)) {
+        else if (ed.equals(visinab) && ed2.equals(strB) && ed3.equals(kutGama)) {
             double _visinab = Double.parseDouble(ed.getText().toString());
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _kutGama= Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1805,7 +1794,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinac) && ed2.equals(strC) && ed3.equals(kutAlpha)) {
+        else if (ed.equals(visinac) && ed2.equals(strC) && ed3.equals(kutAlpha)) {
             double _visinac = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
             double _kutAlpha= Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1814,7 +1803,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-        if (ed.equals(visinac) && ed2.equals(strC) && ed3.equals(kutBeta)) {
+        else if (ed.equals(visinac) && ed2.equals(strC) && ed3.equals(kutBeta)) {
             double _visinac = Double.parseDouble(ed.getText().toString());
             double _strC = Double.parseDouble(ed2.getText().toString());
             double _kutBeta= Math.toRadians(Double.parseDouble(ed3.getText().toString()));
@@ -1823,18 +1812,6 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
-
-
-
-
-
-
-
-
-
-
-
-
         changeInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, strA, strB, strC, opis, upis, kutAlpha, kutBeta, kutGama, povrsina, opseg, visinaa, visinab, visinac);
     }
 
@@ -1851,11 +1828,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
         double _visinaa = _strB*Math.sin(_kutGama);
         double _visinab = _strA*Math.sin(_kutGama);
         double _visinac = _strA*Math.sin(_kutBeta);
-
-        appendToText(text,_strA,_strB,_strC,_opis,_upis,Math.toDegrees(_kutAlpha),Math.toDegrees(_kutBeta),Math.toDegrees(_kutGama),
-                _opseg,_povrsina, _visinaa, _visinab, _visinac);
-
-
+        appendToText(text,_strA,_strB,_strC,_opis,_upis,Math.toDegrees(_kutAlpha),Math.toDegrees(_kutBeta),Math.toDegrees(_kutGama),_opseg,_povrsina, _visinaa, _visinab, _visinac);
     }
     protected boolean checkEmpty(EditText... ed) {
         int c = 0;

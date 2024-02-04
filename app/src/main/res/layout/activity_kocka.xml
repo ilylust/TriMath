@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color1"
+    tools:context=".KockaActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        android:backgroundTint="@color/color3"
+        app:title="@string/Kocka" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color4"
+        android:text="@string/Izracunaj"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber41"
+        />
+
+    <EditText
+        android:id="@+id/editTextNumber35"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/Brid"
+        android:inputType="number|numberDecimal"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/color4"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumber36"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextNumber36"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/Prostorna_dijagonala"
+        android:inputType="number|numberDecimal"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/color4"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber35"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumber37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextNumber37"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/Plosna_dijagonala"
+        android:inputType="number|numberDecimal"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/color4"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber36"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumber38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextNumber38"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/Obujam"
+        android:inputType="number|numberDecimal"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/color4"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber37"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumber39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextNumber39"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/Oplosje"
+        android:inputType="number|numberDecimal"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/color4"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber38"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumber40"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextNumber40"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/Povrsina_baze"
+        android:inputType="number|numberDecimal"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/color4"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber39"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumber41"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextNumber41"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/Povrsina_pobocja"
+        android:inputType="number|numberDecimal"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/color4"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber40"
+        app:layout_constraintBottom_toTopOf="@id/button7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

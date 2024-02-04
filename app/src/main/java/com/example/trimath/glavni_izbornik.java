@@ -23,7 +23,7 @@ public class glavni_izbornik extends AppCompatActivity {
         btn = findViewById(R.id.button4);
         btn2 = findViewById(R.id.button5);
         btn3 = findViewById(R.id.button6);
-        btn4 = findViewById(R.id.button7);
+        //btn4 = findViewById(R.id.button7);
         btn5 = findViewById(R.id.button8);
 
         // koristi se za iskočni prozorčić za potvrdu izlaza iz aplikacije
@@ -63,13 +63,13 @@ public class glavni_izbornik extends AppCompatActivity {
             }
         });
         // meni za račune s jednadžbama
-        btn4.setOnClickListener(v -> {
+        /*btn4.setOnClickListener(v -> {
             try {
                 openActivity(JednadzbeMenuActivity.class);
             } catch (Exception ex) {
                 st.toastShort(this, "ERR");
             }
-        });
+        });*/
         // prozor za računanje proporcionalnosti
         btn5.setOnClickListener(v -> {
             try {
