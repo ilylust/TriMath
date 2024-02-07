@@ -367,7 +367,7 @@ public class PravokutniActivity extends AppCompatActivity {
     protected void izracunaj(double _strA, double _strB, double _strC, String text)
     {
         double _opseg = _strA +_strA+_strC;
-        double _povrsina = _strA +_strA+_strC;
+        double _povrsina = (_strA*_strB)/2;
         double _upis = (_strA +_strA-_strC)/2;
         double _kutAlpha = Math.toDegrees(Math.asin(_strA/_strC));
         double _kutBeta = Math.toDegrees(Math.asin(_strB/_strC));
