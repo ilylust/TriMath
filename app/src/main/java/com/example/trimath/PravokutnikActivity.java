@@ -158,14 +158,25 @@ public class PravokutnikActivity extends AppCompatActivity {
     }
 
     protected void appendToText(String text, double _strA, double _strB, double _dijagonala, double _polumjer, double _kutAlpha, double _kutBeta, double _opseg, double _povrsina) {
-        strA.append(String.format(Locale.getDefault(), "%.2f", _strA) + text + " " + getString(R.string.stranica_A));
-        strB.append(String.format(Locale.getDefault(), "%.2f", _strB) + text + " " + getString(R.string.stranica_B));
-        dijagonala.append(String.format(Locale.getDefault(), "%.2f", _dijagonala) + text + " " + getString(R.string.dijagonala));
-        opiskru.append(String.format(Locale.getDefault(), "%.2f", _polumjer) + text + " " + getString(R.string.polumjer));
-        kutAlpha.append(String.format(Locale.getDefault(), "%.2f", _kutAlpha) + getString(R.string.stupnjeviznak) + " " + getString(R.string.alpha));
-        kutBeta.append(String.format(Locale.getDefault(), "%.2f", _kutBeta) + getString(R.string.stupnjeviznak) + " " + getString(R.string.beta));
-        opseg.append(String.format(Locale.getDefault(), "%.2f", _opseg) + text + " " + getString(R.string.opseg));
-        povrsina.append(String.format(Locale.getDefault(), "%.2f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
+        // formatiranje DMS na alpha i beta
+        strA.append(String.format(Locale.getDefault(), "%.4f", _strA) + text + " " + getString(R.string.stranica_A));
+        strB.append(String.format(Locale.getDefault(), "%.4f", _strB) + text + " " + getString(R.string.stranica_B));
+        dijagonala.append(String.format(Locale.getDefault(), "%.4f", _dijagonala) + text + " " + getString(R.string.dijagonala));
+        opiskru.append(String.format(Locale.getDefault(), "%.4f", _polumjer) + text + " " + getString(R.string.polumjer));
+        kutAlpha.append(String.format(Locale.getDefault(), "%.4f", _kutAlpha) + getString(R.string.stupnjeviznak) + " " + getString(R.string.alpha) + " " + convertToDMS(_kutAlpha));
+        kutBeta.append(String.format(Locale.getDefault(), "%.4f", _kutBeta) + getString(R.string.stupnjeviznak) + " " + getString(R.string.beta) + " " + convertToDMS(_kutBeta));
+        opseg.append(String.format(Locale.getDefault(), "%.4f", _opseg) + text + " " + getString(R.string.opseg));
+        povrsina.append(String.format(Locale.getDefault(), "%.4f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
+    }
+
+    // https://codepal.ai/code-generator/query/gvNUnvus/java-decimal-degree-to-dms-converter
+    protected static String convertToDMS(double decimalDegree) {
+        int degrees = (int) decimalDegree;
+        double minutesDecimal = (decimalDegree - degrees) * 60;
+        int minutes = (int) minutesDecimal;
+        double secondsDecimal = (minutesDecimal - minutes) * 60;
+        int seconds = (int) secondsDecimal;
+        return degrees + "°" + minutes + "'" + seconds + "\"";
     }
 
     protected void izracunaj(EditText ed, EditText ed2, String text) {

@@ -139,11 +139,11 @@ public class KuglaActivity extends AppCompatActivity {
     protected void appendToText(double[] brojevi, EditText... ed) {
         for (int i = 0; i < ed.length; i++) {
             if (i == 3) {
-                ed[i].append(String.format(Locale.getDefault(), "%.2f", brojevi[i]) + getString(R.string.centimetar) + getString(R.string.natrecu) + " " + vrijednosti[i]);
+                ed[i].append(String.format(Locale.getDefault(), "%.4f", brojevi[i]) + getString(R.string.centimetar) + getString(R.string.natrecu) + " " + vrijednosti[i]);
             } else if (i == 4) {
-                ed[i].append(String.format(Locale.getDefault(), "%.2f", brojevi[i]) + getString(R.string.centimetar) + getString(R.string.nakvadratznak) + " " + vrijednosti[i]);
+                ed[i].append(String.format(Locale.getDefault(), "%.4f", brojevi[i]) + getString(R.string.centimetar) + getString(R.string.nakvadratznak) + " " + vrijednosti[i]);
             } else {
-                ed[i].append(String.format(Locale.getDefault(), "%.2f", brojevi[i]) + getString(R.string.centimetar) + " " + vrijednosti[i]);
+                ed[i].append(String.format(Locale.getDefault(), "%.4f", brojevi[i]) + getString(R.string.centimetar) + " " + vrijednosti[i]);
             }
         }
     }

@@ -77,10 +77,10 @@ public class KrugActivity extends AppCompatActivity {
     }
 
     protected void appendToText(String text, double _polumjer, double _promjer, double _opseg, double _povrsina) {
-        polumjer.append(String.format(Locale.getDefault(), "%.2f", _polumjer) + text + " " + getString(R.string.polumjer));
-        promjer.append(String.format(Locale.getDefault(), "%.2f", _promjer) + text + " " + getString(R.string.promjer));
-        opseg.append(String.format(Locale.getDefault(), "%.2f", _opseg) + text + " " + getString(R.string.opseg));
-        povrsina.append(String.format(Locale.getDefault(), "%.2f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
+        polumjer.append(String.format(Locale.getDefault(), "%.4f", _polumjer) + text + " " + getString(R.string.polumjer));
+        promjer.append(String.format(Locale.getDefault(), "%.4f", _promjer) + text + " " + getString(R.string.promjer));
+        opseg.append(String.format(Locale.getDefault(), "%.4f", _opseg) + text + " " + getString(R.string.opseg));
+        povrsina.append(String.format(Locale.getDefault(), "%.4f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
     }
 
     protected void izracunaj(EditText ed, String text) {

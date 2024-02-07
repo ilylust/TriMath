@@ -110,10 +110,10 @@ public class PostotakActivity extends AppCompatActivity {
             ed1.setInputType(InputType.TYPE_CLASS_TEXT);
             ed1.append(getString(R.string.posto_znak));
             ed1.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
-            ed3.setText(String.format(Locale.getDefault(), "%.2f", _rezultat));
+            ed3.setText(String.format(Locale.getDefault(), "%.4f", _rezultat));
         } else {
             double _rezultat = (br_X/br_Y) * 100;
-            ed3.setText(String.format(Locale.getDefault(), "%.2f", _rezultat));
+            ed3.setText(String.format(Locale.getDefault(), "%.4f", _rezultat));
             ed3.append(getString(R.string.posto_znak));
         }
     }

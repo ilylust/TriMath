@@ -158,13 +158,13 @@ public class ProporcionalnostActivity extends AppCompatActivity {
         formatNumbers(brojevi, ed1, ed2, ed3, ed4);
     }
     // kak koristi?
-    // uneses brojeve i formatiraju se automatski na %.2f
+    // uneses brojeve i formatiraju se automatski na %.4f
     // eto objasnjeno pa ne trebas citat Modriću :)
     protected void formatNumbers(double[] brojevi, EditText... ed) {
         // ako slucajno zaboravis jedan sam nece radit :P
         if (ed.length != 4) return;
         for (int i = 0; i < ed.length; i++) {
-            ed[i].setText(String.format(Locale.getDefault(), "%.2f", brojevi[i]));
+            ed[i].setText(String.format(Locale.getDefault(), "%.4f", brojevi[i]));
         }
     }
 

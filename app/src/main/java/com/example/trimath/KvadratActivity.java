@@ -86,12 +86,12 @@ public class KvadratActivity extends AppCompatActivity {
     }
 
     protected void appendToText(String text, double _strA, double _dijagonala, double _polupis, double _polopis, double _opseg, double _povrsina) {
-        strA.append(String.format(Locale.getDefault(), "%.2f", _strA) + text + " " + getString(R.string.stranica_A));
-        dijagonala.append(String.format(Locale.getDefault(), "%.2f", _dijagonala) + text + " " + getString(R.string.dijagonala));
-        polupis.append(String.format(Locale.getDefault(), "%.2f", _polupis) + text + " " + getString(R.string.upisana_kruz));
-        polopis.append(String.format(Locale.getDefault(), "%.2f", _polopis) + text + " " + getString(R.string.opisana_kruz));
-        opseg.append(String.format(Locale.getDefault(), "%.2f", _opseg) + text + " " + getString(R.string.opseg));
-        povrsina.append(String.format(Locale.getDefault(), "%.2f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
+        strA.append(String.format(Locale.getDefault(), "%.4f", _strA) + text + " " + getString(R.string.stranica_A));
+        dijagonala.append(String.format(Locale.getDefault(), "%.4f", _dijagonala) + text + " " + getString(R.string.dijagonala));
+        polupis.append(String.format(Locale.getDefault(), "%.4f", _polupis) + text + " " + getString(R.string.upisana_kruz));
+        polopis.append(String.format(Locale.getDefault(), "%.4f", _polopis) + text + " " + getString(R.string.opisana_kruz));
+        opseg.append(String.format(Locale.getDefault(), "%.4f", _opseg) + text + " " + getString(R.string.opseg));
+        povrsina.append(String.format(Locale.getDefault(), "%.4f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
     }
 
     protected void izracunaj(EditText ed, String text) {

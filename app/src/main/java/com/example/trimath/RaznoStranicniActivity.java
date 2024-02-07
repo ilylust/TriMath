@@ -9,7 +9,6 @@ import android.text.InputType;
 
 import android.widget.Button;
 import android.widget.EditText;
-
 import java.util.Locale;
 
 
@@ -52,12 +51,8 @@ public class RaznoStranicniActivity extends AppCompatActivity {
         // Inicijalizacija gumba
         btn = findViewById(R.id.button3);
         btn.setOnClickListener(v -> {
-            // provjera je li ijedna vrijednost unesena
-            if (checkEmpty(strA, strB, strC, upis, opis, kutAlpha, kutBeta ,kutGama, povrsina, opseg,visinaa,visinab,visinac)) {
-                // ako nije prikaži poruku
-                st.toastShort(this, getString(R.string.Unesite_dvije_vrijednosti));
-                return;
-            }
+
+
             if (f == 1) {
                 // izbriši sve vrijednosti iz polja
                 resetTextOfFields(strA, strB, strC, upis, opis, kutAlpha, kutBeta ,kutGama, povrsina, opseg,visinaa,visinab,visinac);
@@ -69,7 +64,12 @@ public class RaznoStranicniActivity extends AppCompatActivity {
                 f = 0;
                 return;
             }
-// opseg,visinaa
+            // provjera je li ijedna vrijednost unesena
+            if (checkEmpty(strA, strB, strC, upis, opis, kutAlpha, kutBeta ,kutGama, povrsina, opseg,visinaa,visinab,visinac)) {
+                // ako nije prikaži poruku
+                st.toastShort(this, getString(R.string.Unesite_tri_vrijednosti));
+                return;
+            }
 
             if ((!checkEmpty(strA) && !checkEmpty(strB)&& !checkEmpty(strC)) && checkEmpty(upis, opis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa,visinab,visinac)) {
                 izracunaj(strA,strB,strC,"cm");
@@ -506,12 +506,17 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             } else {
                 st.toastShort(this, getString(R.string.Unesite_tri_vrijednosti));
             }
-            // promijeni tekst na gumbu
-            btn.setText(R.string.Izbrisi);
-            // promijeni vrijednost zastavice
-            f = 1;
-            // "zaključaj" sva polja za spriječavanje unosa
-            changeStatusOfFields(false, strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            if (f == 0) {
+                // promijeni tekst na gumbu
+                btn.setText(R.string.Izbrisi);
+                // promijeni vrijednost zastavice
+                f = 1;
+                // "zaključaj" sva polja za spriječavanje unosa
+                changeStatusOfFields(false, strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
+            } else {
+                // f == 2 znaci samo resetaj flag
+                f = 0;
+            }
         });
     }
     protected void izracunaj(EditText ed, EditText ed2, EditText ed3,  String text) {
@@ -544,6 +549,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
             double _kutBeta = Math.asin((_strB*Math.sin(_kutAlpha))/_strA);
             double _strC = (_strB*Math.sin(Math.PI-_kutBeta-_kutAlpha))/Math.sin(_kutBeta);
+
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
@@ -1817,6 +1823,12 @@ public class RaznoStranicniActivity extends AppCompatActivity {
 
     protected void izracunaj(double _strA, double _strB, double _strC,  String text) {
         //polu opseg
+        if (Double.isNaN(_strA) || Double.isNaN(_strB) || Double.isNaN(_strC)) {
+            st.toastShort(this, "Trokut ne postoji.");
+            f = 2;
+            return;
+        }
+
         double s = (_strA+_strB+_strC)/2;
         double _kutAlpha= Math.acos((Math.pow(_strB,2)+Math.pow(_strC,2)-Math.pow(_strA,2))/(2*_strB*_strC));
         double _kutBeta = Math.acos((Math.pow(_strA,2)+Math.pow(_strC,2)-Math.pow(_strB,2))/(2*_strA*_strC));
@@ -1829,6 +1841,7 @@ public class RaznoStranicniActivity extends AppCompatActivity {
         double _visinab = _strA*Math.sin(_kutGama);
         double _visinac = _strA*Math.sin(_kutBeta);
         appendToText(text,_strA,_strB,_strC,_opis,_upis,Math.toDegrees(_kutAlpha),Math.toDegrees(_kutBeta),Math.toDegrees(_kutGama),_opseg,_povrsina, _visinaa, _visinab, _visinac);
+
     }
     protected boolean checkEmpty(EditText... ed) {
         int c = 0;
@@ -1859,19 +1872,29 @@ public class RaznoStranicniActivity extends AppCompatActivity {
 
     protected void appendToText(String text, double _strA, double _strB, double _strC, double _opis, double _upis, double _kutAlpha, double _kutBeta, double _kutGama,
                                 double _opseg, double _povrsina, double _visinaa, double _visinab, double _visinac) {
-        strA.append(String.format(Locale.getDefault(), "%.2f", _strA) + text + " " + getString(R.string.stranica_A));
-        strB.append(String.format(Locale.getDefault(), "%.2f", _strB) + text + " " + getString(R.string.stranica_B));
-        strC.append(String.format(Locale.getDefault(), "%.2f", _strC) + text + " " + getString(R.string.stranica_C));
-        opis.append(String.format(Locale.getDefault(), "%.2f", _opis) + text + " " + getString(R.string.opisana_kruz));
-        upis.append(String.format(Locale.getDefault(), "%.2f", _upis) + text + " " + getString(R.string.upisana_kruz));
-        kutAlpha.append(String.format(Locale.getDefault(), "%.2f", _kutAlpha) + getString(R.string.stupnjeviznak) + " " + getString(R.string.alpha));
-        kutBeta.append(String.format(Locale.getDefault(), "%.2f", _kutBeta) + getString(R.string.stupnjeviznak) + " " + getString(R.string.beta));
-        kutGama.append(String.format(Locale.getDefault(), "%.2f", _kutGama) + getString(R.string.stupnjeviznak) + " " + getString(R.string.gama));
-        opseg.append(String.format(Locale.getDefault(), "%.2f", _opseg) + text + " " + getString(R.string.opseg));
-        povrsina.append(String.format(Locale.getDefault(), "%.2f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
-        visinaa.append(String.format(Locale.getDefault(), "%.2f", _visinaa) + text + " " + getString(R.string.visina_A));
-        visinab.append(String.format(Locale.getDefault(), "%.2f", _visinab) + text + " " + getString(R.string.visina_B));
-        visinac.append(String.format(Locale.getDefault(), "%.2f", _visinac) + text + " " + getString(R.string.visina_C ));
+        strA.append(String.format(Locale.getDefault(), "%.4f", _strA) + text + " " + getString(R.string.stranica_A));
+        strB.append(String.format(Locale.getDefault(), "%.4f", _strB) + text + " " + getString(R.string.stranica_B));
+        strC.append(String.format(Locale.getDefault(), "%.4f", _strC) + text + " " + getString(R.string.stranica_C));
+        opis.append(String.format(Locale.getDefault(), "%.4f", _opis) + text + " " + getString(R.string.opisana_kruz));
+        upis.append(String.format(Locale.getDefault(), "%.4f", _upis) + text + " " + getString(R.string.upisana_kruz));
+        kutAlpha.append(String.format(Locale.getDefault(), "%.4f", _kutAlpha) + getString(R.string.stupnjeviznak) + " " + getString(R.string.alpha) + " " + convertToDMS(_kutAlpha));
+        kutBeta.append(String.format(Locale.getDefault(), "%.4f", _kutBeta) + getString(R.string.stupnjeviznak) + " " + getString(R.string.beta) + " " + convertToDMS(_kutBeta));
+        kutGama.append(String.format(Locale.getDefault(), "%.4f", _kutGama) + getString(R.string.stupnjeviznak) + " " + getString(R.string.gama) + " " + convertToDMS(_kutGama));
+        opseg.append(String.format(Locale.getDefault(), "%.4f", _opseg) + text + " " + getString(R.string.opseg));
+        povrsina.append(String.format(Locale.getDefault(), "%.4f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
+        visinaa.append(String.format(Locale.getDefault(), "%.4f", _visinaa) + text + " " + getString(R.string.visina_A));
+        visinab.append(String.format(Locale.getDefault(), "%.4f", _visinab) + text + " " + getString(R.string.visina_B));
+        visinac.append(String.format(Locale.getDefault(), "%.4f", _visinac) + text + " " + getString(R.string.visina_C ));
 
+    }
+
+    // https://codepal.ai/code-generator/query/gvNUnvus/java-decimal-degree-to-dms-converter
+    protected static String convertToDMS(double decimalDegree) {
+        int degrees = (int) decimalDegree;
+        double minutesDecimal = (decimalDegree - degrees) * 60;
+        int minutes = (int) minutesDecimal;
+        double secondsDecimal = (minutesDecimal - minutes) * 60;
+        int seconds = (int) secondsDecimal;
+        return degrees + "°" + minutes + "'" + seconds + "\"";
     }
 }

@@ -61,38 +61,10 @@
         android:importantForAutofill="no"
         android:inputType="number|numberDecimal"
         android:textColorHint="@color/color4"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber14"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumber16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextNumber12" />
-
-    <EditText
-        android:id="@+id/editTextNumber14"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:hint="@string/Polumjer_upisane_kruznice"
-        android:importantForAutofill="no"
-        android:inputType="number|numberDecimal"
-        android:textColorHint="@color/color4"
-        app:layout_constraintBottom_toTopOf="@id/editTextNumber15"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber13" />
-
-    <EditText
-        android:id="@+id/editTextNumber15"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:hint="@string/Polumjer_opisane_kruznice"
-        android:importantForAutofill="no"
-        android:inputType="number|numberDecimal"
-        android:textColorHint="@color/color4"
-        app:layout_constraintBottom_toTopOf="@id/editTextNumber16"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber14" />
 
     <EditText
         android:id="@+id/editTextNumber16"
@@ -106,7 +78,7 @@
         app:layout_constraintBottom_toTopOf="@id/editTextNumber17"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber15" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber13" />
 
     <EditText
         android:id="@+id/editTextNumber17"

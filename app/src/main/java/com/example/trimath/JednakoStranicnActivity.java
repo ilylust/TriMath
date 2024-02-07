@@ -85,12 +85,12 @@ public class JednakoStranicnActivity extends AppCompatActivity {
     }
 
     protected void appendToText(String text, double _strA, double _povrsina, double _opseg, double _visina, double _upis, double _opis) {
-        strA.append(String.format(Locale.getDefault(), "%.2f", _strA) + text + " " + getString(R.string.stranica_A));
-        opseg.append(String.format(Locale.getDefault(), "%.2f", _opseg) + text + " " + getString(R.string.opseg));
-        povrsina.append(String.format(Locale.getDefault(), "%.2f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
-        visina.append(String.format(Locale.getDefault(), "%.2f", _visina) + text + " " + getString(R.string.dijagonala));
-        upis.append(String.format(Locale.getDefault(), "%.2f", _upis) + text + " " + getString(R.string.upisana_kruz));
-        opis.append(String.format(Locale.getDefault(), "%.2f", _opis) + text + " " + getString(R.string.opisana_kruz));
+        strA.append(String.format(Locale.getDefault(), "%.4f", _strA) + text + " " + getString(R.string.stranica_A));
+        opseg.append(String.format(Locale.getDefault(), "%.4f", _opseg) + text + " " + getString(R.string.opseg));
+        povrsina.append(String.format(Locale.getDefault(), "%.4f", _povrsina) + text + getString(R.string.nakvadratznak) + " " + getString(R.string.povrsina));
+        visina.append(String.format(Locale.getDefault(), "%.4f", _visina) + text + " " + getString(R.string.dijagonala));
+        upis.append(String.format(Locale.getDefault(), "%.4f", _upis) + text + " " + getString(R.string.upisana_kruz));
+        opis.append(String.format(Locale.getDefault(), "%.4f", _opis) + text + " " + getString(R.string.opisana_kruz));
     }
 
     protected void izracunaj(EditText ed, String text) {
