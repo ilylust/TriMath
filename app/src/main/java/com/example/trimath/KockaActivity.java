@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.text.InputType;
 import android.widget.EditText;
@@ -13,7 +14,7 @@ import java.util.Locale;
 
 public class KockaActivity extends AppCompatActivity {
     EditText ed1, ed2, ed3, ed4, ed5, ed6, ed7;
-    Button btn;
+    Button btn, btninf;
     boolean f = false;
     SimplifiedToast st = new SimplifiedToast();
     String[] vrijednosti = new String[7];
@@ -23,6 +24,14 @@ public class KockaActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kocka);
+
+        // prikaz informacija..
+        AlertDialog.Builder dialog1 = new AlertDialog.Builder(KockaActivity.this);
+        dialog1.setTitle("Informacije o aplikaciji")
+                .setMessage("Autori: Marino Tadić, Matija Modrić\n\nOva aplikacija je namijenjena učenicima i profesorima za lakše provjeravanje matematičih rezultata.\n\nAplikaciju koristite klikom na gumb za željeni kalkulator te unosite vrijednosti i stisnete gumb za izračun.")
+                .setCancelable(true)
+                .setPositiveButton("Zatvori", (dialog, id) -> dialog.cancel());
+        AlertDialog alr1 = dialog1.create();
         // koristi se kasnije
         vrijednosti[0] = getString(R.string.brid);
         vrijednosti[1] = getString(R.string.prostorna_dijagonala);
@@ -48,6 +57,14 @@ public class KockaActivity extends AppCompatActivity {
         tb.setNavigationOnClickListener(v -> {
             // Zatvori trenutačnu aktivnost i vrati se na početnu ako postoji
             finish();
+        });
+
+        (btninf = findViewById(R.id.button11)).setOnClickListener(v -> {
+            try {
+                alr1.show();
+            } catch (Exception ex) {
+                st.toastShort(this, "ERR");
+            }
         });
 
         btn.setOnClickListener(v -> {

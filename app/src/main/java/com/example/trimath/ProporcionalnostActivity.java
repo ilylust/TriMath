@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +14,7 @@ import java.util.Locale;
 
 public class ProporcionalnostActivity extends AppCompatActivity {
     RadioButton rdb1, rdb2;
-    Button btn;
+    Button btn, btninf;
     EditText ed1, ed2, ed3, ed4;
     SimplifiedToast st = new SimplifiedToast();
     int f = 0;
@@ -30,7 +31,22 @@ public class ProporcionalnostActivity extends AppCompatActivity {
         ed2 = findViewById(R.id.editTextNumber25);
         ed3 = findViewById(R.id.editTextNumber26);
         ed4 = findViewById(R.id.editTextNumber27);
-        // LOCK radiobuttonse
+
+        // prikaz informacija..
+        AlertDialog.Builder dialog1 = new AlertDialog.Builder(ProporcionalnostActivity.this);
+        dialog1.setTitle("Informacije o aplikaciji")
+                .setMessage("Autori: Marino Tadić, Matija Modrić\n\nOva aplikacija je namijenjena učenicima i profesorima za lakše provjeravanje matematičih rezultata.\n\nAplikaciju koristite klikom na gumb za željeni kalkulator te unosite vrijednosti i stisnete gumb za izračun.")
+                .setCancelable(true)
+                .setPositiveButton("Zatvori", (dialog, id) -> dialog.cancel());
+        AlertDialog alr1 = dialog1.create();
+
+        (btninf = findViewById(R.id.button11)).setOnClickListener(v -> {
+            try {
+                alr1.show();
+            } catch (Exception ex) {
+                st.toastShort(this, "ERR");
+            }
+        });
 
         // Deklaracija i inicijalizacija navigacijske trake
         Toolbar tb = findViewById(R.id.toolbar);

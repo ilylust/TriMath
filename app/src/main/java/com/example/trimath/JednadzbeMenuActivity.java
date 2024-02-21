@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 public class JednadzbeMenuActivity extends AppCompatActivity {
-    Button btn, btn2, btn3;
+    Button btn, btn2, btn3, btninf;
     SimplifiedToast st = new SimplifiedToast();
     @Override
     protected void onCreate(Bundle savedInstanceState) {

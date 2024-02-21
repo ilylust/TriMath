@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.text.InputType;
 import android.widget.Button;
@@ -13,7 +14,7 @@ import java.util.Locale;
 
 public class JednakoStranicnActivity extends AppCompatActivity {
     EditText strA, povrsina, opseg, visina,upis,opis;
-    Button btn;
+    Button btn, btninf;
     int f=0;
     SimplifiedToast st = new SimplifiedToast();
     @Override
@@ -30,6 +31,14 @@ public class JednakoStranicnActivity extends AppCompatActivity {
             finish();
         });
 
+        // prikaz informacija..
+        AlertDialog.Builder dialog1 = new AlertDialog.Builder(JednakoStranicnActivity.this);
+        dialog1.setTitle("Informacije o aplikaciji")
+                .setMessage("Autori: Marino Tadić, Matija Modrić\n\nOva aplikacija je namijenjena učenicima i profesorima za lakše provjeravanje matematičih rezultata.\n\nAplikaciju koristite klikom na gumb za željeni kalkulator te unosite vrijednosti i stisnete gumb za izračun.")
+                .setCancelable(true)
+                .setPositiveButton("Zatvori", (dialog, id) -> dialog.cancel());
+        AlertDialog alr1 = dialog1.create();
+
         btn = findViewById(R.id.izracunaj);
 
         strA = findViewById(R.id.editTextNumber7);
@@ -38,6 +47,14 @@ public class JednakoStranicnActivity extends AppCompatActivity {
         visina = findViewById(R.id.editTextNumber10);
         opis = findViewById(R.id.editTextNumber11);
         upis = findViewById(R.id.editTextNumber12);
+
+        (btninf = findViewById(R.id.button11)).setOnClickListener(v -> {
+            try {
+                alr1.show();
+            } catch (Exception ex) {
+                st.toastShort(this, "ERR");
+            }
+        });
 
 
         btn.setOnClickListener(v -> {

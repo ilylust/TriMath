@@ -13,7 +13,7 @@ import android.widget.Button;
 public class glavni_izbornik extends AppCompatActivity {
 
     SimplifiedToast st = new SimplifiedToast();
-    Button btn, btn2, btn3, btn4, btn5;
+    Button btn, btn2, btn3, btn4, btn5, btninf;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // ugasi dark mode
@@ -33,6 +33,14 @@ public class glavni_izbornik extends AppCompatActivity {
                 .setPositiveButton("Da", (dialog, id) -> finish())
                 .setNegativeButton("Ne", (dialog, id) -> dialog.cancel());
         AlertDialog alert = builder.create();
+
+        // prikaz informacija..
+        AlertDialog.Builder dialog1 = new AlertDialog.Builder(glavni_izbornik.this);
+        dialog1.setTitle("Informacije o aplikaciji")
+                .setMessage("Autori: Marino Tadić, Matija Modrić\n\nOva aplikacija je namijenjena učenicima i profesorima za lakše provjeravanje matematičih rezultata.\n\nAplikaciju koristite klikom na gumb za željeni kalkulator te unosite vrijednosti i stisnete gumb za izračun.")
+                .setCancelable(true)
+                .setPositiveButton("Zatvori", (dialog, id) -> dialog.cancel());
+        AlertDialog alr1 = dialog1.create();
 
         // Deklaracija i inicijalizacija navigacijske trake
         Toolbar tb = findViewById(R.id.toolbar);
@@ -74,6 +82,14 @@ public class glavni_izbornik extends AppCompatActivity {
         btn5.setOnClickListener(v -> {
             try {
                 openActivity(ProporcionalnostActivity.class);
+            } catch (Exception ex) {
+                st.toastShort(this, "ERR");
+            }
+        });
+
+        (btninf = findViewById(R.id.button11)).setOnClickListener(v -> {
+            try {
+                alr1.show();
             } catch (Exception ex) {
                 st.toastShort(this, "ERR");
             }

@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.text.InputType;
 
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import java.util.Locale;
@@ -15,7 +17,7 @@ import java.util.Locale;
 public class RaznoStranicniActivity extends AppCompatActivity {
 
     EditText strA, strB, strC, opis, upis, kutAlpha, kutBeta, kutGama, povrsina, opseg,visinaa,visinab,visinac;
-    Button btn;
+    Button btn, btninf;
     SimplifiedToast st = new SimplifiedToast();
     int f = 0;
 
@@ -31,6 +33,22 @@ public class RaznoStranicniActivity extends AppCompatActivity {
         tb.setNavigationOnClickListener(v -> {
             // Zatvori trenutačnu aktivnost i vrati se na početnu ako postoji
             finish();
+        });
+
+        // prikaz informacija..
+        AlertDialog.Builder dialog1 = new AlertDialog.Builder(RaznoStranicniActivity.this);
+        dialog1.setTitle("Informacije o aplikaciji")
+                .setMessage("Autori: Marino Tadić, Matija Modrić\n\nOva aplikacija je namijenjena učenicima i profesorima za lakše provjeravanje matematičih rezultata.\n\nAplikaciju koristite klikom na gumb za željeni kalkulator te unosite vrijednosti i stisnete gumb za izračun.")
+                .setCancelable(true)
+                .setPositiveButton("Zatvori", (dialog, id) -> dialog.cancel());
+        AlertDialog alr1 = dialog1.create();
+
+        (btninf = findViewById(R.id.button11)).setOnClickListener(v -> {
+            try {
+                alr1.show();
+            } catch (Exception ex) {
+                st.toastShort(this, "ERR");
+            }
         });
 
         // Inicijalizacija tekstnih objekata
@@ -548,7 +566,13 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             double _strB = Double.parseDouble(ed2.getText().toString());
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
             double _kutBeta = Math.asin((_strB*Math.sin(_kutAlpha))/_strA);
-            double _strC = (_strB*Math.sin(Math.PI-_kutBeta-_kutAlpha))/Math.sin(_kutBeta);
+            double _kutGama = Math.PI-_kutBeta-_kutAlpha;
+            double _strC = (_strB*Math.sin(_kutGama))/Math.sin(_kutBeta);
+
+            if(_strA<_strB && !Double.isNaN(_strC))
+                st.toastLong(this, "Postoji još jedno riješenje sa kutom \n " + getString(R.string.Kut_beta) + "" + Math.toDegrees((Math.PI - _kutBeta)));
+            Log.i("", "new beta: " + Math.toDegrees((Math.PI - _kutBeta)));
+
 
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
@@ -559,6 +583,12 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             double _kutBeta = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
             double _kutAlpha = Math.asin((_strA*Math.sin(_kutBeta))/_strB);
             double _strC = (_strB*Math.sin(Math.PI-_kutBeta-_kutAlpha))/Math.sin(_kutBeta);
+
+            if(_strB<_strA && !Double.isNaN(_strC))
+                st.toastLong(this, "Postoji još jedno riješenje sa kutom \n " + getString(R.string.Kut_alpha) + "" + Math.toDegrees((Math.PI - _kutAlpha)));
+            Log.i("", "new beta: " + Math.toDegrees((Math.PI - _kutAlpha)));
+
+
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
@@ -648,6 +678,11 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             double _kutGama = Math.asin((_strC*Math.sin(_kutBeta))/_strB);
             double _strA = (_strB*Math.sin(Math.PI-_kutBeta-_kutGama))/Math.sin(_kutBeta);
 
+            if(_strB<_strC && !Double.isNaN(_strA))
+                st.toastLong(this, "Postoji još jedno riješenje sa kutom \n " + getString(R.string.Kut_gamma) + "" + Math.toDegrees((Math.PI - _kutGama)));
+            Log.i("", "new beta: " + Math.toDegrees((Math.PI - _kutGama)));
+
+
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
@@ -658,6 +693,11 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             double _kutGama = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
             double _kutBeta = Math.asin((_strB*Math.sin(_kutGama))/_strC);
             double _strA = (_strB*Math.sin(Math.PI-_kutBeta-_kutGama))/Math.sin(_kutBeta);
+
+            if(_strC<_strB && !Double.isNaN(_strA))
+                st.toastLong(this, "Postoji još jedno riješenje sa kutom \n " + getString(R.string.Kut_beta) + "" + Math.toDegrees((Math.PI - _kutBeta)));
+            Log.i("", "new beta: " + Math.toDegrees((Math.PI - _kutBeta)));
+
 
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
@@ -1217,6 +1257,12 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             double _kutAlpha = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
             double _kutGama = Math.asin((_strC*Math.sin(_kutAlpha))/_strA);
             double _strB = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strC,2)-2*_strA*_strC*Math.cos(Math.PI-_kutGama-_kutAlpha));
+
+            if(_strA<_strC && !Double.isNaN(_strB))
+                st.toastLong(this, "Postoji još jedno riješenje sa kutom \n " + getString(R.string.Kut_gamma) + "" + Math.toDegrees((Math.PI - _kutGama)));
+            Log.i("", "new beta: " + Math.toDegrees((Math.PI - _kutGama)));
+
+
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
@@ -1236,6 +1282,13 @@ public class RaznoStranicniActivity extends AppCompatActivity {
             double _kutGama = Math.toRadians(Double.parseDouble(ed3.getText().toString()));
             double _kutAlpha = Math.asin((_strA*Math.sin(_kutGama))/_strC);
             double _strB = Math.sqrt(Math.pow(_strA,2)+Math.pow(_strC,2)-2*_strA*_strC*Math.cos(Math.PI-_kutGama-_kutAlpha));
+
+            if(_strC<_strA && !Double.isNaN(_strB))
+                st.toastLong(this, "Postoji još jedno riješenje sa kutom \n " + getString(R.string.Kut_alpha) + "" + Math.toDegrees((Math.PI - _kutAlpha)));
+            Log.i("", "new beta: " + Math.toDegrees((Math.PI - _kutAlpha)));
+
+
+
             resetTextOfFields(strA, strB, strC, opis, upis, kutAlpha, kutBeta ,kutGama, povrsina, opseg, visinaa, visinab, visinac);
             izracunaj(_strA,_strB,_strC,text);
         }
