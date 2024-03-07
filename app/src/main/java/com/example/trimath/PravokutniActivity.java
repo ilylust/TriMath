@@ -51,7 +51,7 @@ public class PravokutniActivity extends AppCompatActivity {
         // prikaz informacija..
         AlertDialog.Builder dialog1 = new AlertDialog.Builder(PravokutniActivity.this);
         dialog1.setTitle("Informacije o aplikaciji")
-                .setMessage("Autori: Marino Tadić, Matija Modrić\n\nOva aplikacija je namijenjena učenicima i profesorima za lakše provjeravanje matematičih rezultata.\n\nAplikaciju koristite klikom na gumb za željeni kalkulator te unosite vrijednosti i stisnete gumb za izračun.")
+                .setMessage("Autori: Marino Tadić, Matija Modrić\n\nOva aplikacija je namijenjena učenicima i profesorima za lakše provjeravanje matematičih rezultata.\n\nAplikaciju koristite klikom na gumb za željeni kalkulator te unosite vrijednosti i stisnete gumb za izračun.\nMentor: Željko Turkalj")
                 .setCancelable(true)
                 .setPositiveButton("Zatvori", (dialog, id) -> dialog.cancel());
         AlertDialog alr1 = dialog1.create();
